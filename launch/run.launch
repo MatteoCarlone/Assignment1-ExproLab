@@ -11,6 +11,6 @@
 
     <node pkg="exprolab_1" type="controller.py" name="controller" launch-prefix="xterm -e"/> 
 
-    <node pkg="exprolab_1" type="fsm.py" name="fsm" launch-prefix="xterm -e"/>
+    <!-- <node pkg="exprolab_1" type="fsm.py" name="fsm" launch-prefix="xterm -e"/> -->
 
 </launch>

@@ -64,6 +64,7 @@ add_service_files(
    FILES
    Start.srv
    Reason.srv
+   Recharge.srv
 )
 
 ## Generate actions in the 'action' folder

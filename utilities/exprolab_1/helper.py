@@ -6,10 +6,13 @@ from threading import Lock
 
 from armor_api.armor_client import ArmorClient
 
+from std_msgs.msg import Bool
+
 from exprolab_1.msg import PlanAction, PlanGoal, ControlAction, ControlGoal
 
 from exprolab_1.srv import Start , StartRequest
 from exprolab_1.srv import Reason , ReasonRequest
+from exprolab_1.srv import Recharge , RechargeRequest
 
 import re
 
@@ -129,11 +132,15 @@ class InterfaceHelper:
 		self.planner_client = ActionClientHelper('motion/planner',PlanAction,mutex = self.mutex)
 		self.controller_client = ActionClientHelper('motion/controller',ControlAction,mutex = self.mutex)
 
+		self.sub_battery = rospy.Subscriber('battery_low', Bool, self._battery_cb)
+
 	def reset_states(self):
 
 		self._start = False
 		self._reason = False
 		self._point = False
+		self._battery_low = False
+		self._battery_full = False
 
 	def start_client(self,req):
 
@@ -203,6 +210,50 @@ class InterfaceHelper:
 
 			rospy.logerr("Exception occurred: %s", str(e))
 
+	def recharge_client(self,req):
+
+		# wanting for the service to be online 
+		rospy.wait_for_service('recharge')
+
+		try:
+
+			recharge_srv = rospy.ServiceProxy('recharge', Recharge)
+
+			resp = RechargeRequest(req)
+
+			result = recharge_srv(resp)
+
+			self.mutex.acquire()
+
+			try:
+
+				if result is not None:
+
+					self.reset_states()
+
+					self._battery_full = True
+
+			finally:
+
+				self.mutex.release()
+
+		except rospy.ServiceException as e:
+
+			self.reset_states()
+
+			rospy.logerr("Exception occurred: %s", str(e))
+
+	def is_battery_full(self):
+
+		return self._battery_full
+
+	def _battery_cb(self,battery_value):
+
+		self._battery_low = battery_value.data
+
+	def is_battery_low(self):
+
+		return self._battery_low
 
 	def should_reasoning_start(self):
 
