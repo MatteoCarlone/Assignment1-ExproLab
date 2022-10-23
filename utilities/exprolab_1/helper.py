@@ -4,10 +4,14 @@ import rospy
 from actionlib import SimpleActionClient
 from threading import Lock
 
-from exprolab_1.msg import PlanAction, ControlAction
+from armor_api.armor_client import ArmorClient
+
+from exprolab_1.msg import PlanAction, PlanGoal, ControlAction, ControlGoal
 
 from exprolab_1.srv import Start , StartRequest
 from exprolab_1.srv import Reason , ReasonRequest
+
+import re
 
 
 class ActionClientHelper:
@@ -120,7 +124,10 @@ class InterfaceHelper:
 		self.reset_states()
 		self._start = True
 
+		self.client = ArmorClient("armor_client", "reference")
+
 		self.planner_client = ActionClientHelper('motion/planner',PlanAction,mutex = self.mutex)
+		self.controller_client = ActionClientHelper('motion/controller',ControlAction,mutex = self.mutex)
 
 	def reset_states(self):
 
@@ -157,7 +164,7 @@ class InterfaceHelper:
 
 		except rospy.ServiceException as e:
 
-			self.reset_states
+			self.reset_states()
 
 			rospy.logerr("Exception occurred: %s", str(e))
 
@@ -192,7 +199,7 @@ class InterfaceHelper:
 
 		except rospy.ServiceException as e:
 
-			self.reset_states
+			self.reset_states()
 
 			rospy.logerr("Exception occurred: %s", str(e))
 
@@ -205,9 +212,51 @@ class InterfaceHelper:
 
 		return self._point
 
-	def room_togo(self):
+	def send_planner_goal(self):
 
-		return self.to_point
+		if self.to_point is not None:
+
+			goal = PlanGoal(target= self.to_point)
+
+			self.planner_client.send_goal(goal)
+
+		else:
+
+			print('PlanGoal Error')
+
+	def send_controller_goal(self):
+
+
+		path = self.planner_client.get_results()
+
+		if path.via_points is not None:
+
+			print('sending')
+
+			goal = ControlGoal(point_set = path.via_points)
+
+			self.controller_client.send_goal(goal)
+
+		else:
+
+			print('ControlGoal Error')
+
+	def reason(self):
+
+		self.client.utils.apply_buffered_changes()
+		self.client.utils.sync_buffered_reasoner()
+
+	def list_formatter(self,raw_list,start,end):
+
+		formatted_list = [re.search(start+'(.+?)'+end,string).group(1) for string in raw_list]
+
+		return formatted_list
+
+
+
+
+
+
 
 
 

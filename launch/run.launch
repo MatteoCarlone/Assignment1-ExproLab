@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+	<node pkg="armor" type="execute" name="armor_service" args="it.emarolab.armor.ARMORMainService"/>
+
+	<node pkg="exprolab_1" type="initial_state.py" name="initial_state" launch-prefix="xterm -e"/>
+
+	<node pkg="exprolab_1" type="reasoner.py" name="reasoner" launch-prefix="xterm -e"/>
+
+	<node pkg="exprolab_1" type="planner.py" name="planner" launch-prefix="xterm -e"/>
+
+    <node pkg="exprolab_1" type="controller.py" name="controller" launch-prefix="xterm -e"/> 
+
+    <node pkg="exprolab_1" type="fsm.py" name="fsm" launch-prefix="xterm -e"/>
+
+</launch>

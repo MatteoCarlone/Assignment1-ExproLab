@@ -10,6 +10,10 @@ from exprolab_1.srv import Start , StartResponse
 
 from armor_api.armor_client import ArmorClient
 
+import time
+
+from exprolab_1 import environment as env
+
 
 class InitialState:
 
@@ -32,13 +36,15 @@ class InitialState:
 
             print('Start Loading')
 
+            curr_time = int(time.time())
+
             self.client.utils.load_ref_from_file(self.path + "topological_map.owl", "http://bnc/exp-rob-lab/2022-23",
                                                 True, "PELLET", True, False)  
                                                 # initializing with buffered manipulation and reasoning
             self.client.utils.mount_on_ref()
             self.client.utils.set_log_to_terminal(True)
 
-            self.client.manipulation.add_ind_to_class('robot', "Robot")
+            #self.client.manipulation.add_ind_to_class('robot', "Robot")
 
             self.client.manipulation.add_objectprop_to_ind("hasDoor", 'E', "D6")
             self.client.manipulation.add_objectprop_to_ind("hasDoor", 'E', "D7")
@@ -58,14 +64,23 @@ class InitialState:
             self.client.manipulation.add_objectprop_to_ind("hasDoor", 'R3', "D3")
             self.client.manipulation.add_objectprop_to_ind("hasDoor", 'R4', "D4")
 
-            self.client.manipulation.add_objectprop_to_ind("isIn", 'robot', "E")
+            self.client.manipulation.add_objectprop_to_ind("isIn", 'Robot1', "E")
+
+            #self.client.manipulation.add_dataprop_to_ind('now','robot','Long',str(curr_time))
+
+            for r in env.Loc:
+
+                print(r)
+
+                self.client.manipulation.add_dataprop_to_ind('visitedAt',r, 'Long', str(curr_time))
+
 
             self.client.call('DISJOINT','IND','',['E','C1','C2','R1','R2','R3','R4','D1','D2','D3','D4','D5','D6','D7'])
 
             self.client.utils.apply_buffered_changes()
             self.client.utils.sync_buffered_reasoner()
 
-            self.client.utils.save_ref_with_inferences(self.path + "test_disjoint.owl")
+            #self.client.utils.save_ref_with_inferences(self.path + "test_disjoint.owl")
 
             print('sleep')
             rospy.sleep(5)

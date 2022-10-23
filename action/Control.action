@@ -3,7 +3,7 @@
 ### Action Service Goal
 
 # The plan as a set of points to reach.
-Point[] via_points
+Point[] point_set
 
 ---
 

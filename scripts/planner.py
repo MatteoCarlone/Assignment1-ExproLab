@@ -4,7 +4,7 @@ import rospy
 
 from actionlib import SimpleActionServer
 
-from exprolab_1.msg import PlanAction, PlanFeedback, PlanResult
+from exprolab_1.msg import Point, PlanAction, PlanFeedback, PlanResult
 
 from armor_api.armor_client import ArmorClient
 
@@ -34,20 +34,19 @@ class PlaningAction(object):
 
         # starting point, could be IsIn from Reasoner Node, _get_pose_client to be implemented
 
-        start_point = self.client.query.objectprop_b2_ind('isIn','robot')
+        start_room = self.client.query.objectprop_b2_ind('isIn','Robot1')
 
-        print(start_point)
+        start_room = re.search('#(.+?)>',start_room[0]).group(1)
 
-        start_point = re.search('#(.+?)>',start_point[0]).group(1)
+        print('Starting Room: ', start_room)
 
-        print(start_point)
+        start_point = env.Map_R[start_room]
 
-        start_point = env.Map[start_point]
-
-        print(start_point)
+        
+        print('Target Room: ', goal.target)
 
     	# goal point
-        target_point = env.Map[goal.target]
+        target_point = env.Map_R[goal.target]
 
         if start_point is None or target_point is None:
 
@@ -76,7 +75,11 @@ class PlaningAction(object):
         points_x = np.linspace(start_point[0],target_point[0],num = n_points)
         points_y = np.linspace(start_point[1],target_point[1],num = n_points)
 
-        points = [a + b for a, b in zip(points_x, points_y)]
+        # non funziona lo zipping
+
+        points = [[a , b] for a, b in zip(points_x, points_y)]
+
+        print('GENERATING VIA POINTS')
 
         for i in range(n_points):
 
@@ -86,13 +89,17 @@ class PlaningAction(object):
                 self._as.set_preempted()  
                 return
 
-            feedback.via_points.append(points[i])
+            print(points[i])
 
-            print(feedback.via_points)
+            new_point = Point()
+            new_point.x = points[i][0]
+            new_point.y = points[i][1]
+
+            feedback.via_points.append(new_point)
 
             self._as.publish_feedback(feedback)
 
-            rospy.sleep(1)
+            rospy.sleep(0.1)
 
         # Publish the results to the client.        
         result = PlanResult()

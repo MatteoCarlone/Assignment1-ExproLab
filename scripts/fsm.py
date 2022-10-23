@@ -7,8 +7,6 @@ import smach_ros
 import time
 import string
 
-from exprolab_1.msg import PlanGoal
-
 from exprolab_1.helper import InterfaceHelper
 
 r_to_point = ''
@@ -16,8 +14,6 @@ r_to_point = ''
 class Initial(smach.State):
 
     def __init__(self,interfacehelper):
-
-        print('init Initial')
 
         smach.State.__init__(self, 
                              outcomes=['start','reasoned'],
@@ -45,7 +41,6 @@ class Initial(smach.State):
             try:
 
     			# look for transition flags
-                print('checking flag')
 
                 if self._helper.should_reasoning_start():
 
@@ -92,17 +87,12 @@ class Reasoning(smach.State):
             try:
 
                 # look for transition flags
-                print('checking flag')
 
                 if self._helper.should_pointing_start():
 
                     self._helper.reset_states()
 
                     print('reset flags and transition')
-
-                    r_to_point = self._helper.room_togo()
-
-                    print(self._helper.room_togo())
 
                     return 'reasoned'
 
@@ -128,13 +118,9 @@ class Pointing(smach.State):
 
     def execute(self, userdata):
 
-        global r_to_point
-
         print('#### POINTING ####')
 
-        goal = PlanGoal(target= r_to_point)
-
-        self._helper.planner_client.send_goal(goal)
+        self._helper.send_planner_goal()
 
         while not rospy.is_shutdown():
 
@@ -145,11 +131,10 @@ class Pointing(smach.State):
             try:
 
                 # look for transition flags
-                print('checking flag')
 
                 if self._helper.planner_client.is_done():
 
-                    print('### DONE ###')
+                    print('### POINTING DONE ###')
 
                     self._helper.reset_states()
 
@@ -165,21 +150,52 @@ class Pointing(smach.State):
 
             rospy.sleep(0.3)
 
-'''
+class Controlling(smach.State):
 
-class Controlling:
-
-    def __init__(self):
+    def __init__(self,interfacehelper):
         
         smach.State.__init__(self, 
-                             outcomes=['reached','battery_full','battery_low'],
+                             outcomes=['reached'],
                              input_keys=['moving_counter_in'],
                              output_keys=['moving_counter_out'])
 
+        self._helper = interfacehelper
+
     def execute(self, userdata):
 
-    	pass
+        print('#### CONTROLLING ####')
 
+        self._helper.send_controller_goal()
+
+        while not rospy.is_shutdown():
+
+            # acquire mutex
+
+            self._helper.mutex.acquire()
+
+            try:
+
+                # look for transition flags
+
+                if self._helper.controller_client.is_done():
+
+                    print('### CONTROLLING DONE ###')
+
+                    self._helper.reset_states()
+
+                    print('reset flags and transition')
+
+                    return 'reached'
+
+            finally:
+
+                # release mutex
+
+                self._helper.mutex.release()
+
+            rospy.sleep(0.3)
+
+'''
 
 class Recharge:
 
@@ -223,21 +239,18 @@ def main():
 
     
     	smach.StateMachine.add('POINTING', Pointing(interfacehelper), 
-					    	   transitions={'pointed':'POINTING',
+					    	   transitions={'pointed':'CONTROLLING',
 					    	   				'reasoned':'POINTING'},
 
 					    	   remapping={'pointing_counter_in':'sm_counter', 
 					    				  'pointing_counter_out':'sm_counter'})
-    '''
-    	smach.StateMachine.add('CONTROLLING', Controlling(), 
-					    	   transitions={'reached':'REASONING',
-								    	    'battery_low':'RECHARGE',
-								    	    'battery_full':'CONTROLLING'},
+    
+    	smach.StateMachine.add('CONTROLLING', Controlling(interfacehelper), 
+					    	   transitions={'reached':'REASONING'},
 
 					    	   remapping={'controlling_counter_in':'sm_counter', 
 					    				  'controlling_counter_out':'sm_counter'})
     	
-    '''
 
     # Create and start the introspection server for visualization
     sis = smach_ros.IntrospectionServer('server_name', sm, '/SM_ROOT')
