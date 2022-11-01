@@ -18,12 +18,12 @@ class PlaningAction(object):
 
     def __init__(self):
 
-        self._environment_size = [-2,2,0,3]
+        self._environment_size = rospy.get_param(env.ENV_SIZE)
 
-        self.client = ArmorClient("armor_client", "reference")
+        self.client = ArmorClient('armor_client', 'reference')
 
 		# Instantiate and start the action server based on the `SimpleActionServer` class.
-        self._as = SimpleActionServer('motion/planner', 
+        self._as = SimpleActionServer(env.ACTION_PLANNER, 
                                       PlanAction, 
                                       execute_cb=self.execute_callback, 
                                       auto_start=False)
@@ -32,21 +32,22 @@ class PlaningAction(object):
 
     def execute_callback(self, goal):
 
+        print('\n###############\nPLANNING EXECUTION')
+
         # starting point, could be IsIn from Reasoner Node, _get_pose_client to be implemented
 
         start_room = self.client.query.objectprop_b2_ind('isIn','Robot1')
 
         start_room = re.search('#(.+?)>',start_room[0]).group(1)
 
-        print('Starting Room: ', start_room)
-
         start_point = env.Map_R[start_room]
-
-        
-        print('Target Room: ', goal.target)
 
     	# goal point
         target_point = env.Map_R[goal.target]
+
+        log_msg = (f'Starting-Room [{start_point[0]}, {start_point[1]}] , Target-Room [{target_point[0]}, '
+                       f'{target_point[1]}] ')
+        print(log_msg)
 
         if start_point is None or target_point is None:
 
@@ -69,17 +70,15 @@ class PlaningAction(object):
         feedback = PlanFeedback()
         feedback.via_points = []
 
-        # here a should define a number of via points
+        # number of via points
         n_points = 10
 
         points_x = np.linspace(start_point[0],target_point[0],num = n_points)
         points_y = np.linspace(start_point[1],target_point[1],num = n_points)
 
-        # non funziona lo zipping
-
         points = [[a , b] for a, b in zip(points_x, points_y)]
 
-        print('GENERATING VIA POINTS')
+        print('GENERATING VIA POINTS...')
 
         for i in range(n_points):
 
@@ -89,11 +88,11 @@ class PlaningAction(object):
                 self._as.set_preempted()  
                 return
 
-            print(points[i])
-
             new_point = Point()
             new_point.x = points[i][0]
             new_point.y = points[i][1]
+
+            print('[' + str("%.2f"% new_point.x)+','+str("%.2f"% new_point.y)+']')
 
             feedback.via_points.append(new_point)
 
@@ -107,10 +106,6 @@ class PlaningAction(object):
 
         self._as.set_succeeded(result)
 
-        log_msg = 'Motion plan succeeded'
-        
-        print(log_msg)
-
 
     def _is_valid(self, point):
         
@@ -120,6 +115,6 @@ class PlaningAction(object):
 if __name__ == '__main__':
 
     # Initialise the node, its action server, and wait.    
-    rospy.init_node('planner', log_level=rospy.INFO)
+    rospy.init_node(env.NODE_PLANNER, log_level=rospy.INFO)
     server = PlaningAction()
     rospy.spin()

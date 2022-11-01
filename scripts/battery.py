@@ -10,25 +10,36 @@ from std_msgs.msg import Bool
 
 from exprolab_1.helper import InterfaceHelper
 
-from exprolab_1.srv import Recharge , RechargeResponse
+from std_srvs.srv import Empty , EmptyResponse
+
+from exprolab_1 import environment as env
 
 
 class Battery(object):
 	
 	def __init__(self):
 
-		rospy.Service('recharge', Recharge , self.execute)
+		rospy.Service(env.SERVER_RECHARGE, Empty , self.execute)
 
 		interfacehelper = InterfaceHelper()
 		self._helper = interfacehelper
-		th = threading.Thread(target=self._random_notifier)
-		th.start()
 
 		self._battery_low = False
 
-		self._random_battery_time = [30,50]
+		self._random_battery_time = rospy.get_param(env.RND_BATTERY_TIME)
+
+		th = threading.Thread(target=self._random_notifier)
+		th.start()
 
 	def execute(self,request):
+
+		print('\n###############\nRECHARGE EXECUTION')
+
+		isin = self._helper.client.query.objectprop_b2_ind('isIn','Robot1')
+
+		isin = self._helper.list_formatter(isin,'#','>')
+
+		print('The robot docked for recharge in: ' + isin[0] + '\n')
 
 		# A List of Items
 		items = list(range(0, 57))
@@ -43,15 +54,16 @@ class Battery(object):
 
 			self._printProgressBar(i + 1, l, prefix = 'Progress:', suffix = 'Complete', length = 30)
 
-		return RechargeResponse('full')
+		print('BATTERY FULL')
 
+		return EmptyResponse()
 
 
 	def _random_notifier(self):
 
 		delay = 0
 
-		publisher = rospy.Publisher('battery_low', Bool, queue_size=1, latch=True)
+		publisher = rospy.Publisher(env.TOPIC_BATTERY_LOW, Bool, queue_size=1, latch=True)
 
 		while not rospy.is_shutdown():
 			
@@ -88,7 +100,7 @@ class Battery(object):
 
 if __name__ == '__main__':
 
-	rospy.init_node('battery', log_level=rospy.INFO)
+	rospy.init_node(env.NODE_BATTERY, log_level=rospy.INFO)
 	Battery()
 	rospy.spin()
 
