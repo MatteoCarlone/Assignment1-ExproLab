@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classcontroller_1_1_controlling_action" kind="class" language="Python" prot="public">
+    <compoundname>controller::ControllingAction</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">object</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classcontroller_1_1_controlling_action_1ab62f8a375cc62bd14981367cdd894886" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>controller.ControllingAction::client</definition>
+        <argsstring></argsstring>
+        <name>client</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/controller.py" line="21" column="1" bodyfile="scripts/controller.py" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcontroller_1_1_controlling_action_1a6532d245dcd95c94afb11b1cc9d2be21" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>controller.ControllingAction::_as</definition>
+        <argsstring></argsstring>
+        <name>_as</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/controller.py" line="23" column="1" bodyfile="scripts/controller.py" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcontroller_1_1_controlling_action_1a864137ca73531e2771504c4c95d92713" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def controller.ControllingAction.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/controller.py" line="19" column="1" bodyfile="scripts/controller.py" bodystart="19" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classcontroller_1_1_controlling_action_1aab54964f603544e46a4620b3f71dcc2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def controller.ControllingAction.execute_callback</definition>
+        <argsstring>(self, goal)</argsstring>
+        <name>execute_callback</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>goal</type>
+          <defname>goal</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/controller.py" line="30" column="1" bodyfile="scripts/controller.py" bodystart="30" bodyend="83"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>controller.ControllingAction</label>
+        <link refid="classcontroller_1_1_controlling_action"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>controller.ControllingAction</label>
+        <link refid="classcontroller_1_1_controlling_action"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object</label>
+      </node>
+    </collaborationgraph>
+    <location file="scripts/controller.py" line="17" column="1" bodyfile="scripts/controller.py" bodystart="17" bodyend="84"/>
+    <listofallmembers>
+      <member refid="classcontroller_1_1_controlling_action_1a864137ca73531e2771504c4c95d92713" prot="public" virt="non-virtual"><scope>controller::ControllingAction</scope><name>__init__</name></member>
+      <member refid="classcontroller_1_1_controlling_action_1a6532d245dcd95c94afb11b1cc9d2be21" prot="private" virt="non-virtual"><scope>controller::ControllingAction</scope><name>_as</name></member>
+      <member refid="classcontroller_1_1_controlling_action_1ab62f8a375cc62bd14981367cdd894886" prot="public" virt="non-virtual"><scope>controller::ControllingAction</scope><name>client</name></member>
+      <member refid="classcontroller_1_1_controlling_action_1aab54964f603544e46a4620b3f71dcc2a" prot="public" virt="non-virtual"><scope>controller::ControllingAction</scope><name>execute_callback</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

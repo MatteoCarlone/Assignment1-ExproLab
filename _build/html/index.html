@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to ExproLab Surveillance Robot’s documentation! &mdash; ExproLab Surveillance Robot 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> ExproLab Surveillance Robot
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to ExproLab Surveillance Robot’s documentation!</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#module-scripts.initial_state">Initial State Module</a><ul>
+<li><a class="reference internal" href="#scripts.initial_state.InitialState"><code class="docutils literal notranslate"><span class="pre">InitialState</span></code></a><ul>
+<li><a class="reference internal" href="#scripts.initial_state.InitialState.__init__"><code class="docutils literal notranslate"><span class="pre">InitialState.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.initial_state.InitialState.execute"><code class="docutils literal notranslate"><span class="pre">InitialState.execute()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">ExproLab Surveillance Robot</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Welcome to ExproLab Surveillance Robot’s documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="welcome-to-exprolab-surveillance-robot-s-documentation">
+<h1>Welcome to ExproLab Surveillance Robot’s documentation!<a class="headerlink" href="#welcome-to-exprolab-surveillance-robot-s-documentation" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="module-scripts.initial_state">
+<span id="initial-state-module"></span><h1>Initial State Module<a class="headerlink" href="#module-scripts.initial_state" title="Permalink to this heading"></a></h1>
+<span class="target" id="module-initial_state"></span><dl class="simple">
+<dt>Service:</dt><dd><p>/start</p>
+</dd>
+<dt>Action:</dt><dd><p>/armor_client</p>
+</dd>
+</dl>
+<p>This Node start the whole program by initializing and loading the topology.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="scripts.initial_state.InitialState">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.initial_state.</span></span><span class="sig-name descname"><span class="pre">InitialState</span></span><a class="reference internal" href="_modules/scripts/initial_state.html#InitialState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.initial_state.InitialState" title="Permalink to this definition"></a></dt>
+<dd><p>Class representing the Initial-State of the Smach-State-Machine, which load the
+Ontology initialized with the environment description, and starting point of the Robot.
+…</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.initial_state.InitialState.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/initial_state.html#InitialState.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.initial_state.InitialState.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialization of parameters:</p>
+<blockquote>
+<div><p>client
+Armor-Client to set-up the Ontology
+path, str
+The Ontology folder-path to load
+server
+the server of the Empty service /start with Callback execute()</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.initial_state.InitialState.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/initial_state.html#InitialState.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.initial_state.InitialState.execute" title="Permalink to this definition"></a></dt>
+<dd><p>Server Callback of the /start service requested from the fsm module to start up
+the whole program.</p>
+<p>This Callback-Server load the ontology, set all the room of the environment with the respective doors,
+the starting position of the robot, already initialized in the starting ontology, the disjoint function
+that let the reasoner understanding all the individuals and I assumed all the rooms visited at time zero
+in order to yet start the counter for the URGENT rooms.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Matteo Carlone.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceinitial__state" kind="namespace" language="Python">
+    <compoundname>initial_state</compoundname>
+    <innerclass refid="classinitial__state_1_1_initial_state" prot="public">initial_state::InitialState</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceinitial__state_1a4fed6110a69e9170d939f60acfc2b4e9" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>initial_state.NODE_INIT_STATE</definition>
+        <argsstring></argsstring>
+        <name>NODE_INIT_STATE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/initial_state.py" line="133" column="1" bodyfile="scripts/initial_state.py" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceinitial__state_1a5a03d87caa235846d97eccb957c643a3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>initial_state.log_level</definition>
+        <argsstring></argsstring>
+        <name>log_level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/initial_state.py" line="133" column="1" bodyfile="scripts/initial_state.py" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: initial_state
+    :platform: Unix
+    :synopsis: Python code to initialize and load the topology
+
+.. moduleauthor:: Matteo Carlone &lt;matteo.carlone99@gmail.com&gt;
+
+Service:
+    /start 
+Action:
+    /armor_client
+
+This Node start the whole program by initializing and loading the topology.</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/initial_state.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

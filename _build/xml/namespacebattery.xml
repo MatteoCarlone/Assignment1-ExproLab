@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacebattery" kind="namespace" language="Python">
+    <compoundname>battery</compoundname>
+    <innerclass refid="classbattery_1_1_battery" prot="public">battery::Battery</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="battery_8py_1aa25dba1158ee9cbe9e6bc2011e3cc986" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>battery.NODE_BATTERY</definition>
+        <argsstring></argsstring>
+        <name>NODE_BATTERY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/battery.py" line="103" column="1" bodyfile="scripts/battery.py" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="battery_8py_1ab52c34ca0d4b64399d069c97a2d0e8e3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>battery.log_level</definition>
+        <argsstring></argsstring>
+        <name>log_level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/battery.py" line="103" column="1" bodyfile="scripts/battery.py" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="scripts/battery.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>
