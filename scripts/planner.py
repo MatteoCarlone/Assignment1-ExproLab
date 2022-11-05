@@ -1,20 +1,62 @@
 #! /usr/bin/env python
 
+"""
+.. module:: Planner
+    :platform: Unix
+    :synopsis: Python code that plan a set via_points from a room to another
+
+.. moduleauthor:: Matteo Carlone <matteo.carlone99@gmail.com>
+
+
+Action:
+
+    /armor_client
+    motion/planner
+
+
+This Node implement the planning action of creating a set of via points between a room to another. 
+Those via points will be then passed to the Controlling node to perform the actual movement.
+
+"""
+
 import rospy
-
 from actionlib import SimpleActionServer
-
 from exprolab_1.msg import Point, PlanAction, PlanFeedback, PlanResult
-
 from armor_api.armor_client import ArmorClient
-
 from exprolab_1 import environment as env
-
 import numpy as np
-
 import re
 
 class PlaningAction(object):
+
+    """
+
+    Class representing the Planning state of the Smach-State-Machine, which creates a set of via points between the robot position
+    and a target room to be pointed decided by the Reasoner State and passed to this ros node via a motion/planner action-client request
+    in the fsm script.
+
+    Methods
+    ----------
+
+    __init__(self)
+
+        Initialization of parameters:
+
+            client:ros_action_client
+                Armor-Client to set-up the Ontology
+            as:ros_action_server
+                the server of the motion/planner action 
+            _environment_size:list[]
+                ROS parameter containing the coordinate limits of the environment 
+
+    execute_callback(self,goal)
+
+        Server Callback of the action motion/planner requested from the fsm module to start up 
+        the via points generation action.
+
+        This Callback-Server simulate the robot's planning by generating a set of n poits equally spacied from a room to another. 
+
+    """
 
     def __init__(self):
 

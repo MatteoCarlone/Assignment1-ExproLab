@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classfsm_1_1_recharge" kind="class" language="Python" prot="public">
+    <compoundname>fsm::Recharge</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">State</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classfsm_1_1_recharge_1ab9305f1dec12c83023aa09f888920836" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>fsm.Recharge::_helper</definition>
+        <argsstring></argsstring>
+        <name>_helper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm.py" line="338" column="1" bodyfile="scripts/fsm.py" bodystart="338" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classfsm_1_1_recharge_1a240191d249ae21d43fb167dcbd027ebe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def fsm.Recharge.__init__</definition>
+        <argsstring>(self, interfacehelper)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>interfacehelper</type>
+          <defname>interfacehelper</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm.py" line="331" column="1" bodyfile="scripts/fsm.py" bodystart="331" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="classfsm_1_1_recharge_1aaae4c09ec7006e09c916462a32194293" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def fsm.Recharge.execute</definition>
+        <argsstring>(self, userdata)</argsstring>
+        <name>execute</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>userdata</type>
+          <defname>userdata</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm.py" line="340" column="1" bodyfile="scripts/fsm.py" bodystart="340" bodyend="382"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Class representing the Recharge state directly connected with the script battery.py .
+When the sub-state machine recharge is called from the SMACH state machine 
+a client makes a request to the server /recharge, and then it
+busy waits the response of the finished recharging of the robot&apos;s battery. Since the robot can recharge the
+battery only in the DOC-Statetion, if the robot is not there the fsm redirect the the state to the moving sub-state machine 
+nested in the recharge sub-state machine in order to force the robot to DOC before recharging.
+Every acces to the flags to be checked is protected by mutexes in order to avoid simultaneus operations 
+on the same varible, ROS automatically protect access to variables with mutexes.
+
+First State runned when the Recharge sub-state machine is called.
+
+* Returns:
+
+battery_full:(str)
+    transition flag for the SMACH fsm that ends the recharge sub-state machine.
+not_at_dock:(str)
+    transition flag for the SMACH fsm to Moving sub-state machine in order to get to the DOC-station.</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>smach::State</label>
+      </node>
+      <node id="1">
+        <label>fsm.Recharge</label>
+        <link refid="classfsm_1_1_recharge"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>smach::State</label>
+      </node>
+      <node id="1">
+        <label>fsm.Recharge</label>
+        <link refid="classfsm_1_1_recharge"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="scripts/fsm.py" line="308" column="1" bodyfile="scripts/fsm.py" bodystart="308" bodyend="383"/>
+    <listofallmembers>
+      <member refid="classfsm_1_1_recharge_1a240191d249ae21d43fb167dcbd027ebe" prot="public" virt="non-virtual"><scope>fsm::Recharge</scope><name>__init__</name></member>
+      <member refid="classfsm_1_1_recharge_1ab9305f1dec12c83023aa09f888920836" prot="private" virt="non-virtual"><scope>fsm::Recharge</scope><name>_helper</name></member>
+      <member refid="classfsm_1_1_recharge_1aaae4c09ec7006e09c916462a32194293" prot="public" virt="non-virtual"><scope>fsm::Recharge</scope><name>execute</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

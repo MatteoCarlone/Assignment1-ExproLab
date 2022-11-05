@@ -18,13 +18,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="setup.py" line="4" column="1" bodyfile="setup.py" bodystart="4" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/setup.py" line="4" column="1" bodyfile="/root/ros_ws/src/exprolab_1/setup.py" bodystart="4" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="setup.py" line="1" column="1"/>
+    <location file="/root/ros_ws/src/exprolab_1/setup.py" line="1" column="1"/>
   </compounddef>
 </doxygen>

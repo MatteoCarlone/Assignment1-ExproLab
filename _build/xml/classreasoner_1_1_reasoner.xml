@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/reasoner.py" line="26" column="1" bodyfile="scripts/reasoner.py" bodystart="26" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" line="88" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" bodystart="88" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classreasoner_1_1_reasoner_1afd5e55e12f5b6feb1127a9a4bd7cf28f" prot="public" static="no" mutable="no">
         <type></type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/reasoner.py" line="31" column="1" bodyfile="scripts/reasoner.py" bodystart="31" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" line="93" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classreasoner_1_1_reasoner_1a24042dc29a4d451ff93721690b4987f6" prot="public" static="no" mutable="no">
         <type></type>
@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/reasoner.py" line="32" column="1" bodyfile="scripts/reasoner.py" bodystart="32" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" line="94" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classreasoner_1_1_reasoner_1a69b2f10feb5dc45b206746330194bfc8" prot="public" static="no" mutable="no">
         <type></type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/reasoner.py" line="33" column="1" bodyfile="scripts/reasoner.py" bodystart="33" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" line="95" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" bodystart="95" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/reasoner.py" line="29" column="1" bodyfile="scripts/reasoner.py" bodystart="29" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" line="91" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" bodystart="91" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/reasoner.py" line="22" column="1" bodyfile="scripts/reasoner.py" bodystart="22" bodyend="34"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" line="84" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" bodystart="84" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="classreasoner_1_1_reasoner_1a8d944a98ca07a625e093d815e04c3f10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -108,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/reasoner.py" line="35" column="1" bodyfile="scripts/reasoner.py" bodystart="35" bodyend="66"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" line="97" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" bodystart="97" bodyend="128"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -127,14 +127,50 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/reasoner.py" line="67" column="1" bodyfile="scripts/reasoner.py" bodystart="67" bodyend="87"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" line="129" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" bodystart="129" bodyend="149"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para><verbatim> Class representing the Reasoning-State of the Smach-State-Machine, which decide the 
+ next room to point whenever a client-request on the custom-service /reason is perfomed by the 
+ finite state machine.
+
+ Methods
+ ----------
+
+ __init__(self)
+
+     Initialization of parameters:
+
+         client:ros_action_client 
+            Armor-Client to set-up the Ontology
+         _helper:InterfaceHelper (object)
+            Object define in the intefacehelper script in utilities folder
+         reachable_list:list[]
+            list of reachable rooms 
+         urgent_list:list[]
+            list of urgent rooms
+         corridors:list[]
+            list of corridors
+
+ execute(self,request)
+
+     Server Callback of the /reason service requested from the fsm module to reason 
+     on the next room to point.
+
+     This Callback-Server updates the position of the robot, the room that can reach, the urgent rooms (if any) and 
+     the corridors. Then it calls the private method _next_room(self).
+
+ _next_room(self)
+
+     This private method computes the new room according to the following protocol:
+
+         corridor has higher prioprity than normal rooms
+         if there&apos;s one or more urgent rooms and the robot can reach them it will prioritize them randomly</verbatim> </para>
     </detaileddescription>
-    <location file="scripts/reasoner.py" line="20" column="1" bodyfile="scripts/reasoner.py" bodystart="20" bodyend="88"/>
+    <location file="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" line="42" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/reasoner.py" bodystart="42" bodyend="150"/>
     <listofallmembers>
       <member refid="classreasoner_1_1_reasoner_1a0c8b0c86ecb37feb911837f517084588" prot="public" virt="non-virtual"><scope>reasoner::Reasoner</scope><name>__init__</name></member>
       <member refid="classreasoner_1_1_reasoner_1a43359502b0ba0232419f75ac14640399" prot="private" virt="non-virtual"><scope>reasoner::Reasoner</scope><name>_helper</name></member>

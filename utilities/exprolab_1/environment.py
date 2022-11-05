@@ -1,5 +1,23 @@
 #!/usr/bin/env python
-import rospy
+
+"""
+.. module:: Environment 
+    :platform: Unix
+    :synopsis: Python to initialize some variables shared by the all program
+
+.. moduleauthor:: Matteo Carlone <matteo.carlone99@gmail.com>
+
+This helper module contains many static variables that are used and shared by all the nodes in the script section. 
+
+"""
+#-----------------------------------------#
+
+"""
+Intialization of enivornmental variables regarding the rooms present in the scenario associated with a set of coordinates [x,y] .
+
+"""
+
+#-----------------------------------------#
 
 # starting location
 START_LOC = 'E'
@@ -37,8 +55,26 @@ Map_C = {
 
     '-2.0,3.0': 'R4'}
 
+#-----------------------------------------#
+
+"""
+ROS parameters for the environment size and time interval for the random battery notifier function in the battery.py script.
+
+"""
+
+#-----------------------------------------#
+
 ENV_SIZE = 'config/environment_size'
 RND_BATTERY_TIME = 'config/random_battery_time'
+
+#-----------------------------------------#
+
+"""
+Declaration of ROS-Node names, ROS-Service names and ROS-Action names
+
+"""
+
+#-----------------------------------------#
 
 # The name of the FSM node.
 NODE_FSM = 'fsm'
@@ -76,7 +112,7 @@ NODE_PLANNER = 'planner'
 # The name of the action server solving the motion planning problem.
 ACTION_PLANNER = 'motion/planner'
 
-
+#-----------------------------------------#
 
 
 

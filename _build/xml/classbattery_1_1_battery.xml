@@ -3,6 +3,21 @@
   <compounddef id="classbattery_1_1_battery" kind="class" language="Python" prot="public">
     <compoundname>battery::Battery</compoundname>
     <basecompoundref prot="public" virt="non-virtual">object</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classbattery_1_1_battery_1ab0514cf3161b5f0472bd300970437b08" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>battery.Battery::server</definition>
+        <argsstring></argsstring>
+        <name>server</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="96" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classbattery_1_1_battery_1a4c4c9f1ac58b2ff53e78068e58aef51a" prot="private" static="no" mutable="no">
         <type></type>
@@ -15,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/battery.py" line="25" column="1" bodyfile="scripts/battery.py" bodystart="25" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="99" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="99" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classbattery_1_1_battery_1a9e0c1a2fa2db4c17c2ad9914362378d1" prot="private" static="no" mutable="no">
         <type></type>
@@ -28,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/battery.py" line="27" column="1" bodyfile="scripts/battery.py" bodystart="27" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="101" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="101" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classbattery_1_1_battery_1a55972405347d6536bb9a6eb43993e293" prot="private" static="no" mutable="no">
         <type></type>
@@ -41,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/battery.py" line="29" column="1" bodyfile="scripts/battery.py" bodystart="29" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="103" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="103" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -60,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/battery.py" line="20" column="1" bodyfile="scripts/battery.py" bodystart="20" bodyend="33"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="94" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="94" bodyend="107"/>
       </memberdef>
       <memberdef kind="function" id="classbattery_1_1_battery_1a1c9f76ae1834360b106602ef6ef8f1bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -81,7 +96,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/battery.py" line="34" column="1" bodyfile="scripts/battery.py" bodystart="34" bodyend="61"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="108" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="108" bodyend="134"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -100,7 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/battery.py" line="62" column="1" bodyfile="scripts/battery.py" bodystart="62" bodyend="77"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="135" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="135" bodyend="150"/>
       </memberdef>
       <memberdef kind="function" id="classbattery_1_1_battery_1a18a2b8042f508981c76d2c31d24de9fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -152,26 +167,61 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para><verbatim>Call in a loop to create terminal progress bar
-@params:
-    iteration   - Required  : current iteration (Int)
-    total       - Required  : total iterations (Int)
-    prefix      - Optional  : prefix string (Str)
-    suffix      - Optional  : suffix string (Str)
-    decimals    - Optional  : positive number of decimals in percent complete (Int)
-    length      - Optional  : character length of bar (Int)
-    fill        - Optional  : bar fill character (Str)
-    printEnd    - Optional  : end character (e.g. &quot;\r&quot;, &quot;\r\n&quot;) (Str)
-</verbatim> </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/battery.py" line="79" column="1" bodyfile="scripts/battery.py" bodystart="79" bodyend="100"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="152" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="152" bodyend="162"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para><verbatim>Class representing the Robot&apos;s battery, it mainly has two functions a random alarm that notifies that the battery is low 
+and need a recharge, a loading bar visible on screen that simulates the recharging action at the DOC-station. 
+
+Methods
+----------
+
+__init__(self)
+
+    Initialization of parameters:
+
+        server:ros_server
+            the server of the Empty service /recharge with Callback execute()
+        _helper:InterfaceHelper (object)
+            Object define in the intefacehelper script in utilities folder
+        _battery_low:Bool
+            variable that represent the state of the battery
+        _random_battery_time:list[]
+            ROS parameter containing the interval of seconds in which the random notifier works
+        th:thread
+            the thread in which the random notifier works
+
+execute(self,request)
+
+    Server Callback of the /recharge service requested from the fsm module when the battery has to be rehcarged.
+
+    This Callback-Server calls the private method _printProgressBar(...) that simulates the recharging action.
+
+_printProgressBar(self,iteration, total, prefix = &apos;&apos;, suffix = &apos;&apos;, decimals = 1, length = 100, fill = &apos;¦&apos;, printEnd = &quot;backslash r&quot;)
+    
+    Call in a loop to create terminal progress bar
+    
+    Parameters:
+
+        iteration - Required  : current iteration (Int) \n
+        total - Required  : total iterations (Int) \n
+        prefix - Optional  : prefix string (Str) \n
+        suffix - Optional  : suffix string (Str) \n
+        decimals - Optional  : positive number of decimals in percent complete (Int) \n
+        length - Optional  : character length of bar (Int) \n
+        fill - Optional  : bar fill character (Str) \n
+        printEnd - Optional  : end character (e.g. &quot;backslash r&quot;, &quot;backslash n&quot;) (Str)
+
+_random_notifier(self)
+
+    This method executes in another thread and basically simulate the randomness dreasing of the robot&apos;s battery.
+    It publishes the state of the battery on the state/battery_low topic (Bool ROS message)</verbatim> </para>
     </detaileddescription>
     <inheritancegraph>
       <node id="1">
@@ -195,7 +245,7 @@
         <label>object</label>
       </node>
     </collaborationgraph>
-    <location file="scripts/battery.py" line="18" column="1" bodyfile="scripts/battery.py" bodystart="18" bodyend="101"/>
+    <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="42" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="42" bodyend="163"/>
     <listofallmembers>
       <member refid="classbattery_1_1_battery_1a2f99aa06e39cdd553dda5f3508b98ff1" prot="public" virt="non-virtual"><scope>battery::Battery</scope><name>__init__</name></member>
       <member refid="classbattery_1_1_battery_1a9e0c1a2fa2db4c17c2ad9914362378d1" prot="private" virt="non-virtual"><scope>battery::Battery</scope><name>_battery_low</name></member>
@@ -204,6 +254,7 @@
       <member refid="classbattery_1_1_battery_1a55972405347d6536bb9a6eb43993e293" prot="private" virt="non-virtual"><scope>battery::Battery</scope><name>_random_battery_time</name></member>
       <member refid="classbattery_1_1_battery_1a246b7075228cde4827f1a71dcafd8d30" prot="private" virt="non-virtual"><scope>battery::Battery</scope><name>_random_notifier</name></member>
       <member refid="classbattery_1_1_battery_1a1c9f76ae1834360b106602ef6ef8f1bb" prot="public" virt="non-virtual"><scope>battery::Battery</scope><name>execute</name></member>
+      <member refid="classbattery_1_1_battery_1ab0514cf3161b5f0472bd300970437b08" prot="public" virt="non-virtual"><scope>battery::Battery</scope><name>server</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

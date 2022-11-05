@@ -42,12 +42,12 @@ class InitialState:
 
         Initialization of parameters:
 
-            client
-            Armor-Client to set-up the Ontology
-            path, str
-            The Ontology folder-path to load 
-            server
-            the server of the Empty service /start with Callback execute()
+            client:ros_action_client
+                Armor-Client to set-up the Ontology
+            path:str
+                The Ontology folder-path to load 
+            server:ros_server
+                the server of the Empty service /start with Callback execute()
 
     execute(self,request)
 
@@ -135,5 +135,5 @@ if __name__ == "__main__":
 
     # Instantiate the node manager class and wait.
     InitialState()
-    
+
     rospy.spin()

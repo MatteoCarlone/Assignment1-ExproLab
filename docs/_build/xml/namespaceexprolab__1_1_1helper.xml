@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceexprolab__1_1_1helper" kind="namespace" language="Python">
+    <compoundname>exprolab_1::helper</compoundname>
+    <innerclass refid="classexprolab__1_1_1helper_1_1_interface_helper" prot="public">exprolab_1::helper::InterfaceHelper</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: Helper 
+    :platform: Unix
+    :synopsis: Python code shared by all the scripts to manage transitions from one fsm state to another
+
+.. moduleauthor:: Matteo Carlone &lt;matteo.carlone99@gmail.com&gt;
+
+This Module implements specific methods necessary for many program funcionalities:
+
+* ROS service-clients 
+* ROS action-clients
+* ROS messages Callbacks
+* Functions to return the FSM transition states
+* Other generic functions used in more than one script</verbatim> </para>
+    </detaileddescription>
+    <location file="utilities/exprolab_1/helper.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

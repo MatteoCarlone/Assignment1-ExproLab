@@ -3,7 +3,7 @@
   <compounddef id="namespaceexprolab__1_1_1environment" kind="namespace" language="Python">
     <compoundname>exprolab_1::environment</compoundname>
       <sectiondef kind="var">
-      <memberdef kind="variable" id="environment_8py_1aa8e64e7663431ca2c0a1c2ca508d2668" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1aa8e64e7663431ca2c0a1c2ca508d2668" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.START_LOC</definition>
         <argsstring></argsstring>
@@ -15,9 +15,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="5" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="5" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="23" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="23" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1a5f61e70c44ce2773d9b6a3220c30e25f" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1a5f61e70c44ce2773d9b6a3220c30e25f" prot="public" static="no" mutable="no">
         <type>list</type>
         <definition>list exprolab_1::environment.Loc</definition>
         <argsstring></argsstring>
@@ -29,9 +29,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="8" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="8" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="26" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="26" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1a2a07a72e9cd5572ce2271f2d92da4efd" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1a2a07a72e9cd5572ce2271f2d92da4efd" prot="public" static="no" mutable="no">
         <type>dictionary</type>
         <definition>dictionary exprolab_1::environment.Map_R</definition>
         <argsstring></argsstring>
@@ -56,9 +56,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="10" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="10" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="28" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="28" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1a017ab27222f0b1461964d9291e36b121" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1a017ab27222f0b1461964d9291e36b121" prot="public" static="no" mutable="no">
         <type>dictionary</type>
         <definition>dictionary exprolab_1::environment.Map_C</definition>
         <argsstring></argsstring>
@@ -83,9 +83,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="25" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="25" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="43" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="43" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1aea6f88cf2da34e7fb76c9fee3aca2db2" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1aea6f88cf2da34e7fb76c9fee3aca2db2" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.ENV_SIZE</definition>
         <argsstring></argsstring>
@@ -97,9 +97,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="40" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="40" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="67" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="67" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1a4ff71206b1534543bb24363b09ea6e9a" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1a4ff71206b1534543bb24363b09ea6e9a" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.RND_BATTERY_TIME</definition>
         <argsstring></argsstring>
@@ -111,9 +111,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="41" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="41" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="68" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="68" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1a821389bc1c67a4df68cf604fcb5b3f83" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1a821389bc1c67a4df68cf604fcb5b3f83" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.NODE_FSM</definition>
         <argsstring></argsstring>
@@ -125,9 +125,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="44" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="44" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="80" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="80" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1a7f1c0b66347266f614e25a5a15c06406" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1a7f1c0b66347266f614e25a5a15c06406" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.NODE_INIT_STATE</definition>
         <argsstring></argsstring>
@@ -139,9 +139,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="47" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="47" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="83" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="83" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1aed1d4fbcb30db4501c47836955287073" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1aed1d4fbcb30db4501c47836955287073" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.SERVER_START</definition>
         <argsstring></argsstring>
@@ -153,9 +153,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="50" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="50" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="86" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="86" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1ac0250048687785f610f9aa2c11547277" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1ac0250048687785f610f9aa2c11547277" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.NODE_REASONER</definition>
         <argsstring></argsstring>
@@ -167,9 +167,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="53" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="53" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="89" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="89" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1a548808c8189ac495524e22f3c6c1170c" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1a548808c8189ac495524e22f3c6c1170c" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.SERVER_REASON</definition>
         <argsstring></argsstring>
@@ -181,9 +181,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="56" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="56" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="92" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="92" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1a812c9f6e74383296095821c36c29c722" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1a812c9f6e74383296095821c36c29c722" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.NODE_BATTERY</definition>
         <argsstring></argsstring>
@@ -195,9 +195,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="59" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="59" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="95" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="95" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1a46a953423207591ceb379b0b39d6d203" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1a46a953423207591ceb379b0b39d6d203" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.SERVER_RECHARGE</definition>
         <argsstring></argsstring>
@@ -209,9 +209,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="62" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="62" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="98" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="98" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1a1ca03009d9dcbf49c174e520ed9502cf" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1a1ca03009d9dcbf49c174e520ed9502cf" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.TOPIC_BATTERY_LOW</definition>
         <argsstring></argsstring>
@@ -223,9 +223,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="65" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="65" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="101" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="101" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1a5aa222df3f78710817f86edb6d61c449" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1a5aa222df3f78710817f86edb6d61c449" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.NODE_CONTROLLER</definition>
         <argsstring></argsstring>
@@ -237,9 +237,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="68" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="68" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="104" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="104" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1a37392658046f8eeb0106d73edabb5370" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1a37392658046f8eeb0106d73edabb5370" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.ACTION_CONTROLLER</definition>
         <argsstring></argsstring>
@@ -251,9 +251,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="71" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="71" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="107" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="107" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1af19dbd60749de47f99109720f408f834" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1af19dbd60749de47f99109720f408f834" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.NODE_PLANNER</definition>
         <argsstring></argsstring>
@@ -265,9 +265,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="74" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="74" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="110" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="110" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="environment_8py_1a258ab8258e03aa29863fa1d7d467f314" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="namespaceexprolab__1_1_1environment_1a258ab8258e03aa29863fa1d7d467f314" prot="public" static="no" mutable="no">
         <type>string</type>
         <definition>string exprolab_1::environment.ACTION_PLANNER</definition>
         <argsstring></argsstring>
@@ -279,13 +279,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/environment.py" line="77" column="1" bodyfile="utilities/exprolab_1/environment.py" bodystart="77" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="113" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" bodystart="113" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para><verbatim>.. module:: Environment 
+    :platform: Unix
+    :synopsis: Python to initialize some variables shared by the all program
+
+.. moduleauthor:: Matteo Carlone &lt;matteo.carlone99@gmail.com&gt;
+
+This helper module contains many static variables that are used and shared by all the nodes in the script section. </verbatim> </para>
     </detaileddescription>
-    <location file="utilities/exprolab_1/environment.py" line="1" column="1"/>
+    <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/environment.py" line="1" column="1"/>
   </compounddef>
 </doxygen>

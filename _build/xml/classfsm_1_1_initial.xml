@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/fsm.py" line="25" column="1" bodyfile="scripts/fsm.py" bodystart="25" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="66" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="66" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -38,7 +38,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/fsm.py" line="18" column="1" bodyfile="scripts/fsm.py" bodystart="18" bodyend="26"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="59" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="59" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="classfsm_1_1_initial_1aec4060b8d109062ad82b2b2da9d641d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -59,12 +59,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/fsm.py" line="27" column="1" bodyfile="scripts/fsm.py" bodystart="27" bodyend="55"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="68" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="68" bodyend="96"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para><verbatim>Class representing the initial state directly connected with the script initial_state.py .
+When called from the SMACH state machine a client makes a request to the server /start, and then it
+busy waits the response of the finished loading of the Ontology from the server.
+Every acces to the flags to be checked is protected by mutexes in order to avoid simultaneus operations 
+on the same varible, ROS automatically protect access to variables with mutexes.
+
+First State runned when main state machine is called.
+
+* Returns:
+
+start:(str)
+    transition flag for the SMACH fsm to the reason state.</verbatim> </para>
     </detaileddescription>
     <inheritancegraph>
       <node id="2">
@@ -88,7 +100,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="scripts/fsm.py" line="16" column="1" bodyfile="scripts/fsm.py" bodystart="16" bodyend="56"/>
+    <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="40" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="40" bodyend="97"/>
     <listofallmembers>
       <member refid="classfsm_1_1_initial_1a89763e23bf7bcc9c85d9678017d64ae0" prot="public" virt="non-virtual"><scope>fsm::Initial</scope><name>__init__</name></member>
       <member refid="classfsm_1_1_initial_1a15d23698a69743e63fe7527b613e62d3" prot="private" virt="non-virtual"><scope>fsm::Initial</scope><name>_helper</name></member>

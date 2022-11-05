@@ -53,12 +53,12 @@
 <codeline lineno="42"><highlight class="stringliteral"></highlight></codeline>
 <codeline lineno="43"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Initialization<sp/>of<sp/>parameters:</highlight></codeline>
 <codeline lineno="44"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="45"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>client</highlight></codeline>
-<codeline lineno="46"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Armor-Client<sp/>to<sp/>set-up<sp/>the<sp/>Ontology</highlight></codeline>
-<codeline lineno="47"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>path,<sp/>str</highlight></codeline>
-<codeline lineno="48"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>Ontology<sp/>folder-path<sp/>to<sp/>load<sp/></highlight></codeline>
-<codeline lineno="49"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>server</highlight></codeline>
-<codeline lineno="50"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>server<sp/>of<sp/>the<sp/>Empty<sp/>service<sp/>/start<sp/>with<sp/>Callback<sp/>execute()</highlight></codeline>
+<codeline lineno="45"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>client:ros_action_client</highlight></codeline>
+<codeline lineno="46"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Armor-Client<sp/>to<sp/>set-up<sp/>the<sp/>Ontology</highlight></codeline>
+<codeline lineno="47"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>path:str</highlight></codeline>
+<codeline lineno="48"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>The<sp/>Ontology<sp/>folder-path<sp/>to<sp/>load<sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>server:ros_server</highlight></codeline>
+<codeline lineno="50"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>server<sp/>of<sp/>the<sp/>Empty<sp/>service<sp/>/start<sp/>with<sp/>Callback<sp/>execute()</highlight></codeline>
 <codeline lineno="51"><highlight class="stringliteral"></highlight></codeline>
 <codeline lineno="52"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>execute(self,request)</highlight></codeline>
 <codeline lineno="53"><highlight class="stringliteral"></highlight></codeline>
@@ -141,11 +141,14 @@
 <codeline lineno="130"><highlight class="normal"></highlight></codeline>
 <codeline lineno="131"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;__main__&quot;</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="132"><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.init_node(env.NODE_INIT_STATE,<sp/>log_level=rospy.INFO)</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Instantiate<sp/>the<sp/>node<sp/>manager<sp/>class<sp/>and<sp/>wait.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classinitial__state_1_1_initial_state" kindref="compound">InitialState</ref>()</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.spin()</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Initialize<sp/>the<sp/>Node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.init_node(env.NODE_INIT_STATE,<sp/>log_level=rospy.INFO)</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Instantiate<sp/>the<sp/>node<sp/>manager<sp/>class<sp/>and<sp/>wait.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classinitial__state_1_1_initial_state" kindref="compound">InitialState</ref>()</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.spin()</highlight></codeline>
     </programlisting>
-    <location file="scripts/initial_state.py"/>
+    <location file="/root/ros_ws/src/exprolab_1/scripts/initial_state.py"/>
   </compounddef>
 </doxygen>

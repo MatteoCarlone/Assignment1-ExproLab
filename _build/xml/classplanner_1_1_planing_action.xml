@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/planner.py" line="21" column="1" bodyfile="scripts/planner.py" bodystart="21" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="63" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classplanner_1_1_planing_action_1a398fbf9a9a18a16e70d9830bd12d4916" prot="private" static="no" mutable="no">
         <type></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/planner.py" line="26" column="1" bodyfile="scripts/planner.py" bodystart="26" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="68" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="68" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/planner.py" line="23" column="1" bodyfile="scripts/planner.py" bodystart="23" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="65" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="65" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/planner.py" line="19" column="1" bodyfile="scripts/planner.py" bodystart="19" bodyend="32"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="61" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="61" bodyend="74"/>
       </memberdef>
       <memberdef kind="function" id="classplanner_1_1_planing_action_1aa6888e4c453bb5cc76726cb904eb97a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -83,7 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/planner.py" line="33" column="1" bodyfile="scripts/planner.py" bodystart="33" bodyend="109"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="75" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="75" bodyend="151"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -106,12 +106,36 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/planner.py" line="110" column="1" bodyfile="scripts/planner.py" bodystart="110" bodyend="114"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="152" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="152" bodyend="156"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para><verbatim>Class representing the Planning state of the Smach-State-Machine, which creates a set of via points between the robot position
+and a target room to be pointed decided by the Reasoner State and passed to this ros node via a motion/planner action-client request
+in the fsm script.
+
+Methods
+----------
+
+__init__(self)
+
+    Initialization of parameters:
+
+        client:ros_action_client
+            Armor-Client to set-up the Ontology
+        as:ros_action_server
+            the server of the motion/planner action 
+        _environment_size:list[]
+            ROS parameter containing the coordinate limits of the environment 
+
+execute_callback(self,goal)
+
+    Server Callback of the action motion/planner requested from the fsm module to start up 
+    the via points generation action.
+
+    This Callback-Server simulate the robot&apos;s planning by generating a set of n poits equally spacied from a room to another. </verbatim> </para>
     </detaileddescription>
     <inheritancegraph>
       <node id="2">
@@ -135,7 +159,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="scripts/planner.py" line="17" column="1" bodyfile="scripts/planner.py" bodystart="17" bodyend="115"/>
+    <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="30" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="30" bodyend="157"/>
     <listofallmembers>
       <member refid="classplanner_1_1_planing_action_1af3b94d2fa34123aeda578226fb2bdc75" prot="public" virt="non-virtual"><scope>planner::PlaningAction</scope><name>__init__</name></member>
       <member refid="classplanner_1_1_planing_action_1a398fbf9a9a18a16e70d9830bd12d4916" prot="private" virt="non-virtual"><scope>planner::PlaningAction</scope><name>_as</name></member>

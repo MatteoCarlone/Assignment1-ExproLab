@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="dir_53e6fa9553ac22a5646d2a2b2d7b97a1" kind="dir">
-    <compoundname>scripts</compoundname>
+    <compoundname>/root/ros_ws/src/exprolab_1/scripts</compoundname>
     <innerfile refid="battery_8py">battery.py</innerfile>
     <innerfile refid="controller_8py">controller.py</innerfile>
     <innerfile refid="fsm_8py">fsm.py</innerfile>
@@ -12,6 +12,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="scripts/"/>
+    <location file="/root/ros_ws/src/exprolab_1/scripts/"/>
   </compounddef>
 </doxygen>

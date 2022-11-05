@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/fsm.py" line="163" column="1" bodyfile="scripts/fsm.py" bodystart="163" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="267" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="267" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -38,7 +38,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/fsm.py" line="156" column="1" bodyfile="scripts/fsm.py" bodystart="156" bodyend="164"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="260" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="260" bodyend="268"/>
       </memberdef>
       <memberdef kind="function" id="classfsm_1_1_controlling_1ab5d24a17fcbd702f97df0b2f33c015de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -59,12 +59,30 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/fsm.py" line="165" column="1" bodyfile="scripts/fsm.py" bodystart="165" bodyend="203"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="269" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="269" bodyend="307"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para><verbatim>Class representing the controlling state directly connected with the script controller.py .
+When called from the SMACH state machine a action-client makes a request to the action-server motion/controller,
+and then it busy waits the response of the finished movement of the robot trough the via points passed by the client 
+and taken from the Pointing State.
+Every acces to the flags to be checked is protected by mutexes in order to avoid simultaneus operations 
+on the same varible, ROS automatically protect access to variables with mutexes.
+
+* Input Transitions:
+
+pointed:(str)
+    transition flag for the SMACH fsm from the Pointing state.
+
+* Returns:
+
+reached:(str)
+    transition flag for the SMACH fsm that ends the Moving sub-state machine 
+battery_low:(str)
+    transition flag for the SMACH fsm to the recharge sub-state machine.</verbatim> </para>
     </detaileddescription>
     <inheritancegraph>
       <node id="2">
@@ -88,7 +106,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="scripts/fsm.py" line="154" column="1" bodyfile="scripts/fsm.py" bodystart="154" bodyend="204"/>
+    <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="236" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="236" bodyend="308"/>
     <listofallmembers>
       <member refid="classfsm_1_1_controlling_1a5eec286d06cc47e34bc9b2b3aadc93d0" prot="public" virt="non-virtual"><scope>fsm::Controlling</scope><name>__init__</name></member>
       <member refid="classfsm_1_1_controlling_1a990a8fb7ae50cae28a0394b45cc87709" prot="private" virt="non-virtual"><scope>fsm::Controlling</scope><name>_helper</name></member>

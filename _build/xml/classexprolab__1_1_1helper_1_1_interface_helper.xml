@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="24" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="24" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="124" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="124" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classexprolab__1_1_1helper_1_1_interface_helper_1af3a0e73ca55fe5d2904f672f2bd35d35" prot="public" static="no" mutable="no">
         <type></type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="28" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="28" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="127" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="127" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classexprolab__1_1_1helper_1_1_interface_helper_1a1e25d02acc84930febdf6b3dcd12cf63" prot="public" static="no" mutable="no">
         <type></type>
@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="30" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="30" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="129" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="129" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classexprolab__1_1_1helper_1_1_interface_helper_1a7e49727690f4f93373a1994b1ae366ff" prot="public" static="no" mutable="no">
         <type></type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="31" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="31" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="130" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="130" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classexprolab__1_1_1helper_1_1_interface_helper_1ac4145d7a3e3e0dbed8ce77602932a68b" prot="public" static="no" mutable="no">
         <type></type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="33" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="33" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="132" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="132" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classexprolab__1_1_1helper_1_1_interface_helper_1a1a13a3f445c956a24611ab8f804ae96d" prot="public" static="no" mutable="no">
         <type></type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="92" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="92" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="186" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="186" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="26" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="26" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="136" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="136" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classexprolab__1_1_1helper_1_1_interface_helper_1adf148829e5fc630b3024049f5175f112" prot="private" static="no" mutable="no">
         <type></type>
@@ -107,7 +107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="38" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="38" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="137" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="137" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classexprolab__1_1_1helper_1_1_interface_helper_1a72937a22069b5e959180419d31d5ef94" prot="private" static="no" mutable="no">
         <type></type>
@@ -120,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="39" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="39" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="138" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="138" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classexprolab__1_1_1helper_1_1_interface_helper_1a61318b9b6739e40dca82b765c616876c" prot="private" static="no" mutable="no">
         <type></type>
@@ -133,7 +133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="40" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="40" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="139" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="139" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classexprolab__1_1_1helper_1_1_interface_helper_1ac31bf07d5d39c411c9dad9e3a0ed8dbd" prot="private" static="no" mutable="no">
         <type></type>
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="41" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="41" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="140" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="140" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -165,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="22" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="22" bodyend="34"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="121" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="121" bodyend="133"/>
       </memberdef>
       <memberdef kind="function" id="classexprolab__1_1_1helper_1_1_interface_helper_1adfa5da7179553b117b36c6579e67c4bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -182,7 +182,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="35" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="35" bodyend="42"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="134" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="134" bodyend="141"/>
       </memberdef>
       <memberdef kind="function" id="classexprolab__1_1_1helper_1_1_interface_helper_1a9c23c60a96d9fa5b06c7e48ce298bd82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -199,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="43" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="43" bodyend="70"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="142" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="142" bodyend="167"/>
       </memberdef>
       <memberdef kind="function" id="classexprolab__1_1_1helper_1_1_interface_helper_1a0953b0172104fdba7c37e5bb609ceb0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -216,7 +216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="71" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="71" bodyend="103"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="168" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="168" bodyend="196"/>
       </memberdef>
       <memberdef kind="function" id="classexprolab__1_1_1helper_1_1_interface_helper_1a0e9a55bfbbf24400a40fc5406f1d6c9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -233,7 +233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="104" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="104" bodyend="135"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="197" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="197" bodyend="225"/>
       </memberdef>
       <memberdef kind="function" id="classexprolab__1_1_1helper_1_1_interface_helper_1a13dae0618a26e70ff636ce4461d28067" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -254,7 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="141" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="141" bodyend="168"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="231" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="231" bodyend="255"/>
       </memberdef>
       <memberdef kind="function" id="classexprolab__1_1_1helper_1_1_interface_helper_1afcd9da86f83e756f3fcbda77ad5b906f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -271,7 +271,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="169" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="169" bodyend="182"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="256" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="256" bodyend="268"/>
       </memberdef>
       <memberdef kind="function" id="classexprolab__1_1_1helper_1_1_interface_helper_1a1486eae8fe355bb16514378eca54966a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -288,7 +288,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="183" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="183" bodyend="186"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="269" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="269" bodyend="272"/>
       </memberdef>
       <memberdef kind="function" id="classexprolab__1_1_1helper_1_1_interface_helper_1a939560eb726dffb253b3fddd4b0c0bf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -305,7 +305,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="187" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="187" bodyend="190"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="273" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="273" bodyend="276"/>
       </memberdef>
       <memberdef kind="function" id="classexprolab__1_1_1helper_1_1_interface_helper_1aa06152bdd4eeb630d3edfec498f14d09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -322,7 +322,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="191" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="191" bodyend="194"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="277" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="277" bodyend="280"/>
       </memberdef>
       <memberdef kind="function" id="classexprolab__1_1_1helper_1_1_interface_helper_1aa6afd6756f30c97716c8d41d5e630f6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -339,7 +339,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="195" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="195" bodyend="199"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="281" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="281" bodyend="285"/>
       </memberdef>
       <memberdef kind="function" id="classexprolab__1_1_1helper_1_1_interface_helper_1a69511abec867c8fcacb48d1fb5c05994" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -356,7 +356,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="200" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="200" bodyend="204"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="286" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="286" bodyend="290"/>
       </memberdef>
       <memberdef kind="function" id="classexprolab__1_1_1helper_1_1_interface_helper_1ae207186507597fb0132ac1c2f07af655" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -385,7 +385,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="205" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="205" bodyend="227"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="291" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="291" bodyend="313"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -408,14 +408,93 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="utilities/exprolab_1/helper.py" line="136" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="136" bodyend="140"/>
+        <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="226" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="226" bodyend="230"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para><verbatim>Class representing the Helper Object comprehensive of every necessary methods summarized above.
+
+Methods
+--------
+__init__(self)
+    
+    Initialization of parameters:
+            
+        mutex:Lock()
+            mutex to protected variable access
+                
+        client:ros_action_client
+            Armor-Client to set-up the Ontology
+
+        planner_client:ros_action_client 
+            the client of the motion/planner action
+
+        controller_client:ros_action_client 
+            the client of the motion/controller action
+
+        sub_battery:ros_msg_subscriber
+            subscriber to the ros message regarding the battery state , topic: state/battery_low
+
+reset_states(self)
+
+    Method that resets every FSM transition to False.
+
+start_client(self)
+
+    Simple client of the Empty service /start to load and initialize the Ontology
+
+reason_client(self)
+
+    Simple client of the custom service /reason to decide which room should be pointed,
+    the target room is saved in a variable to be further used in the Planning request.
+
+recharge_client(self)
+
+    Simple client of the empty service /recharge to start the robot&apos;s battery charging.
+
+_battery_cb(self,battery_value)
+
+    Callback of the ros message that describes the battery states on the topic state/battery_low,
+    the value is simply stored in a variable to be checked from the FSM.
+
+send_planner_goal(self,low)
+
+    motion/planner Action Client, it sends the target location to the server in order to
+    generate the correct set of via points, it takes into account the state of the battery in the argument (low)
+    to force the robot the the DOC location whenever the battery is low and the robot can reach this desired location.
+
+send_controller_goal(self)
+
+    motion/controller Action Client, it sends the planner via points to the Controller Node in order to move the robot
+    toward a target location.
+
+is_battery_full(self)
+
+    Method to return weather the transition that ends the recharging state should be returned 
+
+is_battery_low(self)
+
+    Method to return weather the transition that start the recharging state should be returned 
+
+should_reasoning_start(self)
+
+    Method to return weather the transition that start the reasoning state should be returned 
+
+should_pointing_start(self)
+
+    Method to return weather the transition that start the pointing state should be returned 
+
+reason(self)
+
+    Method that uses the armor client to simplify the Ontology reasoning procedure
+
+list_formatter(self,raw_list,start,end)
+
+    Method that well formats the strings return by the querys function of the pkg armor api</verbatim> </para>
     </detaileddescription>
-    <location file="utilities/exprolab_1/helper.py" line="20" column="1" bodyfile="utilities/exprolab_1/helper.py" bodystart="20" bodyend="227"/>
+    <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" line="35" column="1" bodyfile="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/helper.py" bodystart="35" bodyend="313"/>
     <listofallmembers>
       <member refid="classexprolab__1_1_1helper_1_1_interface_helper_1a688f670c111afa9ae330d9619bbcc1c4" prot="public" virt="non-virtual"><scope>exprolab_1::helper::InterfaceHelper</scope><name>__init__</name></member>
       <member refid="classexprolab__1_1_1helper_1_1_interface_helper_1a06faa292d7efc9414b885700a5f205ac" prot="private" virt="non-virtual"><scope>exprolab_1::helper::InterfaceHelper</scope><name>_battery_cb</name></member>

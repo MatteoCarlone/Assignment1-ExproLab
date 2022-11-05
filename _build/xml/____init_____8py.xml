@@ -9,6 +9,6 @@
     </detaileddescription>
     <programlisting>
     </programlisting>
-    <location file="utilities/exprolab_1/__init__.py"/>
+    <location file="/root/ros_ws/src/exprolab_1/utilities/exprolab_1/__init__.py"/>
   </compounddef>
 </doxygen>

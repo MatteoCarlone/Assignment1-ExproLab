@@ -21,6 +21,7 @@
     <member refid="classexprolab__1_1_1_action_helper_1_1_action_client_helper_1a8f795fff7f94773a98d9a0fdc1d2fb18" kind="function"><name>_done_cb</name></member>
   </compound>
   <compound refid="classbattery_1_1_battery" kind="class"><name>battery::Battery</name>
+    <member refid="classbattery_1_1_battery_1ab0514cf3161b5f0472bd300970437b08" kind="variable"><name>server</name></member>
     <member refid="classbattery_1_1_battery_1a4c4c9f1ac58b2ff53e78068e58aef51a" kind="variable"><name>_helper</name></member>
     <member refid="classbattery_1_1_battery_1a9e0c1a2fa2db4c17c2ad9914362378d1" kind="variable"><name>_battery_low</name></member>
     <member refid="classbattery_1_1_battery_1a55972405347d6536bb9a6eb43993e293" kind="variable"><name>_random_battery_time</name></member>
@@ -113,8 +114,8 @@
     <member refid="classfsm_1_1_recharge_1aaae4c09ec7006e09c916462a32194293" kind="function"><name>execute</name></member>
   </compound>
   <compound refid="namespacebattery" kind="namespace"><name>battery</name>
-    <member refid="battery_8py_1aa25dba1158ee9cbe9e6bc2011e3cc986" kind="variable"><name>NODE_BATTERY</name></member>
-    <member refid="battery_8py_1ab52c34ca0d4b64399d069c97a2d0e8e3" kind="variable"><name>log_level</name></member>
+    <member refid="namespacebattery_1aa25dba1158ee9cbe9e6bc2011e3cc986" kind="variable"><name>NODE_BATTERY</name></member>
+    <member refid="namespacebattery_1ab52c34ca0d4b64399d069c97a2d0e8e3" kind="variable"><name>log_level</name></member>
   </compound>
   <compound refid="namespaceconf" kind="namespace"><name>conf</name>
     <member refid="conf_8py_1a332f430461432dc465213f884a1e4967" kind="variable"><name>shell</name></member>
@@ -137,60 +138,64 @@
     <member refid="conf_8py_1a54585428ce84441199d9dfd7087e2243" kind="variable"><name>breathe_default_members</name></member>
   </compound>
   <compound refid="namespacecontroller" kind="namespace"><name>controller</name>
-    <member refid="controller_8py_1a99a847a8cdf1284e51872a5704e85411" kind="variable"><name>NODE_CONTROLLER</name></member>
-    <member refid="controller_8py_1a65f5ca619d887ed3eea896dd96035444" kind="variable"><name>log_level</name></member>
-    <member refid="controller_8py_1af7ece586506b0ed00fa2d33f4102566e" kind="variable"><name>server</name></member>
+    <member refid="namespacecontroller_1a99a847a8cdf1284e51872a5704e85411" kind="variable"><name>NODE_CONTROLLER</name></member>
+    <member refid="namespacecontroller_1a65f5ca619d887ed3eea896dd96035444" kind="variable"><name>log_level</name></member>
+    <member refid="namespacecontroller_1af7ece586506b0ed00fa2d33f4102566e" kind="variable"><name>server</name></member>
   </compound>
   <compound refid="namespaceexprolab__1" kind="namespace"><name>exprolab_1</name>
   </compound>
   <compound refid="namespaceexprolab__1_1_1_action_helper" kind="namespace"><name>exprolab_1::ActionHelper</name>
   </compound>
   <compound refid="namespaceexprolab__1_1_1environment" kind="namespace"><name>exprolab_1::environment</name>
-    <member refid="environment_8py_1aa8e64e7663431ca2c0a1c2ca508d2668" kind="variable"><name>START_LOC</name></member>
-    <member refid="environment_8py_1a5f61e70c44ce2773d9b6a3220c30e25f" kind="variable"><name>Loc</name></member>
-    <member refid="environment_8py_1a2a07a72e9cd5572ce2271f2d92da4efd" kind="variable"><name>Map_R</name></member>
-    <member refid="environment_8py_1a017ab27222f0b1461964d9291e36b121" kind="variable"><name>Map_C</name></member>
-    <member refid="environment_8py_1aea6f88cf2da34e7fb76c9fee3aca2db2" kind="variable"><name>ENV_SIZE</name></member>
-    <member refid="environment_8py_1a4ff71206b1534543bb24363b09ea6e9a" kind="variable"><name>RND_BATTERY_TIME</name></member>
-    <member refid="environment_8py_1a821389bc1c67a4df68cf604fcb5b3f83" kind="variable"><name>NODE_FSM</name></member>
-    <member refid="environment_8py_1a7f1c0b66347266f614e25a5a15c06406" kind="variable"><name>NODE_INIT_STATE</name></member>
-    <member refid="environment_8py_1aed1d4fbcb30db4501c47836955287073" kind="variable"><name>SERVER_START</name></member>
-    <member refid="environment_8py_1ac0250048687785f610f9aa2c11547277" kind="variable"><name>NODE_REASONER</name></member>
-    <member refid="environment_8py_1a548808c8189ac495524e22f3c6c1170c" kind="variable"><name>SERVER_REASON</name></member>
-    <member refid="environment_8py_1a812c9f6e74383296095821c36c29c722" kind="variable"><name>NODE_BATTERY</name></member>
-    <member refid="environment_8py_1a46a953423207591ceb379b0b39d6d203" kind="variable"><name>SERVER_RECHARGE</name></member>
-    <member refid="environment_8py_1a1ca03009d9dcbf49c174e520ed9502cf" kind="variable"><name>TOPIC_BATTERY_LOW</name></member>
-    <member refid="environment_8py_1a5aa222df3f78710817f86edb6d61c449" kind="variable"><name>NODE_CONTROLLER</name></member>
-    <member refid="environment_8py_1a37392658046f8eeb0106d73edabb5370" kind="variable"><name>ACTION_CONTROLLER</name></member>
-    <member refid="environment_8py_1af19dbd60749de47f99109720f408f834" kind="variable"><name>NODE_PLANNER</name></member>
-    <member refid="environment_8py_1a258ab8258e03aa29863fa1d7d467f314" kind="variable"><name>ACTION_PLANNER</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1aa8e64e7663431ca2c0a1c2ca508d2668" kind="variable"><name>START_LOC</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1a5f61e70c44ce2773d9b6a3220c30e25f" kind="variable"><name>Loc</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1a2a07a72e9cd5572ce2271f2d92da4efd" kind="variable"><name>Map_R</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1a017ab27222f0b1461964d9291e36b121" kind="variable"><name>Map_C</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1aea6f88cf2da34e7fb76c9fee3aca2db2" kind="variable"><name>ENV_SIZE</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1a4ff71206b1534543bb24363b09ea6e9a" kind="variable"><name>RND_BATTERY_TIME</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1a821389bc1c67a4df68cf604fcb5b3f83" kind="variable"><name>NODE_FSM</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1a7f1c0b66347266f614e25a5a15c06406" kind="variable"><name>NODE_INIT_STATE</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1aed1d4fbcb30db4501c47836955287073" kind="variable"><name>SERVER_START</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1ac0250048687785f610f9aa2c11547277" kind="variable"><name>NODE_REASONER</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1a548808c8189ac495524e22f3c6c1170c" kind="variable"><name>SERVER_REASON</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1a812c9f6e74383296095821c36c29c722" kind="variable"><name>NODE_BATTERY</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1a46a953423207591ceb379b0b39d6d203" kind="variable"><name>SERVER_RECHARGE</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1a1ca03009d9dcbf49c174e520ed9502cf" kind="variable"><name>TOPIC_BATTERY_LOW</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1a5aa222df3f78710817f86edb6d61c449" kind="variable"><name>NODE_CONTROLLER</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1a37392658046f8eeb0106d73edabb5370" kind="variable"><name>ACTION_CONTROLLER</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1af19dbd60749de47f99109720f408f834" kind="variable"><name>NODE_PLANNER</name></member>
+    <member refid="namespaceexprolab__1_1_1environment_1a258ab8258e03aa29863fa1d7d467f314" kind="variable"><name>ACTION_PLANNER</name></member>
   </compound>
   <compound refid="namespaceexprolab__1_1_1helper" kind="namespace"><name>exprolab_1::helper</name>
   </compound>
   <compound refid="namespacefsm" kind="namespace"><name>fsm</name>
-    <member refid="fsm_8py_1a67becdf851e10bd0df177bfafdbc6fd5" kind="variable"><name>low</name></member>
-    <member refid="fsm_8py_1a973dbd0b67087a3e7a64abd7ae573b99" kind="function"><name>main</name></member>
+    <member refid="namespacefsm_1a67becdf851e10bd0df177bfafdbc6fd5" kind="variable"><name>low</name></member>
+    <member refid="namespacefsm_1a973dbd0b67087a3e7a64abd7ae573b99" kind="function"><name>main</name></member>
   </compound>
   <compound refid="namespaceinitial__state" kind="namespace"><name>initial_state</name>
     <member refid="namespaceinitial__state_1a4fed6110a69e9170d939f60acfc2b4e9" kind="variable"><name>NODE_INIT_STATE</name></member>
     <member refid="namespaceinitial__state_1a5a03d87caa235846d97eccb957c643a3" kind="variable"><name>log_level</name></member>
   </compound>
   <compound refid="namespaceplanner" kind="namespace"><name>planner</name>
-    <member refid="planner_8py_1aff8e189f86f74f8aaf3351cbb7356409" kind="variable"><name>NODE_PLANNER</name></member>
-    <member refid="planner_8py_1ab554f56ade44b42d452d34ab0f92591d" kind="variable"><name>log_level</name></member>
-    <member refid="planner_8py_1aaba81fa6983b3c1cd69468b3659420e6" kind="variable"><name>server</name></member>
+    <member refid="namespaceplanner_1aff8e189f86f74f8aaf3351cbb7356409" kind="variable"><name>NODE_PLANNER</name></member>
+    <member refid="namespaceplanner_1ab554f56ade44b42d452d34ab0f92591d" kind="variable"><name>log_level</name></member>
+    <member refid="namespaceplanner_1aaba81fa6983b3c1cd69468b3659420e6" kind="variable"><name>server</name></member>
   </compound>
   <compound refid="namespacereasoner" kind="namespace"><name>reasoner</name>
-    <member refid="reasoner_8py_1a9fcb05e9d11bcaa146ca56cc7f484bf7" kind="function"><name>main</name></member>
+    <member refid="namespacereasoner_1a9fcb05e9d11bcaa146ca56cc7f484bf7" kind="function"><name>main</name></member>
   </compound>
   <compound refid="namespacesetup" kind="namespace"><name>setup</name>
     <member refid="setup_8py_1a504ffa482edfe0eff08f64b2f5dff0e9" kind="variable"><name>setup_args</name></member>
+  </compound>
+  <compound refid="_c_make_lists_8txt" kind="file"><name>CMakeLists.txt</name>
   </compound>
   <compound refid="index_8rst_8txt" kind="file"><name>index.rst.txt</name>
     <member refid="index_8rst_8txt_1aadb01d1ff74049275aad2547ba33c28a" kind="variable"><name>file</name></member>
     <member refid="index_8rst_8txt_1a7f96f7822e8b4ffb708f98985986bde3" kind="variable"><name>Nov</name></member>
   </compound>
-  <compound refid="_c_make_lists_8txt" kind="file"><name>CMakeLists.txt</name>
+  <compound refid="scripts_8rst_8txt" kind="file"><name>scripts.rst.txt</name>
+  </compound>
+  <compound refid="utilities_8rst_8txt" kind="file"><name>utilities.rst.txt</name>
   </compound>
   <compound refid="conf_8py" kind="file"><name>conf.py</name>
   </compound>
@@ -216,16 +221,16 @@
   </compound>
   <compound refid="helper_8py" kind="file"><name>helper.py</name>
   </compound>
-  <compound refid="dir_45b9293d3daaa82c00b5908f14ebb805" kind="dir"><name>_build</name>
+  <compound refid="dir_fb31ffd3aada385fecc3e0ea29bf1f94" kind="dir"><name>_build</name>
   </compound>
-  <compound refid="dir_02bdb4005edb5055ba0ef39c3e2b4a3d" kind="dir"><name>_build/html/_sources</name>
+  <compound refid="dir_aedb5a8621525d257e0d6bc2c6cffdd3" kind="dir"><name>_build/html/_sources</name>
   </compound>
-  <compound refid="dir_b8981f60259a49b285e45fd7108a5230" kind="dir"><name>utilities/exprolab_1</name>
+  <compound refid="dir_b8981f60259a49b285e45fd7108a5230" kind="dir"><name>/root/ros_ws/src/exprolab_1/utilities/exprolab_1</name>
   </compound>
-  <compound refid="dir_63358181ce567149a79d24bdd45b3e93" kind="dir"><name>_build/html</name>
+  <compound refid="dir_b4b8df43773714cebda7b4472c5732d1" kind="dir"><name>_build/html</name>
   </compound>
-  <compound refid="dir_53e6fa9553ac22a5646d2a2b2d7b97a1" kind="dir"><name>scripts</name>
+  <compound refid="dir_53e6fa9553ac22a5646d2a2b2d7b97a1" kind="dir"><name>/root/ros_ws/src/exprolab_1/scripts</name>
   </compound>
-  <compound refid="dir_df38b2a5d584e0f6066b4518b95c638b" kind="dir"><name>utilities</name>
+  <compound refid="dir_df38b2a5d584e0f6066b4518b95c638b" kind="dir"><name>/root/ros_ws/src/exprolab_1/utilities</name>
   </compound>
 </doxygenindex>
