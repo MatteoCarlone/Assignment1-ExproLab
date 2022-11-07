@@ -24,6 +24,8 @@ composed by a movement to the DOC-Station (Starting Room) and the actual recharg
 
 """
 
+#---Libraries---#
+
 import roslib
 import rospy
 import smach
@@ -32,9 +34,11 @@ import time
 import string
 
 from exprolab_1.helper import InterfaceHelper
-
 from exprolab_1 import environment as env
 
+#--------------#
+ 
+#global variable describing the battery state
 low = False
 
 class Initial(smach.State):
@@ -58,37 +62,47 @@ class Initial(smach.State):
 
     def __init__(self,interfacehelper):
 
+        # State Initialization
         smach.State.__init__(self, 
                              outcomes=['start'],
                              input_keys=['initial_counter_in'],
                              output_keys=['initial_counter_out'])
 
+        # InterfaceHelper Object declaration
         self._helper = interfacehelper
 
     def execute(self, userdata):
 
+        """
+        Initial State execution function, called by the smach state machine
+
+        """
+
+        # /start service client request
         self._helper.start_client() 
 
+        # looping until transition
         while not rospy.is_shutdown():
 
             # acquire mutex
-
             self._helper.mutex.acquire()
 
             try:
 
-    			# look for transition flags
+    			# look for transition flags:
 
+                # transition to reasoning state
                 if self._helper.should_reasoning_start():
 
+                    # resetting states when transition occur
                     self._helper.reset_states()
 
+                    # returning the transition associated with checked flag
                     return 'start'
 
             finally:
 
     			# release mutex
-
                 self._helper.mutex.release()
 
             rospy.sleep(0.3)
@@ -120,44 +134,60 @@ class Reasoning(smach.State):
 
     def __init__(self,interfacehelper):
         
+        # State Initialization
         smach.State.__init__(self, 
                              outcomes=['start','reasoned','battery_low'],
                              input_keys=['reasoning_counter_in'],
                              output_keys=['reasoning_counter_out'])
 
+        # InterfaceHelper Object declaration
         self._helper = interfacehelper
 
     def execute(self, userdata):
+        """
+        Reasoning State execution function, called by the smach state machine.
 
+        """
+        # recall the low global variable
+        global low
+
+        # /reason service client request
         self._helper.reason_client()
 
+        # looping until transition
         while not rospy.is_shutdown():
 
             # acquire mutex
-
             self._helper.mutex.acquire()
 
             try:
 
-                # look for transition flags
+                # look for transition flags:
+
+                # transition to recharge sub-state machine
                 if self._helper.is_battery_low():
 
+                    # resetting states when transition occur
                     self._helper.reset_states()
 
+                    # change global battery state 
                     low = True
 
+                    # returning the transition associated with checked flag
                     return 'battery_low'
 
+                # transition to moving sub-state machine
                 if self._helper.should_pointing_start():
 
+                    # resetting states when transition occur
                     self._helper.reset_states()
 
+                    # returning the transition associated with checked flag
                     return 'reasoned'
 
             finally:
 
                 # release mutex
-
                 self._helper.mutex.release()
 
             rospy.sleep(0.3)
@@ -186,49 +216,64 @@ class Pointing(smach.State):
 
     def __init__(self,interfacehelper):
         
+        # State Initialization
         smach.State.__init__(self, 
                              outcomes=['pointed','battery_low'],
                              input_keys=['pointing_counter_in'],
                              output_keys=['pointing_counter_out'])
 
+        # InterfaceHelper Object declaration
         self._helper = interfacehelper
 
     def execute(self, userdata):
+        """
+        Pointing State execution function, called by the smach state machine.
 
+        """
+        # recall the low global variable
         global low
 
+        # motion/planner action client request, low variable is passed to force the robot 
+        # to the DOC location
         self._helper.send_planner_goal(low)
 
+        # looping until transition
         while not rospy.is_shutdown():
 
             # acquire mutex
-
             self._helper.mutex.acquire()
 
             try:
 
-                # look for transition flags
+                # look for transition flags:
 
+                # transition to recharge sub-state machine
                 if self._helper.is_battery_low():
 
+                    # resetting states when transition occur
                     self._helper.reset_states()
 
+                    # canceling the goal, the transition may arrive while the action is on going 
                     self._helper.planner_client.cancel_goals()
 
+                    # change global battery state 
                     low = True
 
+                    # returning the transition associated with the checked flag
                     return 'battery_low'
 
+                # transition to the controlling state inside the moving sub state machine 
                 if self._helper.planner_client.is_done():
 
+                    # resetting states when transition occur
                     self._helper.reset_states()
 
+                    # returning the transition associated with the checked flag
                     return 'pointed'
 
             finally:
 
                 # release mutex
-
                 self._helper.mutex.release()
 
             rospy.sleep(0.3)
@@ -259,48 +304,63 @@ class Controlling(smach.State):
 
     def __init__(self,interfacehelper):
         
+        # State Initialization
         smach.State.__init__(self, 
                              outcomes=['reached','battery_low'],
                              input_keys=['controlling_counter_in'],
                              output_keys=['controlling_counter_out'])
 
+        # InterfaceHelper Object declaration
         self._helper = interfacehelper
 
     def execute(self, userdata):
+        """
+        Controlling State execution function, called by the smach state machine 
 
+        """
+        # recall the low global variable
         global low
 
+        # motion/controller action client request
         self._helper.send_controller_goal()
 
+        # looping until transition 
         while not rospy.is_shutdown():
 
             # acquire mutex
-
             self._helper.mutex.acquire()
 
             try:
 
-                # look for transition flags
+                # look for transition flags:
+
+                # transition to recharge sub-state machine
                 if self._helper.is_battery_low():
 
+                    # resetting states when transition occur 
                     self._helper.reset_states()
 
+                    # canceling the goal, the transition mt arrive while the action in on going 
                     self._helper.controller_client.cancel_goals()
 
+                    # change global battery state 
                     low = True
 
+                    # returning the transition associated with checked flag 
                     return 'battery_low'
 
-                if self._helper.controller_client.is_done():
+                # transition that ends the moving sub-state machine 
+                if self._helper.controller_client.is_done():    
 
+                    # resetting states when transition occur
                     self._helper.reset_states()
 
+                    # returning the transition associated with the checked flag 
                     return 'reached'
 
             finally:
 
                 # release mutex
-
                 self._helper.mutex.release()
 
             rospy.sleep(0.3)
@@ -330,32 +390,43 @@ class Recharge(smach.State):
 
     def __init__(self,interfacehelper):
 
+        # State Initialization
         smach.State.__init__(self, 
                              outcomes=['battery_full','not_at_dock'],
                              input_keys=['recharge_counter_in'],
                              output_keys=['recharge_counter_out'])
 
+        # Interface Object declaration
         self._helper = interfacehelper
 
-    def execute(self, userdata):
+    def execute(self, userdata):    
+        """
+        Recharging State execution function, called by the smach state machine 
+        """
 
+        # recall the low global variable        
         global low
 
+        # reasoning on the ontology
         self._helper.reason()
 
+        # getting the actual robot's location 
         isin = self._helper.client.query.objectprop_b2_ind('isIn','Robot1')
-
         isin = self._helper.list_formatter(isin,'#','>')
 
+        # check weather the robot is not in the starting location
         if env.START_LOC not in isin:
 
             print('\nROBOT in: ',isin)
             print('Not in START LOCATION, Cannot DOC\n')
 
+            # retunrning transition to the moving sub-state machine nested in the recharge sub-state machine
             return 'not_at_dock'
 
+        # /recharge service client request
         self._helper.recharge_client()
 
+        # looping until transition
         while not rospy.is_shutdown():
 
             # acquire mutex
@@ -363,18 +434,23 @@ class Recharge(smach.State):
 
             try:
 
+                # look for transition flags:
+
+                # transition that ends the recharge sub-state machine 
                 if self._helper.is_battery_full():
 
-                    low = False
-
+                    # resetting states when transition occur 
                     self._helper.reset_states()
 
+                    # change global battery state
+                    low = False
+
+                    # returning the transition associated with the checked flag
                     return 'battery_full'
 
             finally:
 
                 # release mutex
-
                 self._helper.mutex.release()
 
             rospy.sleep(0.3)
@@ -382,15 +458,19 @@ class Recharge(smach.State):
 
 def main():
 
+    # Initialize ros-node
     rospy.init_node(env.NODE_FSM)
 
+    # InterfaceHelper Object Initialization
     interfacehelper = InterfaceHelper()
 
 	# Create a SMACH state machine
     sm_top = smach.StateMachine(outcomes=['fsm'])
     sm_top.userdata.sm_counter = 0
 
+    # ------ Main State Machine ------ #
     with sm_top:
+
 
         smach.StateMachine.add('INITIAL', Initial(interfacehelper), 
                                transitions={'start':'REASONING'},
@@ -404,8 +484,11 @@ def main():
                                remapping={'reasoning_counter_in':'sm_counter', 
                                           'reasoning_counter_out':'sm_counter'})
 
+        # Create moving sub-state machine
         sm_sub = smach.StateMachine(outcomes=['exit','low'])
         sm_sub.userdata.sm_counter = 0
+
+        # ------ Moving Sub-State Machine ------ #
 
         with sm_sub:
     
@@ -423,6 +506,8 @@ def main():
     					    	   remapping={'controlling_counter_in':'sm_counter', 
     					    				  'controlling_counter_out':'sm_counter'})
 
+        # --------------------------------------- #
+
         smach.StateMachine.add('MOVING', sm_sub, 
                                transitions={'exit':'REASONING',
                                             'low':'RECHARGE'},
@@ -430,9 +515,11 @@ def main():
                                remapping={'moving_counter_in':'sm_counter', 
                                           'moving_counter_out':'sm_counter'})   
 
-
+        # Create recharge sub-state machine 
         sm_recharge = smach.StateMachine(outcomes=['full'])
         sm_recharge.userdata.sm_counter = 0
+
+        # ------ Recharge Sub-State Machine ------ #
 
         with sm_recharge:
 
@@ -448,7 +535,9 @@ def main():
                                                 'low':'MOVE_TO_DOCK'},
 
                                    remapping={'moving_counter_in':'sm_counter', 
-                                              'moving_counter_out':'sm_counter'}) 
+                                              'moving_counter_out':'sm_counter'})
+
+        # --------------------------------------- # 
 
         smach.StateMachine.add('RECHARGE', sm_recharge, 
                                transitions={'full':'REASONING'},
@@ -456,7 +545,7 @@ def main():
                                remapping={'recharge_counter_in':'sm_counter', 
                                           'recharge_counter_out':'sm_counter'})
 
-
+    # --------------------------------------- #
     
     # Create and start the introspection server for visualization
     sis = smach_ros.IntrospectionServer('server_name', sm_top, '/SM_ROOT')

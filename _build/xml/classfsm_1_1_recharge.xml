@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="338" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="338" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="400" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="400" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -38,7 +38,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="331" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="331" bodyend="339"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="391" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="391" bodyend="401"/>
       </memberdef>
       <memberdef kind="function" id="classfsm_1_1_recharge_1aaae4c09ec7006e09c916462a32194293" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -56,10 +56,12 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para><verbatim>Recharging State execution function, called by the smach state machine 
+</verbatim> </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="340" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="340" bodyend="382"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="402" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="402" bodyend="458"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -105,7 +107,7 @@ not_at_dock:(str)
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="308" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="308" bodyend="383"/>
+    <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="368" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="368" bodyend="459"/>
     <listofallmembers>
       <member refid="classfsm_1_1_recharge_1a240191d249ae21d43fb167dcbd027ebe" prot="public" virt="non-virtual"><scope>fsm::Recharge</scope><name>__init__</name></member>
       <member refid="classfsm_1_1_recharge_1ab9305f1dec12c83023aa09f888920836" prot="private" virt="non-virtual"><scope>fsm::Recharge</scope><name>_helper</name></member>

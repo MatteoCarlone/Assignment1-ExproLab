@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="66" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="66" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="72" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="72" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -38,7 +38,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="59" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="59" bodyend="67"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="63" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="63" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="classfsm_1_1_initial_1aec4060b8d109062ad82b2b2da9d641d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -56,10 +56,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para><verbatim>Initial State execution function, called by the smach state machine</verbatim> </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="68" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="68" bodyend="96"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="74" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="74" bodyend="110"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -100,7 +101,7 @@ start:(str)
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="40" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="40" bodyend="97"/>
+    <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="44" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="44" bodyend="111"/>
     <listofallmembers>
       <member refid="classfsm_1_1_initial_1a89763e23bf7bcc9c85d9678017d64ae0" prot="public" virt="non-virtual"><scope>fsm::Initial</scope><name>__init__</name></member>
       <member refid="classfsm_1_1_initial_1a15d23698a69743e63fe7527b613e62d3" prot="private" virt="non-virtual"><scope>fsm::Initial</scope><name>_helper</name></member>

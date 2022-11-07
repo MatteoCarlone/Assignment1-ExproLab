@@ -21,6 +21,7 @@ It firt retrive the position of the robot and the room it can reach, then it com
 but if there's one or more URGENT rooms it will point randomly one of them.
 
 """
+#---Libraries---#
 
 import rospy
 import roslib
@@ -30,14 +31,11 @@ import random
 import re
 
 from exprolab_1 import environment as env
-
 from armor_api.armor_client import ArmorClient
-
 from exprolab_1.srv import Reason , ReasonResponse
-
 from exprolab_1.helper import InterfaceHelper
 
-import re
+#--------------#
 
 class Reasoner:
 
@@ -98,35 +96,51 @@ class Reasoner:
 
       print('\n###############\nREASONING EXECUTION')
 
+      # reason on the ontology
       self._helper.reason()
 
+      # get the current robot location
       isin = self.client.query.objectprop_b2_ind('isIn','Robot1')
+      # get the current robot time instant   
       now = self.client.query.dataprop_b2_ind('now','Robot1')
 
       print('Robot isIn: '+ re.search('#(.+?)>',isin[0]).group(1) + ' at time: ' + re.search('"(.+?)"',str(now)).group(1))
 
+      # get the robot's reachable rooms
       can_reach = self.client.query.objectprop_b2_ind('canReach','Robot1')
+      # get the list of current urgent rooms
       urgent_list = self.client.query.ind_b2_class('URGENT')
+      # get the list of Corridors
       corridors = self.client.query.ind_b2_class('CORRIDOR')
 
+      # format informations
       self.reachable_list = self._helper.list_formatter(can_reach,'#','>')
       self.urgent_list = self._helper.list_formatter(urgent_list,'#','>')
       self.corridors = self._helper.list_formatter(corridors,'#','>')
 
       print('Robot canReach Rooms: ',self.reachable_list)
 
+      # compute the next room to go according with the protocol
       room_to_go = self._next_room()
 
+      # get the last time instant in which thw robot has seen the targeted room
       visited_at = self.client.query.dataprop_b2_ind('visitedAt',room_to_go)
+      # format information
       visited_at = re.search('"(.+?)"',str(visited_at)).group(1)
 
       print('Next Room: '+ room_to_go + ' lastly visited at time: ' + str(visited_at))
 
+      # erase the list of reachable rooms
       self.reachable_list = []
 
+      # returning the target room
       return ReasonResponse(room_to_go)
 
    def _next_room(self):
+
+      # Implementation of the protocol giving priority to urgent rooms, 
+      #if there's no urgent the highest prio goes to corridors.
+      # I do random choice if more than one room satisfies the protocol.
 
       RU_room = [i for i in self.reachable_list if i in self.urgent_list]
       
@@ -144,13 +158,15 @@ class Reasoner:
         
          to_point = random.choice(RU_room)
 
+      # returning the target room
       return to_point
 
 
 def main():
 
-   # Initialise the node  
+   # Initialize the ROS-Node  
    rospy.init_node(env.NODE_REASONER, log_level=rospy.INFO)
+   # Instantiate the node manager class and wait.
    Reasoner()
    rospy.spin()
 

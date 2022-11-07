@@ -24,6 +24,8 @@ battery while moving in the environment.
 
 """
 
+#---Libraries---#
+
 import sys
 import roslib
 import rospy
@@ -31,13 +33,11 @@ import threading
 import random
 
 from std_msgs.msg import Bool
-
 from exprolab_1.helper import InterfaceHelper
-
 from std_srvs.srv import Empty , EmptyResponse
-
 from exprolab_1 import environment as env
 
+#--------------#
 
 class Battery(object):
 
@@ -109,10 +109,11 @@ class Battery(object):
 
         print('\n###############\nRECHARGE EXECUTION')
 
+        # get robot current position from ontology
         isin = self._helper.client.query.objectprop_b2_ind('isIn','Robot1')
-
         isin = self._helper.list_formatter(isin,'#','>')
 
+        # prtint to see that the robot docked for recharge in the starting room
         print('The robot docked for recharge in: ' + isin[0] + '\n')
 
         # A List of Items
@@ -122,6 +123,7 @@ class Battery(object):
         # Initial call to print 0% progress
         self._printProgressBar(0, l, prefix = 'Progress:', suffix = 'Complete', length = 30)
 
+        # animate the progress bar
         for i, item in enumerate(items):
 
         	rospy.sleep(0.1)
@@ -129,13 +131,13 @@ class Battery(object):
 
         print('BATTERY FULL')
 
+        # return an empty response to notify the completed recharge
         return EmptyResponse()
 
 
     def _random_notifier(self):
 
-    	delay = 0
-
+    	# ROS message publisher on the topic /battery_low 
     	publisher = rospy.Publisher(env.TOPIC_BATTERY_LOW, Bool, queue_size=1, latch=True)
 
     	while not rospy.is_shutdown():
@@ -148,7 +150,6 @@ class Battery(object):
     	    # Publish battery level.
     	    publisher.publish(Bool(self._battery_low))
 
-    # Print iterations progress
     def _printProgressBar (self,iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '¦', printEnd = "\r"):
 
         percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
@@ -162,7 +163,9 @@ class Battery(object):
 
 if __name__ == '__main__':
 
+	# Initialize the ROS-Node
 	rospy.init_node(env.NODE_BATTERY, log_level=rospy.INFO)
+	# Instantiate the node manager class and wait.
 	Battery()
 	rospy.spin()
 

@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="194" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="194" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="226" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="226" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -38,7 +38,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="187" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="187" bodyend="195"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="217" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="217" bodyend="227"/>
       </memberdef>
       <memberdef kind="function" id="classfsm_1_1_pointing_1a578c724514b034fcffa5807062677bdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -56,10 +56,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para><verbatim>Pointing State execution function, called by the smach state machine.</verbatim> </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="196" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="196" bodyend="235"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="228" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="228" bodyend="280"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -103,7 +104,7 @@ battery_low:(str)
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="166" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="166" bodyend="236"/>
+    <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="196" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="196" bodyend="281"/>
     <listofallmembers>
       <member refid="classfsm_1_1_pointing_1aedd610a82f1860e79846dba8d48ffc1e" prot="public" virt="non-virtual"><scope>fsm::Pointing</scope><name>__init__</name></member>
       <member refid="classfsm_1_1_pointing_1a27ff763dfa798a6318b50d3e4fa95270" prot="private" virt="non-virtual"><scope>fsm::Pointing</scope><name>_helper</name></member>

@@ -20,6 +20,7 @@ Once reached the final destination the current time and location associated with
 for the URGENT property estimation.
 
 """
+#---Libraries---#
 
 import rospy
 from actionlib import SimpleActionServer
@@ -28,6 +29,8 @@ from armor_api.armor_client import ArmorClient
 from exprolab_1 import environment as env
 import re
 import time 
+
+#--------------#
 
 class ControllingAction(object):
 
@@ -83,8 +86,10 @@ class ControllingAction(object):
             self._as.set_aborted()
             return
 
+        # Initialise the `feedback`
         feedback = ControlFeedback()
 
+        # loop to simulate robot moving in time 
         for point in goal.point_set:
             # Check that the client did not cancel this service.
             if self._as.is_preempt_requested():
@@ -95,40 +100,51 @@ class ControllingAction(object):
 
             print('  ['+ str("%.2f"%point.x) +','+ str("%.2f"%point.y)+']', end = '\r')
 
+            # update feedback
             feedback.reached_point = point
             self._as.publish_feedback(feedback)
-            # Set the new current position into the `robot-state` node.
 
             rospy.sleep(0.5)
 
+        # Publish the results to the client.
         result = ControlResult()
         result.reached_point = feedback.reached_point
         self._as.set_succeeded(result)
 
+        # map coordinates into locations
         starting_room = env.Map_C[str(goal.point_set[0].x) + ',' + str(goal.point_set[0].y)]
         reached_room = env.Map_C[str(result.reached_point.x) + ',' + str(result.reached_point.y)]
+
+        # replace current robot location
         self.client.call('REPLACE', 'OBJECTPROP', 'IND', ['isIn', 'Robot1', reached_room, starting_room])
 
+        # get current time instant 
         curr_time = int(time.time())
 
+        # get time instant asscociated with the robot
         now = self.client.query.dataprop_b2_ind('now','Robot1')
+        # format information
         now = re.search('"(.+?)"',str(now)).group(1)
 
+        # replace robot time intant with the current one 
         self.client.call('REPLACE','DATAPROP','IND',['now', 'Robot1', 'Long' , str(curr_time)  , str(now) ])
 
+        # get last time instant the robot visited the reached room
         visited_at = self.client.query.dataprop_b2_ind('visitedAt',reached_room)
+        # format information
         visited_at = re.search('"(.+?)"',str(visited_at)).group(1)
 
+        # replace the time instant the robot visited the reached room with the current one
         self.client.call('REPLACE','DATAPROP','IND',['visitedAt', reached_room, 'Long' , str(curr_time)  , str(visited_at) ])
 
         print('Reached Room: '+reached_room+ ' Coordinate: '+str(result.reached_point.x) + ' , ' + str(result.reached_point.y))
         print('Started from Room: '+ starting_room +' Coordinate: ' + str(goal.point_set[0].x) + ' , ' + str(goal.point_set[0].y))
-
 
         return  # Succeeded.
 
 if __name__ == '__main__':
     # Initialise the node, its action server, and wait.   
     rospy.init_node(env.NODE_CONTROLLER, log_level=rospy.INFO)
+    # Instantiate the node manager class and wait.
     server = ControllingAction()
     rospy.spin()

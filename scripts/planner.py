@@ -18,6 +18,7 @@ This Node implement the planning action of creating a set of via points between 
 Those via points will be then passed to the Controlling node to perform the actual movement.
 
 """
+#---Libraries---#
 
 import rospy
 from actionlib import SimpleActionServer
@@ -26,6 +27,8 @@ from armor_api.armor_client import ArmorClient
 from exprolab_1 import environment as env
 import numpy as np
 import re
+
+#--------------#
 
 class PlaningAction(object):
 
@@ -76,21 +79,22 @@ class PlaningAction(object):
 
         print('\n###############\nPLANNING EXECUTION')
 
-        # starting point, could be IsIn from Reasoner Node, _get_pose_client to be implemented
-
+        # get the current robot location
         start_room = self.client.query.objectprop_b2_ind('isIn','Robot1')
-
+        # format information
         start_room = re.search('#(.+?)>',start_room[0]).group(1)
 
+        # mapping start_room location into coordinates
         start_point = env.Map_R[start_room]
 
-    	# goal point
+    	# mapping the target location into coordinates
         target_point = env.Map_R[goal.target]
 
         log_msg = (f'Starting-Room [{start_point[0]}, {start_point[1]}] , Target-Room [{target_point[0]}, '
                        f'{target_point[1]}] ')
         print(log_msg)
 
+        # check if locations are None
         if start_point is None or target_point is None:
 
             log_msg = 'Cannot have `None` start point nor target_point. This service will be aborted!.'
@@ -99,7 +103,7 @@ class PlaningAction(object):
             self._as.set_aborted()
             return
 
-        # _is_valid function to be implemented
+        # check if locations' coordinates are in the environment limit
         if not(self._is_valid(start_point) and self._is_valid(target_point)):
             log_msg = (f'Start point ({start_point[0]}, {start_point[1]}) or target point ({target_point[0]}, '
                        f'{target_point[1]}) point out of the environment. This service will be aborted!.')
@@ -115,13 +119,16 @@ class PlaningAction(object):
         # number of via points
         n_points = 10
 
+        # generate a set of n equally spaced via points
         points_x = np.linspace(start_point[0],target_point[0],num = n_points)
         points_y = np.linspace(start_point[1],target_point[1],num = n_points)
 
+        # format information
         points = [[a , b] for a, b in zip(points_x, points_y)]
 
         print('GENERATING VIA POINTS...')
 
+        # loop to simulated time in generating via points
         for i in range(n_points):
 
             if self._as.is_preempt_requested():
@@ -130,14 +137,16 @@ class PlaningAction(object):
                 self._as.set_preempted()  
                 return
 
+            # create a Point struct with current location's coordinates
             new_point = Point()
             new_point.x = points[i][0]
             new_point.y = points[i][1]
 
             print('[' + str("%.2f"% new_point.x)+','+str("%.2f"% new_point.y)+']')
 
+            # update feedback
             feedback.via_points.append(new_point)
-
+            # publish feedback
             self._as.publish_feedback(feedback)
 
             rospy.sleep(0.1)
@@ -151,6 +160,7 @@ class PlaningAction(object):
 
     def _is_valid(self, point):
         
+        # return bool variable, true coordinates are in the env limits, false viceversa
         return self._environment_size[0] <= point[0] <= self._environment_size[1] and self._environment_size[2] <= point[1] <= self._environment_size[3]
 
 
@@ -158,5 +168,6 @@ if __name__ == '__main__':
 
     # Initialise the node, its action server, and wait.    
     rospy.init_node(env.NODE_PLANNER, log_level=rospy.INFO)
+    # Instantiate the node manager class and wait.
     server = PlaningAction()
     rospy.spin()

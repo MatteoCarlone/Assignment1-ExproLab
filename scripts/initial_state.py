@@ -16,6 +16,8 @@ This Node start the whole program by initializing and loading the topology.
 
 """
 
+#---Libraries---#
+
 import sys
 import roslib
 import rospy
@@ -27,6 +29,8 @@ from std_srvs.srv import Empty , EmptyResponse
 from armor_api.armor_client import ArmorClient
 
 from exprolab_1 import environment as env
+
+#--------------#
 
 class InitialState:
 
@@ -66,7 +70,7 @@ class InitialState:
         # armor - client
         self.client = ArmorClient("armor_client", "reference")
 
-        # absolut ontology path
+        # absolute ontology path
         self.path = dirname(realpath(__file__))
         self.path = self.path + "/../topology/"
 
@@ -77,12 +81,13 @@ class InitialState:
 
         print('\n###############\nTOPOLOGY LOADING EXECUTION')
         
+        # get the current time instant 
         curr_time = int(time.time())
 
-        # load ontology from the absolut path 
+        # load ontology from the absolute path 
         self.client.utils.load_ref_from_file(self.path + "topological_map.owl", "http://bnc/exp-rob-lab/2022-23",
                                             True, "PELLET", True, False)  
-                                            # initializing with buffered manipulation and reasoning
+                                            
         self.client.utils.mount_on_ref()
         self.client.utils.set_log_to_terminal(True)
 
@@ -111,26 +116,27 @@ class InitialState:
         # Robot starting room
         self.client.manipulation.add_objectprop_to_ind("isIn", 'Robot1', "E")
 
-        # Set all rooms visited at time zero
-        for r in env.Loc:
+        # Set all rooms visited at curr_time time instant
+        for room in env.Loc:
 
-            self.client.manipulation.add_dataprop_to_ind('visitedAt',r, 'Long', str(curr_time))
+            self.client.manipulation.add_dataprop_to_ind('visitedAt',room, 'Long', str(curr_time))
 
 
         # Disjoint for Individuals understanding
         self.client.call('DISJOINT','IND','',env.Loc)
 
-        # First Reason
+        # First Reasoning
         self.client.utils.apply_buffered_changes()
         self.client.utils.sync_buffered_reasoner()
 
         print('LOADING COMPLETED')
 
+        # returning an empty response to notify the completed load of the ontology
         return EmptyResponse()
 
 if __name__ == "__main__":
 
-    # Initialize the Node
+    # Initialize the ROS-Node
     rospy.init_node(env.NODE_INIT_STATE, log_level=rospy.INFO)
 
     # Instantiate the node manager class and wait.

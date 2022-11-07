@@ -16,6 +16,7 @@ This Module implements specific methods necessary for many program funcionalitie
 * Other generic functions used in more than one script
 
 """
+#---Libraries---#
 
 import rospy
 from actionlib import SimpleActionClient
@@ -31,6 +32,7 @@ from std_srvs.srv import Empty
 from exprolab_1.msg import PlanAction, PlanGoal, ControlAction, ControlGoal
 from exprolab_1.srv import Reason , ReasonRequest
 
+#--------------#
 
 class InterfaceHelper:
 
@@ -120,7 +122,6 @@ class InterfaceHelper:
 
 	def __init__(self):
 
-
 		self.mutex = Lock()
 		self.reset_states()
 
@@ -133,10 +134,15 @@ class InterfaceHelper:
 
 	def reset_states(self):
 
+		# flag to initial state
 		self._start = False
+		# flag to reasoning state
 		self._reason = False
+		# flag to pointing state
 		self._point = False
+		# flag to recharge state 
 		self._battery_low = False
+		# flag to end recharge state
 		self._battery_full = False
 
 	def start_client(self):
@@ -146,22 +152,29 @@ class InterfaceHelper:
 
 		try:
 
+			# /start service Empty request 
 			start_srv = rospy.ServiceProxy(env.SERVER_START, Empty)
 			resp = start_srv()
 
+			# acquire mutex
 			self.mutex.acquire()
 
 			try:
 
-				self.reset_states()
-				self._reason = True
+				if resp is not None:
+					# reset state
+					self.reset_states()
+					# change flag state
+					self._reason = True
 
 			finally:
 
+				# release mutex
 				self.mutex.release()
 
 		except rospy.ServiceException as e:
 
+			# reset state
 			self.reset_states()
 			rospy.logerr("Exception occurred: %s", str(e))
 
@@ -172,25 +185,28 @@ class InterfaceHelper:
 
 		try:
 
+			# /reason service request 
 			reason_srv = rospy.ServiceProxy(env.SERVER_REASON, Reason)
 			result = reason_srv()
-
+			# acquire mutex
 			self.mutex.acquire()
 
 			try:
 
 				if result is not None:
-
+					# reset states
 					self.reset_states()
+					# change flag state
 					self._point = True
+					# store the target room as a result of the reason server
 					self.to_point = result.point 
 
 			finally:
-
+				# release mutex
 				self.mutex.release()
 
 		except rospy.ServiceException as e:
-
+			# reset states
 			self.reset_states()
 			rospy.logerr("Exception occurred: %s", str(e))
 
@@ -200,17 +216,20 @@ class InterfaceHelper:
 		rospy.wait_for_service(env.SERVER_RECHARGE)
 
 		try:
-
+			# /recharge service request 
 			recharge_srv = rospy.ServiceProxy(env.SERVER_RECHARGE, Empty)
 			result = recharge_srv()
 
+			# acquire mutex
 			self.mutex.acquire()
 
 			try:
 
 				if result is not None:
 
+					# reset states
 					self.reset_states()
+					# change flag state 
 					self._battery_full = True
 
 			finally:
@@ -219,33 +238,44 @@ class InterfaceHelper:
 
 		except rospy.ServiceException as e:
 
+			# reset states 
 			self.reset_states()
 			rospy.logerr("Exception occurred: %s", str(e))
 
 
 	def _battery_cb(self,battery_value):
 
+		# store battery state from /battery_low topic message
 		self._battery_low = battery_value.data
 
 
 	def send_planner_goal(self,low):
 
+		# ontology reasoning
 		self.reason()
 
+		# get the list of rooms that the robot can reach
 		can_reach = self.client.query.objectprop_b2_ind('canReach','Robot1')
+		# format information
 		can_reach = self.list_formatter(can_reach,'#','>')
 
+		# check if the battery state is low and 
+		# the robot can reach the DOC-location
 		if low and env.START_LOC in can_reach:
 
+			# forcing the next room to the DOC-location
 			self.to_point = env.START_LOC
 			
+			# Sending the action goal (room to go) to the action server 
 			goal = PlanGoal(target= self.to_point)
 			self.planner_client.send_goal(goal)
 
 		else:
 
+			# check if the reasoner has set a target room
 			if self.to_point is not None:
 
+				# Sending the action goal (room to go) to the action server 
 				goal = PlanGoal(target= self.to_point)
 				self.planner_client.send_goal(goal)
 
@@ -255,16 +285,21 @@ class InterfaceHelper:
 
 	def send_controller_goal(self):
 
+		# retriving the set via points as a result of the planner action client request
 		path = self.planner_client.get_results()
 
+		# check if the via points has been set correctly
 		if path.via_points is not None:
 
+			# Sending the action goal (via points) to the action server 
 			goal = ControlGoal(point_set = path.via_points)
 			self.controller_client.send_goal(goal)
 
 		else:
 			print('ControlGoal Error')
 
+
+	#--- Return Flag Methods ---#
 
 	def is_battery_full(self):
 
@@ -282,16 +317,20 @@ class InterfaceHelper:
 
 		return self._point
 
+	# ------------------------ #
 
 	def reason(self):
 
+		# Ontology Reasoning
 		self.client.utils.apply_buffered_changes()
 		self.client.utils.sync_buffered_reasoner()
 
 	def list_formatter(self,raw_list,start,end):
 
+		# retrive the information by formatting the strings returned by armor
 		formatted_list = [re.search(start+'(.+?)'+end,string).group(1) for string in raw_list]
 
+		# return a list of formatted information
 		return formatted_list
 
 

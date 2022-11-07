@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="267" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="267" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="314" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="314" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -38,7 +38,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="260" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="260" bodyend="268"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="305" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="305" bodyend="315"/>
       </memberdef>
       <memberdef kind="function" id="classfsm_1_1_controlling_1ab5d24a17fcbd702f97df0b2f33c015de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -56,10 +56,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para><verbatim>Controlling State execution function, called by the smach state machine </verbatim> </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="269" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="269" bodyend="307"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="316" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="316" bodyend="367"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -106,7 +107,7 @@ battery_low:(str)
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="236" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="236" bodyend="308"/>
+    <location file="/root/ros_ws/src/exprolab_1/scripts/fsm.py" line="281" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/fsm.py" bodystart="281" bodyend="368"/>
     <listofallmembers>
       <member refid="classfsm_1_1_controlling_1a5eec286d06cc47e34bc9b2b3aadc93d0" prot="public" virt="non-virtual"><scope>fsm::Controlling</scope><name>__init__</name></member>
       <member refid="classfsm_1_1_controlling_1a990a8fb7ae50cae28a0394b45cc87709" prot="private" virt="non-virtual"><scope>fsm::Controlling</scope><name>_helper</name></member>
