@@ -114,56 +114,108 @@ It follows the details of each software component implemented in this repository
 
 ### The `F.S.M` Node, its Message and Parameters.
 
+<p align="center">
+
 <img
 	src="/img/FSM.png"
 	title="Environment img"
-	width="75%" height="75%">
+	width="300">
+    
+</p>
+
+This Node implement a SMACH Finite-State-Machine that guide all the surveillance routine. 
+The communication with other nodes is managed using ros-services and ros-actions, the actual structure of the service and action client is implemented in the script helper.py in the utilities folder. 
+two sub state machines are implemented to respectively exploit the motion and the robot's batttery recharge:
+
+* Moving Sub-State-Machine: 
+It represent the motion routine composed by a pianification of th path to follow from one room to another and a robot controllier state in which the robot actualy achieve the target room. 
+
+* Recharge Sub-State-Machine: 
+It represent the recharge routine composed by a movement to the DOC-Station (Starting Room) which is actualy another instance of the aformentioned Moving Sub-State-Machine and the recharging of the robot's battery.
+
+*SMACH FSM Representation*
+
+<p align="center">
+
+<img
+	src="/img/Smach_FSM.png"
+	title="Environment img"
+	width="300">
+    
+</p>
+
+
+`caption` :
+	
+	- Auto generated representation of the SMACH state machine comprehensive of the sub-state-machines.
 
 ------
 
 ### The `Initial State` Node, its Message and Parameters.
 
+<p align="center">
+
 <img
 	src="/img/Initial_State.png"
 	title="Environment img"
-	width="75%" height="75%">
+	width="300">
+
+</p>
+
+
 
 ------
 
 ### The `Reasoner` Node, its Message and Parameters.
 
+<p align="center">
+
 <img
 	src="/img/Reasoner.png"
 	title="Environment img"
-	width="75%" height="75%">
+	width="300">
+
+</p>
 
 ------
 
 ### The `Planner` Node, its Message and Parameters.
 
+<p align="center">
+
 <img
 	src="/img/Planner.png"
 	title="Environment img"
-	width="75%" height="75%">
+	width="300">
+
+</p>
 
 ------
 
 
 ### The `Controller` Node, its Message and Parameters.
 
+<p align="center">
+
 <img
 	src="/img/Controller.png"
 	title="Environment img"
-	width="75%" height="75%">
+	width="300">
+
+</p>
 
 ------
 
 ### The `Battery` Node, its Message and Parameters.
 
+<p align="center">
+
 <img
 	src="/img/Battery.png"
 	title="Environment img"
-	width="75%" height="75%">
+	width="300">
+
+</p>
 
 ------
 
