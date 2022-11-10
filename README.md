@@ -112,6 +112,61 @@ This repository contains a ROS package named `exprolab_1` that includes the foll
 
 It follows the details of each software component implemented in this repository, which is available in the scripts/ folder.
 
+### The `F.S.M` Node, its Message and Parameters.
+
+<img
+	src="/img/FSM.png"
+	title="Environment img"
+	width="75%" height="75%">
+
+------
+
+### The `Initial State` Node, its Message and Parameters.
+
+<img
+	src="/img/Initial_State.png"
+	title="Environment img"
+	width="75%" height="75%">
+
+------
+
+### The `Reasoner` Node, its Message and Parameters.
+
+<img
+	src="/img/Reasoner.png"
+	title="Environment img"
+	width="75%" height="75%">
+
+------
+
+### The `Planner` Node, its Message and Parameters.
+
+<img
+	src="/img/Planner.png"
+	title="Environment img"
+	width="75%" height="75%">
+
+------
+
+
+### The `Controller` Node, its Message and Parameters.
+
+<img
+	src="/img/Controller.png"
+	title="Environment img"
+	width="75%" height="75%">
+
+------
+
+### The `Battery` Node, its Message and Parameters.
+
+<img
+	src="/img/Battery.png"
+	title="Environment img"
+	width="75%" height="75%">
+
+------
+
 ## Launching the Sowtware
 
 
