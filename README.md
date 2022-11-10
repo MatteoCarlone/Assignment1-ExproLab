@@ -28,10 +28,12 @@ The robot behave as follows:
 
 *Image of the Environment*
 
+<p align="center">
 <img
 	src="/img/Env.png"
 	title="Environment img"
 	width="75%" height="75%">
+</p>
 
 `caption` :
 	
@@ -115,12 +117,10 @@ It follows the details of each software component implemented in this repository
 ### The `F.S.M` Node, its Message and Parameters.
 
 <p align="center">
-
 <img
 	src="/img/FSM.png"
 	title="Environment img"
-	width="300">
-    
+	width="600"> 
 </p>
 
 This Node implement a SMACH Finite-State-Machine that guide all the surveillance routine. 
@@ -136,12 +136,10 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 *SMACH FSM Representation*
 
 <p align="center">
-
 <img
 	src="/img/Smach_FSM.png"
 	title="Environment img"
-	width="300">
-    
+	width="600">  
 </p>
 
 
@@ -154,12 +152,10 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 ### The `Initial State` Node, its Message and Parameters.
 
 <p align="center">
-
 <img
 	src="/img/Initial_State.png"
 	title="Environment img"
-	width="300">
-
+	width="600">
 </p>
 
 
@@ -169,12 +165,10 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 ### The `Reasoner` Node, its Message and Parameters.
 
 <p align="center">
-
 <img
 	src="/img/Reasoner.png"
 	title="Environment img"
-	width="300">
-
+	width="600">
 </p>
 
 ------
@@ -182,12 +176,10 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 ### The `Planner` Node, its Message and Parameters.
 
 <p align="center">
-
 <img
 	src="/img/Planner.png"
 	title="Environment img"
-	width="300">
-
+	width="600">
 </p>
 
 ------
@@ -196,12 +188,10 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 ### The `Controller` Node, its Message and Parameters.
 
 <p align="center">
-
 <img
 	src="/img/Controller.png"
 	title="Environment img"
-	width="300">
-
+	width="600">
 </p>
 
 ------
@@ -209,12 +199,10 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 ### The `Battery` Node, its Message and Parameters.
 
 <p align="center">
-
 <img
 	src="/img/Battery.png"
 	title="Environment img"
-	width="300">
-
+	width="600">
 </p>
 
 ------
