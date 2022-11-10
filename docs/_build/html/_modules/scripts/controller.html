@@ -37,8 +37,18 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"></div>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts.html">Initial State Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts.html#module-scripts.fsm">FSM Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts.html#module-scripts.reasoner">Reasoner Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts.html#module-scripts.battery">Battery Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts.html#module-scripts.planner">Planner Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts.html#module-scripts.controller">Controller Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities.html">Environment Helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities.html#module-utilities.exprolab_1.helper">Interface Helper</a></li>
+</ul>
+
         </div>
       </div>
     </nav>
@@ -86,6 +96,7 @@
 <span class="sd">for the URGENT property estimation.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="c1">#---Libraries---#</span>
 
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">from</span> <span class="nn">actionlib</span> <span class="kn">import</span> <span class="n">SimpleActionServer</span>
@@ -95,7 +106,9 @@
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">time</span> 
 
-<div class="viewcode-block" id="ControllingAction"><a class="viewcode-back" href="../../index.html#scripts.controller.ControllingAction">[docs]</a><span class="k">class</span> <span class="nc">ControllingAction</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="c1">#--------------#</span>
+
+<div class="viewcode-block" id="ControllingAction"><a class="viewcode-back" href="../../scripts.html#scripts.controller.ControllingAction">[docs]</a><span class="k">class</span> <span class="nc">ControllingAction</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="sd">&quot;&quot;&quot;</span>
 
@@ -128,7 +141,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="ControllingAction.__init__"><a class="viewcode-back" href="../../index.html#scripts.controller.ControllingAction.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ControllingAction.__init__"><a class="viewcode-back" href="../../scripts.html#scripts.controller.ControllingAction.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">ArmorClient</span><span class="p">(</span><span class="s1">&#39;armor_client&#39;</span><span class="p">,</span> <span class="s1">&#39;reference&#39;</span><span class="p">)</span>
 
@@ -139,7 +152,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_as</span><span class="o">.</span><span class="n">start</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="ControllingAction.execute_callback"><a class="viewcode-back" href="../../index.html#scripts.controller.ControllingAction.execute_callback">[docs]</a>    <span class="k">def</span> <span class="nf">execute_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">goal</span><span class="p">):</span>
+<div class="viewcode-block" id="ControllingAction.execute_callback"><a class="viewcode-back" href="../../scripts.html#scripts.controller.ControllingAction.execute_callback">[docs]</a>    <span class="k">def</span> <span class="nf">execute_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">goal</span><span class="p">):</span>
     
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">###############</span><span class="se">\n</span><span class="s1">CONTROLLING EXECUTION&#39;</span><span class="p">)</span>
 
@@ -149,8 +162,10 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_as</span><span class="o">.</span><span class="n">set_aborted</span><span class="p">()</span>
             <span class="k">return</span>
 
+        <span class="c1"># Initialise the `feedback`</span>
         <span class="n">feedback</span> <span class="o">=</span> <span class="n">ControlFeedback</span><span class="p">()</span>
 
+        <span class="c1"># loop to simulate robot moving in time </span>
         <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">goal</span><span class="o">.</span><span class="n">point_set</span><span class="p">:</span>
             <span class="c1"># Check that the client did not cancel this service.</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_as</span><span class="o">.</span><span class="n">is_preempt_requested</span><span class="p">():</span>
@@ -161,41 +176,52 @@
 
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  [&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">point</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">point</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
 
+            <span class="c1"># update feedback</span>
             <span class="n">feedback</span><span class="o">.</span><span class="n">reached_point</span> <span class="o">=</span> <span class="n">point</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_as</span><span class="o">.</span><span class="n">publish_feedback</span><span class="p">(</span><span class="n">feedback</span><span class="p">)</span>
-            <span class="c1"># Set the new current position into the `robot-state` node.</span>
 
             <span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 
+        <span class="c1"># Publish the results to the client.</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">ControlResult</span><span class="p">()</span>
         <span class="n">result</span><span class="o">.</span><span class="n">reached_point</span> <span class="o">=</span> <span class="n">feedback</span><span class="o">.</span><span class="n">reached_point</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_as</span><span class="o">.</span><span class="n">set_succeeded</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
+        <span class="c1"># map coordinates into locations</span>
         <span class="n">starting_room</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">Map_C</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">goal</span><span class="o">.</span><span class="n">point_set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">goal</span><span class="o">.</span><span class="n">point_set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">)]</span>
         <span class="n">reached_room</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">Map_C</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">reached_point</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">reached_point</span><span class="o">.</span><span class="n">y</span><span class="p">)]</span>
+
+        <span class="c1"># replace current robot location</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;REPLACE&#39;</span><span class="p">,</span> <span class="s1">&#39;OBJECTPROP&#39;</span><span class="p">,</span> <span class="s1">&#39;IND&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;isIn&#39;</span><span class="p">,</span> <span class="s1">&#39;Robot1&#39;</span><span class="p">,</span> <span class="n">reached_room</span><span class="p">,</span> <span class="n">starting_room</span><span class="p">])</span>
 
+        <span class="c1"># get current time instant </span>
         <span class="n">curr_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
 
+        <span class="c1"># get time instant asscociated with the robot</span>
         <span class="n">now</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">dataprop_b2_ind</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">,</span><span class="s1">&#39;Robot1&#39;</span><span class="p">)</span>
+        <span class="c1"># format information</span>
         <span class="n">now</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;&quot;(.+?)&quot;&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="p">))</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
+        <span class="c1"># replace robot time intant with the current one </span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;REPLACE&#39;</span><span class="p">,</span><span class="s1">&#39;DATAPROP&#39;</span><span class="p">,</span><span class="s1">&#39;IND&#39;</span><span class="p">,[</span><span class="s1">&#39;now&#39;</span><span class="p">,</span> <span class="s1">&#39;Robot1&#39;</span><span class="p">,</span> <span class="s1">&#39;Long&#39;</span> <span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">curr_time</span><span class="p">)</span>  <span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="p">)</span> <span class="p">])</span>
 
+        <span class="c1"># get last time instant the robot visited the reached room</span>
         <span class="n">visited_at</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">dataprop_b2_ind</span><span class="p">(</span><span class="s1">&#39;visitedAt&#39;</span><span class="p">,</span><span class="n">reached_room</span><span class="p">)</span>
+        <span class="c1"># format information</span>
         <span class="n">visited_at</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;&quot;(.+?)&quot;&#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">visited_at</span><span class="p">))</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
+        <span class="c1"># replace the time instant the robot visited the reached room with the current one</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;REPLACE&#39;</span><span class="p">,</span><span class="s1">&#39;DATAPROP&#39;</span><span class="p">,</span><span class="s1">&#39;IND&#39;</span><span class="p">,[</span><span class="s1">&#39;visitedAt&#39;</span><span class="p">,</span> <span class="n">reached_room</span><span class="p">,</span> <span class="s1">&#39;Long&#39;</span> <span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">curr_time</span><span class="p">)</span>  <span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">visited_at</span><span class="p">)</span> <span class="p">])</span>
 
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Reached Room: &#39;</span><span class="o">+</span><span class="n">reached_room</span><span class="o">+</span> <span class="s1">&#39; Coordinate: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">reached_point</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; , &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">reached_point</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Started from Room: &#39;</span><span class="o">+</span> <span class="n">starting_room</span> <span class="o">+</span><span class="s1">&#39; Coordinate: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">goal</span><span class="o">.</span><span class="n">point_set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; , &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">goal</span><span class="o">.</span><span class="n">point_set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
-
 
         <span class="k">return</span>  <span class="c1"># Succeeded.</span></div></div>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="c1"># Initialise the node, its action server, and wait.   </span>
     <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">NODE_CONTROLLER</span><span class="p">,</span> <span class="n">log_level</span><span class="o">=</span><span class="n">rospy</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+    <span class="c1"># Instantiate the node manager class and wait.</span>
     <span class="n">server</span> <span class="o">=</span> <span class="n">ControllingAction</span><span class="p">()</span>
     <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
 </pre></div>
