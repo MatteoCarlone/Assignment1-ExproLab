@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Environment Helper &mdash; ExproLab Surveillance Robot 1.0 documentation</title>
+  <title>Utilities &mdash; ExproLab Surveillance Robot 1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Initial State Module" href="scripts.html" /> 
+    <link rel="prev" title="Scripts" href="scripts.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,33 +40,31 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="scripts.html">Initial State Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scripts.html#module-scripts.fsm">FSM Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scripts.html#module-scripts.reasoner">Reasoner Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scripts.html#module-scripts.battery">Battery Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scripts.html#module-scripts.planner">Planner Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scripts.html#module-scripts.controller">Controller Module</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Environment Helper</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#utilities.exprolab_1.environment.Map_C"><code class="docutils literal notranslate"><span class="pre">Map_C</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#utilities.exprolab_1.environment.RND_BATTERY_TIME"><code class="docutils literal notranslate"><span class="pre">RND_BATTERY_TIME</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripts.html">Scripts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-utilities.exprolab_1.environment">Environment Helper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.environment.Map_C"><code class="docutils literal notranslate"><span class="pre">Map_C</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.environment.RND_BATTERY_TIME"><code class="docutils literal notranslate"><span class="pre">RND_BATTERY_TIME</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#module-utilities.exprolab_1.helper">Interface Helper</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.__init__"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.reset_states"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.reset_states()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.start_client"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.start_client()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.reason_client"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.reason_client()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.recharge_client"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.recharge_client()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper._battery_cb"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper._battery_cb()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.send_planner_goal"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.send_planner_goal()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.send_controller_goal"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.send_controller_goal()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.is_battery_full"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.is_battery_full()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.is_battery_low"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.is_battery_low()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.should_reasoning_start"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.should_reasoning_start()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.should_pointing_start"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.should_pointing_start()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.reason"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.reason()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.list_formatter"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.list_formatter()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-utilities.exprolab_1.helper">Interface Helper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.__init__"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.reset_states"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.reset_states()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.start_client"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.start_client()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.reason_client"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.reason_client()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.recharge_client"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.recharge_client()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper._battery_cb"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper._battery_cb()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.send_planner_goal"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.send_planner_goal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.send_controller_goal"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.send_controller_goal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.is_battery_full"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.is_battery_full()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.is_battery_low"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.is_battery_low()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.should_reasoning_start"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.should_reasoning_start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.should_pointing_start"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.should_pointing_start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.reason"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.reason()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utilities.exprolab_1.helper.InterfaceHelper.list_formatter"><code class="docutils literal notranslate"><span class="pre">InterfaceHelper.list_formatter()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -87,7 +85,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">Environment Helper</li>
+      <li class="breadcrumb-item active">Utilities</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/utilities.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -97,8 +95,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-utilities.exprolab_1.environment">
-<span id="environment-helper"></span><h1>Environment Helper<a class="headerlink" href="#module-utilities.exprolab_1.environment" title="Permalink to this heading"></a></h1>
+  <div class="section" id="utilities">
+<h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this heading"></a></h1>
+<p>helper scripts of the utilities folder.</p>
+<div class="section" id="module-utilities.exprolab_1.environment">
+<span id="environment-helper"></span><h2>Environment Helper<a class="headerlink" href="#module-utilities.exprolab_1.environment" title="Permalink to this heading"></a></h2>
 <span class="target" id="module-Environment"></span><p>This helper module contains many static variables that are used and shared by all the nodes in the script section.</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="utilities.exprolab_1.environment.Map_C">
@@ -114,7 +115,7 @@
 
 </div>
 <div class="section" id="module-utilities.exprolab_1.helper">
-<span id="interface-helper"></span><h1>Interface Helper<a class="headerlink" href="#module-utilities.exprolab_1.helper" title="Permalink to this heading"></a></h1>
+<span id="interface-helper"></span><h2>Interface Helper<a class="headerlink" href="#module-utilities.exprolab_1.helper" title="Permalink to this heading"></a></h2>
 <span class="target" id="module-Helper"></span><p>This Module implements specific methods necessary for many program funcionalities:</p>
 <ul class="simple">
 <li><p>ROS service-clients</p></li>
@@ -233,12 +234,13 @@ toward a target location.</p>
 </dd></dl>
 
 </div>
+</div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="scripts.html" class="btn btn-neutral float-left" title="Initial State Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scripts.html" class="btn btn-neutral float-left" title="Scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

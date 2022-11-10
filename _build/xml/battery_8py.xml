@@ -35,20 +35,20 @@
 <codeline lineno="24"><highlight class="stringliteral"></highlight></codeline>
 <codeline lineno="25"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>sys</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>roslib</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>rospy</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>threading</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>random</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>std_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Bool</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">#---Libraries---#</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>sys</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>roslib</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>rospy</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>threading</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>random</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/><ref refid="namespaceexprolab__1_1_1helper" kindref="compound">exprolab_1.helper</ref><sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>InterfaceHelper</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>std_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Bool</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/><ref refid="namespaceexprolab__1_1_1helper" kindref="compound">exprolab_1.helper</ref><sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>InterfaceHelper</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>std_srvs.srv<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Empty<sp/>,<sp/>EmptyResponse</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>exprolab_1<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>environment<sp/></highlight><highlight class="keyword">as</highlight><highlight class="normal"><sp/>env</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>exprolab_1<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>environment<sp/></highlight><highlight class="keyword">as</highlight><highlight class="normal"><sp/>env</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">#--------------#</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="41"><highlight class="normal"></highlight></codeline>
 <codeline lineno="42" refid="classbattery_1_1_battery" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classbattery_1_1_battery" kindref="compound">Battery</ref>(object):</highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight></codeline>
@@ -120,63 +120,66 @@
 <codeline lineno="109"><highlight class="normal"></highlight></codeline>
 <codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(</highlight><highlight class="stringliteral">&apos;\n###############\nRECHARGE<sp/>EXECUTION&apos;</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="111"><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isin<sp/>=<sp/>self.<ref refid="classbattery_1_1_battery_1a4c4c9f1ac58b2ff53e78068e58aef51a" kindref="member">_helper</ref>.client.query.objectprop_b2_ind(</highlight><highlight class="stringliteral">&apos;isIn&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;Robot1&apos;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>get<sp/>robot<sp/>current<sp/>position<sp/>from<sp/>ontology</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isin<sp/>=<sp/>self.<ref refid="classbattery_1_1_battery_1a4c4c9f1ac58b2ff53e78068e58aef51a" kindref="member">_helper</ref>.client.query.objectprop_b2_ind(</highlight><highlight class="stringliteral">&apos;isIn&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;Robot1&apos;</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isin<sp/>=<sp/>self.<ref refid="classbattery_1_1_battery_1a4c4c9f1ac58b2ff53e78068e58aef51a" kindref="member">_helper</ref>.list_formatter(isin,</highlight><highlight class="stringliteral">&apos;#&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;&gt;&apos;</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="115"><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(</highlight><highlight class="stringliteral">&apos;The<sp/>robot<sp/>docked<sp/>for<sp/>recharge<sp/>in:<sp/>&apos;</highlight><highlight class="normal"><sp/>+<sp/>isin[0]<sp/>+<sp/></highlight><highlight class="stringliteral">&apos;\n&apos;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"></highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>A<sp/>List<sp/>of<sp/>Items</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>items<sp/>=<sp/>list(range(0,<sp/>57))</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l<sp/>=<sp/>len(items)</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Initial<sp/>call<sp/>to<sp/>print<sp/>0%<sp/>progress</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classbattery_1_1_battery_1a18a2b8042f508981c76d2c31d24de9fa" kindref="member">_printProgressBar</ref>(0,<sp/>l,<sp/>prefix<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;Progress:&apos;</highlight><highlight class="normal">,<sp/>suffix<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;Complete&apos;</highlight><highlight class="normal">,<sp/>length<sp/>=<sp/>30)</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>i,<sp/>item<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>enumerate(items):</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.sleep(0.1)</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classbattery_1_1_battery_1a18a2b8042f508981c76d2c31d24de9fa" kindref="member">_printProgressBar</ref>(i<sp/>+<sp/>1,<sp/>l,<sp/>prefix<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;Progress:&apos;</highlight><highlight class="normal">,<sp/>suffix<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;Complete&apos;</highlight><highlight class="normal">,<sp/>length<sp/>=<sp/>30)</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(</highlight><highlight class="stringliteral">&apos;BATTERY<sp/>FULL&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>prtint<sp/>to<sp/>see<sp/>that<sp/>the<sp/>robot<sp/>docked<sp/>for<sp/>recharge<sp/>in<sp/>the<sp/>starting<sp/>room</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(</highlight><highlight class="stringliteral">&apos;The<sp/>robot<sp/>docked<sp/>for<sp/>recharge<sp/>in:<sp/>&apos;</highlight><highlight class="normal"><sp/>+<sp/>isin[0]<sp/>+<sp/></highlight><highlight class="stringliteral">&apos;\n&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>A<sp/>List<sp/>of<sp/>Items</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>items<sp/>=<sp/>list(range(0,<sp/>57))</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l<sp/>=<sp/>len(items)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Initial<sp/>call<sp/>to<sp/>print<sp/>0%<sp/>progress</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classbattery_1_1_battery_1a18a2b8042f508981c76d2c31d24de9fa" kindref="member">_printProgressBar</ref>(0,<sp/>l,<sp/>prefix<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;Progress:&apos;</highlight><highlight class="normal">,<sp/>suffix<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;Complete&apos;</highlight><highlight class="normal">,<sp/>length<sp/>=<sp/>30)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>animate<sp/>the<sp/>progress<sp/>bar</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>i,<sp/>item<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>enumerate(items):</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.sleep(0.1)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classbattery_1_1_battery_1a18a2b8042f508981c76d2c31d24de9fa" kindref="member">_printProgressBar</ref>(i<sp/>+<sp/>1,<sp/>l,<sp/>prefix<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;Progress:&apos;</highlight><highlight class="normal">,<sp/>suffix<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;Complete&apos;</highlight><highlight class="normal">,<sp/>length<sp/>=<sp/>30)</highlight></codeline>
 <codeline lineno="131"><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EmptyResponse()</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(</highlight><highlight class="stringliteral">&apos;BATTERY<sp/>FULL&apos;</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="133"><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">_random_notifier(self):</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>return<sp/>an<sp/>empty<sp/>response<sp/>to<sp/>notify<sp/>the<sp/>completed<sp/>recharge</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>EmptyResponse()</highlight></codeline>
 <codeline lineno="136"><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delay<sp/>=<sp/>0</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>publisher<sp/>=<sp/>rospy.Publisher(env.TOPIC_BATTERY_LOW,<sp/>Bool,<sp/>queue_size=1,<sp/>latch=</highlight><highlight class="keyword">True</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">not</highlight><highlight class="normal"><sp/>rospy.is_shutdown():</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">_random_notifier(self):</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>ROS<sp/>message<sp/>publisher<sp/>on<sp/>the<sp/>topic<sp/>/battery_low<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>publisher<sp/>=<sp/>rospy.Publisher(env.TOPIC_BATTERY_LOW,<sp/>Bool,<sp/>queue_size=1,<sp/>latch=</highlight><highlight class="keyword">True</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="142"><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Wait<sp/>for<sp/>simulate<sp/>battery<sp/>usage.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delay<sp/>=<sp/>random.uniform(self.<ref refid="classbattery_1_1_battery_1a55972405347d6536bb9a6eb43993e293" kindref="member">_random_battery_time</ref>[0],<sp/>self.<ref refid="classbattery_1_1_battery_1a55972405347d6536bb9a6eb43993e293" kindref="member">_random_battery_time</ref>[1])</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.sleep(delay)</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Change<sp/>battery<sp/>state.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classbattery_1_1_battery_1a9e0c1a2fa2db4c17c2ad9914362378d1" kindref="member">_battery_low</ref><sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Publish<sp/>battery<sp/>level.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>publisher.publish(Bool(self.<ref refid="classbattery_1_1_battery_1a9e0c1a2fa2db4c17c2ad9914362378d1" kindref="member">_battery_low</ref>))</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Print<sp/>iterations<sp/>progress</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">_printProgressBar<sp/>(self,iteration,<sp/>total,<sp/>prefix<sp/>=<sp/>&apos;&apos;,<sp/>suffix<sp/>=<sp/>&apos;&apos;,<sp/>decimals<sp/>=<sp/>1,<sp/>length<sp/>=<sp/>100,<sp/>fill<sp/>=<sp/>&apos;¦&apos;,<sp/>printEnd<sp/>=<sp/>&quot;\r&quot;):</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>percent<sp/>=<sp/>(</highlight><highlight class="stringliteral">&quot;{0:.&quot;</highlight><highlight class="normal"><sp/>+<sp/>str(decimals)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;f}&quot;</highlight><highlight class="normal">).format(100<sp/>*<sp/>(iteration<sp/>/<sp/>float(total)))</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>filledLength<sp/>=<sp/>int(length<sp/>*<sp/>iteration<sp/>//<sp/>total)</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bar<sp/>=<sp/>fill<sp/>*<sp/>filledLength<sp/>+<sp/></highlight><highlight class="stringliteral">&apos;-&apos;</highlight><highlight class="normal"><sp/>*<sp/>(length<sp/>-<sp/>filledLength)</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(f</highlight><highlight class="stringliteral">&apos;\r{prefix}<sp/>|{bar}|<sp/>{percent}%<sp/>{suffix}&apos;</highlight><highlight class="normal">,<sp/>end<sp/>=<sp/>printEnd)</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Print<sp/>New<sp/>Line<sp/>on<sp/>Complete</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>iteration<sp/>==<sp/>total:<sp/></highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print()</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">not</highlight><highlight class="normal"><sp/>rospy.is_shutdown():</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Wait<sp/>for<sp/>simulate<sp/>battery<sp/>usage.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delay<sp/>=<sp/>random.uniform(self.<ref refid="classbattery_1_1_battery_1a55972405347d6536bb9a6eb43993e293" kindref="member">_random_battery_time</ref>[0],<sp/>self.<ref refid="classbattery_1_1_battery_1a55972405347d6536bb9a6eb43993e293" kindref="member">_random_battery_time</ref>[1])</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.sleep(delay)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Change<sp/>battery<sp/>state.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classbattery_1_1_battery_1a9e0c1a2fa2db4c17c2ad9914362378d1" kindref="member">_battery_low</ref><sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Publish<sp/>battery<sp/>level.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>publisher.publish(Bool(self.<ref refid="classbattery_1_1_battery_1a9e0c1a2fa2db4c17c2ad9914362378d1" kindref="member">_battery_low</ref>))</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">_printProgressBar<sp/>(self,iteration,<sp/>total,<sp/>prefix<sp/>=<sp/>&apos;&apos;,<sp/>suffix<sp/>=<sp/>&apos;&apos;,<sp/>decimals<sp/>=<sp/>1,<sp/>length<sp/>=<sp/>100,<sp/>fill<sp/>=<sp/>&apos;¦&apos;,<sp/>printEnd<sp/>=<sp/>&quot;\r&quot;):</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>percent<sp/>=<sp/>(</highlight><highlight class="stringliteral">&quot;{0:.&quot;</highlight><highlight class="normal"><sp/>+<sp/>str(decimals)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;f}&quot;</highlight><highlight class="normal">).format(100<sp/>*<sp/>(iteration<sp/>/<sp/>float(total)))</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>filledLength<sp/>=<sp/>int(length<sp/>*<sp/>iteration<sp/>//<sp/>total)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bar<sp/>=<sp/>fill<sp/>*<sp/>filledLength<sp/>+<sp/></highlight><highlight class="stringliteral">&apos;-&apos;</highlight><highlight class="normal"><sp/>*<sp/>(length<sp/>-<sp/>filledLength)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(f</highlight><highlight class="stringliteral">&apos;\r{prefix}<sp/>|{bar}|<sp/>{percent}%<sp/>{suffix}&apos;</highlight><highlight class="normal">,<sp/>end<sp/>=<sp/>printEnd)</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Print<sp/>New<sp/>Line<sp/>on<sp/>Complete</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>iteration<sp/>==<sp/>total:<sp/></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print()</highlight></codeline>
 <codeline lineno="162"><highlight class="normal"></highlight></codeline>
-<codeline lineno="163"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&apos;__main__&apos;</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"></highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.init_node(env.NODE_BATTERY,<sp/>log_level=rospy.INFO)</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classbattery_1_1_battery" kindref="compound">Battery</ref>()</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.spin()</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&apos;__main__&apos;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Initialize<sp/>the<sp/>ROS-Node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.init_node(env.NODE_BATTERY,<sp/>log_level=rospy.INFO)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Instantiate<sp/>the<sp/>node<sp/>manager<sp/>class<sp/>and<sp/>wait.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classbattery_1_1_battery" kindref="compound">Battery</ref>()</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.spin()</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py"/>
   </compounddef>

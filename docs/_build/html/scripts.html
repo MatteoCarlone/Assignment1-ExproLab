@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Initial State Module &mdash; ExproLab Surveillance Robot 1.0 documentation</title>
+  <title>Scripts &mdash; ExproLab Surveillance Robot 1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Environment Helper" href="utilities.html" />
+    <link rel="next" title="Utilities" href="utilities.html" />
     <link rel="prev" title="Welcome to ExproLab Surveillance Robot’s documentation!" href="index.html" /> 
 </head>
 
@@ -41,74 +41,76 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Initial State Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#scripts.initial_state.InitialState"><code class="docutils literal notranslate"><span class="pre">InitialState</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.initial_state.InitialState.__init__"><code class="docutils literal notranslate"><span class="pre">InitialState.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.initial_state.InitialState.execute"><code class="docutils literal notranslate"><span class="pre">InitialState.execute()</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-scripts.initial_state">Initial State Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scripts.initial_state.InitialState"><code class="docutils literal notranslate"><span class="pre">InitialState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.initial_state.InitialState.__init__"><code class="docutils literal notranslate"><span class="pre">InitialState.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.initial_state.InitialState.execute"><code class="docutils literal notranslate"><span class="pre">InitialState.execute()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#module-scripts.fsm">FSM Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#scripts.fsm.Controlling"><code class="docutils literal notranslate"><span class="pre">Controlling</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.fsm.Controlling.execute"><code class="docutils literal notranslate"><span class="pre">Controlling.execute()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-scripts.fsm">FSM Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scripts.fsm.Controlling"><code class="docutils literal notranslate"><span class="pre">Controlling</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.fsm.Controlling.execute"><code class="docutils literal notranslate"><span class="pre">Controlling.execute()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#scripts.fsm.Initial"><code class="docutils literal notranslate"><span class="pre">Initial</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.fsm.Initial.execute"><code class="docutils literal notranslate"><span class="pre">Initial.execute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scripts.fsm.Initial"><code class="docutils literal notranslate"><span class="pre">Initial</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.fsm.Initial.execute"><code class="docutils literal notranslate"><span class="pre">Initial.execute()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#scripts.fsm.Pointing"><code class="docutils literal notranslate"><span class="pre">Pointing</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.fsm.Pointing.execute"><code class="docutils literal notranslate"><span class="pre">Pointing.execute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scripts.fsm.Pointing"><code class="docutils literal notranslate"><span class="pre">Pointing</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.fsm.Pointing.execute"><code class="docutils literal notranslate"><span class="pre">Pointing.execute()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#scripts.fsm.Reasoning"><code class="docutils literal notranslate"><span class="pre">Reasoning</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.fsm.Reasoning.execute"><code class="docutils literal notranslate"><span class="pre">Reasoning.execute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scripts.fsm.Reasoning"><code class="docutils literal notranslate"><span class="pre">Reasoning</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.fsm.Reasoning.execute"><code class="docutils literal notranslate"><span class="pre">Reasoning.execute()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#scripts.fsm.Recharge"><code class="docutils literal notranslate"><span class="pre">Recharge</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.fsm.Recharge.execute"><code class="docutils literal notranslate"><span class="pre">Recharge.execute()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#module-scripts.reasoner">Reasoner Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#scripts.reasoner.Reasoner"><code class="docutils literal notranslate"><span class="pre">Reasoner</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.reasoner.Reasoner.__init__"><code class="docutils literal notranslate"><span class="pre">Reasoner.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.reasoner.Reasoner.execute"><code class="docutils literal notranslate"><span class="pre">Reasoner.execute()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.reasoner.Reasoner._next_room"><code class="docutils literal notranslate"><span class="pre">Reasoner._next_room()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scripts.fsm.Recharge"><code class="docutils literal notranslate"><span class="pre">Recharge</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.fsm.Recharge.execute"><code class="docutils literal notranslate"><span class="pre">Recharge.execute()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#module-scripts.battery">Battery Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#scripts.battery.Battery"><code class="docutils literal notranslate"><span class="pre">Battery</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.battery.Battery.__init__"><code class="docutils literal notranslate"><span class="pre">Battery.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.battery.Battery.execute"><code class="docutils literal notranslate"><span class="pre">Battery.execute()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.battery.Battery._printProgressBar"><code class="docutils literal notranslate"><span class="pre">Battery._printProgressBar()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.battery.Battery._random_notifier"><code class="docutils literal notranslate"><span class="pre">Battery._random_notifier()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-scripts.reasoner">Reasoner Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scripts.reasoner.Reasoner"><code class="docutils literal notranslate"><span class="pre">Reasoner</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.reasoner.Reasoner.__init__"><code class="docutils literal notranslate"><span class="pre">Reasoner.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.reasoner.Reasoner.execute"><code class="docutils literal notranslate"><span class="pre">Reasoner.execute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.reasoner.Reasoner._next_room"><code class="docutils literal notranslate"><span class="pre">Reasoner._next_room()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#module-scripts.planner">Planner Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#scripts.planner.PlaningAction"><code class="docutils literal notranslate"><span class="pre">PlaningAction</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.planner.PlaningAction.__init__"><code class="docutils literal notranslate"><span class="pre">PlaningAction.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.planner.PlaningAction.execute_callback"><code class="docutils literal notranslate"><span class="pre">PlaningAction.execute_callback()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-scripts.battery">Battery Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scripts.battery.Battery"><code class="docutils literal notranslate"><span class="pre">Battery</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.battery.Battery.__init__"><code class="docutils literal notranslate"><span class="pre">Battery.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.battery.Battery.execute"><code class="docutils literal notranslate"><span class="pre">Battery.execute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.battery.Battery._printProgressBar"><code class="docutils literal notranslate"><span class="pre">Battery._printProgressBar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.battery.Battery._random_notifier"><code class="docutils literal notranslate"><span class="pre">Battery._random_notifier()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#module-scripts.controller">Controller Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#scripts.controller.ControllingAction"><code class="docutils literal notranslate"><span class="pre">ControllingAction</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.controller.ControllingAction.__init__"><code class="docutils literal notranslate"><span class="pre">ControllingAction.__init__()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scripts.controller.ControllingAction.execute_callback"><code class="docutils literal notranslate"><span class="pre">ControllingAction.execute_callback()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-scripts.planner">Planner Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scripts.planner.PlaningAction"><code class="docutils literal notranslate"><span class="pre">PlaningAction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.planner.PlaningAction.__init__"><code class="docutils literal notranslate"><span class="pre">PlaningAction.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.planner.PlaningAction.execute_callback"><code class="docutils literal notranslate"><span class="pre">PlaningAction.execute_callback()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="utilities.html">Environment Helper</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utilities.html#module-utilities.exprolab_1.helper">Interface Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-scripts.controller">Controller Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scripts.controller.ControllingAction"><code class="docutils literal notranslate"><span class="pre">ControllingAction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.controller.ControllingAction.__init__"><code class="docutils literal notranslate"><span class="pre">ControllingAction.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scripts.controller.ControllingAction.execute_callback"><code class="docutils literal notranslate"><span class="pre">ControllingAction.execute_callback()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
 </ul>
 
         </div>
@@ -125,7 +127,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">Initial State Module</li>
+      <li class="breadcrumb-item active">Scripts</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/scripts.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -135,8 +137,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-scripts.initial_state">
-<span id="initial-state-module"></span><h1>Initial State Module<a class="headerlink" href="#module-scripts.initial_state" title="Permalink to this heading"></a></h1>
+  <div class="section" id="scripts">
+<h1>Scripts<a class="headerlink" href="#scripts" title="Permalink to this heading"></a></h1>
+<p>Ros-Nodes of the scripts folder.</p>
+<div class="section" id="module-scripts.initial_state">
+<span id="initial-state-module"></span><h2>Initial State Module<a class="headerlink" href="#module-scripts.initial_state" title="Permalink to this heading"></a></h2>
 <span class="target" id="module-initial_state"></span><dl class="simple">
 <dt>Service:</dt><dd><p>/start</p>
 </dd>
@@ -181,7 +186,7 @@ in order to yet start the counter for the URGENT rooms.</p>
 
 </div>
 <div class="section" id="module-scripts.fsm">
-<span id="fsm-module"></span><h1>FSM Module<a class="headerlink" href="#module-scripts.fsm" title="Permalink to this heading"></a></h1>
+<span id="fsm-module"></span><h2>FSM Module<a class="headerlink" href="#module-scripts.fsm" title="Permalink to this heading"></a></h2>
 <span class="target" id="module-Finite_State_Machine"></span><dl class="simple">
 <dt>Service:</dt><dd><p>/start
 /reason
@@ -344,7 +349,7 @@ on the same varible, ROS automatically protect access to variables with mutexes.
 
 </div>
 <div class="section" id="module-scripts.reasoner">
-<span id="reasoner-module"></span><h1>Reasoner Module<a class="headerlink" href="#module-scripts.reasoner" title="Permalink to this heading"></a></h1>
+<span id="reasoner-module"></span><h2>Reasoner Module<a class="headerlink" href="#module-scripts.reasoner" title="Permalink to this heading"></a></h2>
 <span class="target" id="module-Reasoner"></span><p>Service:</p>
 <blockquote>
 <div><p>/reason</p>
@@ -405,7 +410,7 @@ if there’s one or more urgent rooms and the robot can reach them it will prior
 
 </div>
 <div class="section" id="module-scripts.battery">
-<span id="battery-module"></span><h1>Battery Module<a class="headerlink" href="#module-scripts.battery" title="Permalink to this heading"></a></h1>
+<span id="battery-module"></span><h2>Battery Module<a class="headerlink" href="#module-scripts.battery" title="Permalink to this heading"></a></h2>
 <span class="target" id="module-Battery"></span><p>Service:</p>
 <blockquote>
 <div><p>/reason</p>
@@ -477,7 +482,7 @@ It publishes the state of the battery on the state/battery_low topic (Bool ROS m
 
 </div>
 <div class="section" id="module-scripts.planner">
-<span id="planner-module"></span><h1>Planner Module<a class="headerlink" href="#module-scripts.planner" title="Permalink to this heading"></a></h1>
+<span id="planner-module"></span><h2>Planner Module<a class="headerlink" href="#module-scripts.planner" title="Permalink to this heading"></a></h2>
 <span class="target" id="module-Planner"></span><p>Action:</p>
 <blockquote>
 <div><p>/armor_client
@@ -519,7 +524,7 @@ the via points generation action.</p>
 
 </div>
 <div class="section" id="module-scripts.controller">
-<span id="controller-module"></span><h1>Controller Module<a class="headerlink" href="#module-scripts.controller" title="Permalink to this heading"></a></h1>
+<span id="controller-module"></span><h2>Controller Module<a class="headerlink" href="#module-scripts.controller" title="Permalink to this heading"></a></h2>
 <span class="target" id="module-Controller"></span><p>Action:</p>
 <blockquote>
 <div><p>/armor_client
@@ -565,13 +570,14 @@ the target room some Ontology paramenters are updated:</p>
 </dd></dl>
 
 </div>
+</div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to ExproLab Surveillance Robot’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="utilities.html" class="btn btn-neutral float-right" title="Environment Helper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="utilities.html" class="btn btn-neutral float-right" title="Utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

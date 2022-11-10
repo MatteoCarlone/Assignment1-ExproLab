@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="63" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="63" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="66" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="66" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classplanner_1_1_planing_action_1a398fbf9a9a18a16e70d9830bd12d4916" prot="private" static="no" mutable="no">
         <type></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="68" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="68" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="71" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="71" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="65" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="65" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="68" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="68" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="61" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="61" bodyend="74"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="64" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="64" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="classplanner_1_1_planing_action_1aa6888e4c453bb5cc76726cb904eb97a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -83,7 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="75" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="75" bodyend="151"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="78" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="78" bodyend="160"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="152" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="152" bodyend="156"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="161" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="161" bodyend="166"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -159,7 +159,7 @@ execute_callback(self,goal)
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="30" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="30" bodyend="157"/>
+    <location file="/root/ros_ws/src/exprolab_1/scripts/planner.py" line="33" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/planner.py" bodystart="33" bodyend="167"/>
     <listofallmembers>
       <member refid="classplanner_1_1_planing_action_1af3b94d2fa34123aeda578226fb2bdc75" prot="public" virt="non-virtual"><scope>planner::PlaningAction</scope><name>__init__</name></member>
       <member refid="classplanner_1_1_planing_action_1a398fbf9a9a18a16e70d9830bd12d4916" prot="private" virt="non-virtual"><scope>planner::PlaningAction</scope><name>_as</name></member>

@@ -96,7 +96,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="108" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="108" bodyend="134"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="108" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="108" bodyend="137"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -115,7 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="135" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="135" bodyend="150"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="138" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="138" bodyend="152"/>
       </memberdef>
       <memberdef kind="function" id="classbattery_1_1_battery_1a18a2b8042f508981c76d2c31d24de9fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -170,7 +170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="152" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="152" bodyend="162"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="153" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="153" bodyend="163"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -245,7 +245,7 @@ _random_notifier(self)
         <label>object</label>
       </node>
     </collaborationgraph>
-    <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="42" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="42" bodyend="163"/>
+    <location file="/root/ros_ws/src/exprolab_1/scripts/battery.py" line="42" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/battery.py" bodystart="42" bodyend="164"/>
     <listofallmembers>
       <member refid="classbattery_1_1_battery_1a2f99aa06e39cdd553dda5f3508b98ff1" prot="public" virt="non-virtual"><scope>battery::Battery</scope><name>__init__</name></member>
       <member refid="classbattery_1_1_battery_1a9e0c1a2fa2db4c17c2ad9914362378d1" prot="private" virt="non-virtual"><scope>battery::Battery</scope><name>_battery_low</name></member>

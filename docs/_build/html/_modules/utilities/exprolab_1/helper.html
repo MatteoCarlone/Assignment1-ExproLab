@@ -92,6 +92,7 @@
 <span class="sd">* Other generic functions used in more than one script</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="c1">#---Libraries---#</span>
 
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">from</span> <span class="nn">actionlib</span> <span class="kn">import</span> <span class="n">SimpleActionClient</span>
@@ -107,6 +108,7 @@
 <span class="kn">from</span> <span class="nn">exprolab_1.msg</span> <span class="kn">import</span> <span class="n">PlanAction</span><span class="p">,</span> <span class="n">PlanGoal</span><span class="p">,</span> <span class="n">ControlAction</span><span class="p">,</span> <span class="n">ControlGoal</span>
 <span class="kn">from</span> <span class="nn">exprolab_1.srv</span> <span class="kn">import</span> <span class="n">Reason</span> <span class="p">,</span> <span class="n">ReasonRequest</span>
 
+<span class="c1">#--------------#</span>
 
 <div class="viewcode-block" id="InterfaceHelper"><a class="viewcode-back" href="../../../utilities.html#utilities.exprolab_1.helper.InterfaceHelper">[docs]</a><span class="k">class</span> <span class="nc">InterfaceHelper</span><span class="p">:</span>
 
@@ -196,7 +198,6 @@
 
 <div class="viewcode-block" id="InterfaceHelper.__init__"><a class="viewcode-back" href="../../../utilities.html#utilities.exprolab_1.helper.InterfaceHelper.__init__">[docs]</a>	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-
 		<span class="bp">self</span><span class="o">.</span><span class="n">mutex</span> <span class="o">=</span> <span class="n">Lock</span><span class="p">()</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">reset_states</span><span class="p">()</span>
 
@@ -209,10 +210,15 @@
 
 <div class="viewcode-block" id="InterfaceHelper.reset_states"><a class="viewcode-back" href="../../../utilities.html#utilities.exprolab_1.helper.InterfaceHelper.reset_states">[docs]</a>	<span class="k">def</span> <span class="nf">reset_states</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
+		<span class="c1"># flag to initial state</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="o">=</span> <span class="kc">False</span>
+		<span class="c1"># flag to reasoning state</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">_reason</span> <span class="o">=</span> <span class="kc">False</span>
+		<span class="c1"># flag to pointing state</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">_point</span> <span class="o">=</span> <span class="kc">False</span>
+		<span class="c1"># flag to recharge state </span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">_battery_low</span> <span class="o">=</span> <span class="kc">False</span>
+		<span class="c1"># flag to end recharge state</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">_battery_full</span> <span class="o">=</span> <span class="kc">False</span></div>
 
 <div class="viewcode-block" id="InterfaceHelper.start_client"><a class="viewcode-back" href="../../../utilities.html#utilities.exprolab_1.helper.InterfaceHelper.start_client">[docs]</a>	<span class="k">def</span> <span class="nf">start_client</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -222,22 +228,29 @@
 
 		<span class="k">try</span><span class="p">:</span>
 
+			<span class="c1"># /start service Empty request </span>
 			<span class="n">start_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">SERVER_START</span><span class="p">,</span> <span class="n">Empty</span><span class="p">)</span>
 			<span class="n">resp</span> <span class="o">=</span> <span class="n">start_srv</span><span class="p">()</span>
 
+			<span class="c1"># acquire mutex</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">mutex</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
 
 			<span class="k">try</span><span class="p">:</span>
 
-				<span class="bp">self</span><span class="o">.</span><span class="n">reset_states</span><span class="p">()</span>
-				<span class="bp">self</span><span class="o">.</span><span class="n">_reason</span> <span class="o">=</span> <span class="kc">True</span>
+				<span class="k">if</span> <span class="n">resp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+					<span class="c1"># reset state</span>
+					<span class="bp">self</span><span class="o">.</span><span class="n">reset_states</span><span class="p">()</span>
+					<span class="c1"># change flag state</span>
+					<span class="bp">self</span><span class="o">.</span><span class="n">_reason</span> <span class="o">=</span> <span class="kc">True</span>
 
 			<span class="k">finally</span><span class="p">:</span>
 
+				<span class="c1"># release mutex</span>
 				<span class="bp">self</span><span class="o">.</span><span class="n">mutex</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
 
 		<span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 
+			<span class="c1"># reset state</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">reset_states</span><span class="p">()</span>
 			<span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s2">&quot;Exception occurred: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></div>
 
@@ -248,25 +261,28 @@
 
 		<span class="k">try</span><span class="p">:</span>
 
+			<span class="c1"># /reason service request </span>
 			<span class="n">reason_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">SERVER_REASON</span><span class="p">,</span> <span class="n">Reason</span><span class="p">)</span>
 			<span class="n">result</span> <span class="o">=</span> <span class="n">reason_srv</span><span class="p">()</span>
-
+			<span class="c1"># acquire mutex</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">mutex</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
 
 			<span class="k">try</span><span class="p">:</span>
 
 				<span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-
+					<span class="c1"># reset states</span>
 					<span class="bp">self</span><span class="o">.</span><span class="n">reset_states</span><span class="p">()</span>
+					<span class="c1"># change flag state</span>
 					<span class="bp">self</span><span class="o">.</span><span class="n">_point</span> <span class="o">=</span> <span class="kc">True</span>
+					<span class="c1"># store the target room as a result of the reason server</span>
 					<span class="bp">self</span><span class="o">.</span><span class="n">to_point</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">point</span> 
 
 			<span class="k">finally</span><span class="p">:</span>
-
+				<span class="c1"># release mutex</span>
 				<span class="bp">self</span><span class="o">.</span><span class="n">mutex</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
 
 		<span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-
+			<span class="c1"># reset states</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">reset_states</span><span class="p">()</span>
 			<span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s2">&quot;Exception occurred: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></div>
 
@@ -276,17 +292,20 @@
 		<span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">SERVER_RECHARGE</span><span class="p">)</span>
 
 		<span class="k">try</span><span class="p">:</span>
-
+			<span class="c1"># /recharge service request </span>
 			<span class="n">recharge_srv</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">SERVER_RECHARGE</span><span class="p">,</span> <span class="n">Empty</span><span class="p">)</span>
 			<span class="n">result</span> <span class="o">=</span> <span class="n">recharge_srv</span><span class="p">()</span>
 
+			<span class="c1"># acquire mutex</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">mutex</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
 
 			<span class="k">try</span><span class="p">:</span>
 
 				<span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
+					<span class="c1"># reset states</span>
 					<span class="bp">self</span><span class="o">.</span><span class="n">reset_states</span><span class="p">()</span>
+					<span class="c1"># change flag state </span>
 					<span class="bp">self</span><span class="o">.</span><span class="n">_battery_full</span> <span class="o">=</span> <span class="kc">True</span>
 
 			<span class="k">finally</span><span class="p">:</span>
@@ -295,33 +314,44 @@
 
 		<span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 
+			<span class="c1"># reset states </span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">reset_states</span><span class="p">()</span>
 			<span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s2">&quot;Exception occurred: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="InterfaceHelper._battery_cb"><a class="viewcode-back" href="../../../utilities.html#utilities.exprolab_1.helper.InterfaceHelper._battery_cb">[docs]</a>	<span class="k">def</span> <span class="nf">_battery_cb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">battery_value</span><span class="p">):</span>
 
+		<span class="c1"># store battery state from /battery_low topic message</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">_battery_low</span> <span class="o">=</span> <span class="n">battery_value</span><span class="o">.</span><span class="n">data</span></div>
 
 
 <div class="viewcode-block" id="InterfaceHelper.send_planner_goal"><a class="viewcode-back" href="../../../utilities.html#utilities.exprolab_1.helper.InterfaceHelper.send_planner_goal">[docs]</a>	<span class="k">def</span> <span class="nf">send_planner_goal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">low</span><span class="p">):</span>
 
+		<span class="c1"># ontology reasoning</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">reason</span><span class="p">()</span>
 
+		<span class="c1"># get the list of rooms that the robot can reach</span>
 		<span class="n">can_reach</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">objectprop_b2_ind</span><span class="p">(</span><span class="s1">&#39;canReach&#39;</span><span class="p">,</span><span class="s1">&#39;Robot1&#39;</span><span class="p">)</span>
+		<span class="c1"># format information</span>
 		<span class="n">can_reach</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_formatter</span><span class="p">(</span><span class="n">can_reach</span><span class="p">,</span><span class="s1">&#39;#&#39;</span><span class="p">,</span><span class="s1">&#39;&gt;&#39;</span><span class="p">)</span>
 
+		<span class="c1"># check if the battery state is low and </span>
+		<span class="c1"># the robot can reach the DOC-location</span>
 		<span class="k">if</span> <span class="n">low</span> <span class="ow">and</span> <span class="n">env</span><span class="o">.</span><span class="n">START_LOC</span> <span class="ow">in</span> <span class="n">can_reach</span><span class="p">:</span>
 
+			<span class="c1"># forcing the next room to the DOC-location</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">to_point</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">START_LOC</span>
 			
+			<span class="c1"># Sending the action goal (room to go) to the action server </span>
 			<span class="n">goal</span> <span class="o">=</span> <span class="n">PlanGoal</span><span class="p">(</span><span class="n">target</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_point</span><span class="p">)</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">planner_client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="n">goal</span><span class="p">)</span>
 
 		<span class="k">else</span><span class="p">:</span>
 
+			<span class="c1"># check if the reasoner has set a target room</span>
 			<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_point</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
+				<span class="c1"># Sending the action goal (room to go) to the action server </span>
 				<span class="n">goal</span> <span class="o">=</span> <span class="n">PlanGoal</span><span class="p">(</span><span class="n">target</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_point</span><span class="p">)</span>
 				<span class="bp">self</span><span class="o">.</span><span class="n">planner_client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="n">goal</span><span class="p">)</span>
 
@@ -331,16 +361,21 @@
 
 <div class="viewcode-block" id="InterfaceHelper.send_controller_goal"><a class="viewcode-back" href="../../../utilities.html#utilities.exprolab_1.helper.InterfaceHelper.send_controller_goal">[docs]</a>	<span class="k">def</span> <span class="nf">send_controller_goal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
+		<span class="c1"># retriving the set via points as a result of the planner action client request</span>
 		<span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">planner_client</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span>
 
+		<span class="c1"># check if the via points has been set correctly</span>
 		<span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">via_points</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
+			<span class="c1"># Sending the action goal (via points) to the action server </span>
 			<span class="n">goal</span> <span class="o">=</span> <span class="n">ControlGoal</span><span class="p">(</span><span class="n">point_set</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">via_points</span><span class="p">)</span>
 			<span class="bp">self</span><span class="o">.</span><span class="n">controller_client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="n">goal</span><span class="p">)</span>
 
 		<span class="k">else</span><span class="p">:</span>
 			<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ControlGoal Error&#39;</span><span class="p">)</span></div>
 
+
+	<span class="c1">#--- Return Flag Methods ---#</span>
 
 <div class="viewcode-block" id="InterfaceHelper.is_battery_full"><a class="viewcode-back" href="../../../utilities.html#utilities.exprolab_1.helper.InterfaceHelper.is_battery_full">[docs]</a>	<span class="k">def</span> <span class="nf">is_battery_full</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
@@ -358,16 +393,20 @@
 
 		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_point</span></div>
 
+	<span class="c1"># ------------------------ #</span>
 
 <div class="viewcode-block" id="InterfaceHelper.reason"><a class="viewcode-back" href="../../../utilities.html#utilities.exprolab_1.helper.InterfaceHelper.reason">[docs]</a>	<span class="k">def</span> <span class="nf">reason</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
+		<span class="c1"># Ontology Reasoning</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">apply_buffered_changes</span><span class="p">()</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">sync_buffered_reasoner</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="InterfaceHelper.list_formatter"><a class="viewcode-back" href="../../../utilities.html#utilities.exprolab_1.helper.InterfaceHelper.list_formatter">[docs]</a>	<span class="k">def</span> <span class="nf">list_formatter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">raw_list</span><span class="p">,</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">):</span>
 
+		<span class="c1"># retrive the information by formatting the strings returned by armor</span>
 		<span class="n">formatted_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">start</span><span class="o">+</span><span class="s1">&#39;(.+?)&#39;</span><span class="o">+</span><span class="n">end</span><span class="p">,</span><span class="n">string</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">raw_list</span><span class="p">]</span>
 
+		<span class="c1"># return a list of formatted information</span>
 		<span class="k">return</span> <span class="n">formatted_list</span></div></div>
 
 

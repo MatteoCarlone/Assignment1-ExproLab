@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/controller.py" line="132" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/controller.py" bodystart="132" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/controller.py" line="147" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/controller.py" bodystart="147" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacecontroller_1a65f5ca619d887ed3eea896dd96035444" prot="public" static="no" mutable="no">
         <type></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/controller.py" line="132" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/controller.py" bodystart="132" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/controller.py" line="147" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/controller.py" bodystart="147" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacecontroller_1af7ece586506b0ed00fa2d33f4102566e" prot="public" static="no" mutable="no">
         <type></type>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/root/ros_ws/src/exprolab_1/scripts/controller.py" line="133" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/controller.py" bodystart="133" bodyend="-1"/>
+        <location file="/root/ros_ws/src/exprolab_1/scripts/controller.py" line="149" column="1" bodyfile="/root/ros_ws/src/exprolab_1/scripts/controller.py" bodystart="149" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
