@@ -67,42 +67,42 @@ Then it follows the trajectory by reaching each via point.
 ### Package list 
 
 <details>
-  <summary>Click me</summary>
+  <summary>List</summary>
 
-	This repository contains a ROS package named `exprolab_1` that includes the following resources.
-	 - [CMakeList.txt](CMakeList.txt): File to configure this package.
-	 - [package.xml](package.xml): File to configure this package.
-	 - [setup.py](setup.py): File to `import` python modules from the `utilities` folder into the 
-	   files in the `script` folder. 
-	 - [launcher/](launcher/): Contains the configuration to launch this package.
-	    - [run.launch](launch/run.launch): It launches this package by spawning x-term terminals to
-	     visualize every ros-node outputs
-	 - [msg/](msg/): It contains the message exchanged through ROS topics.
-	    - [Point.msg](msg/Point.msg): It is the message representing a 2D point.
-	 - [srv/](srv/): It Contains the definition of each server used by this software.
-	    - [Reason.srv](srv/Reason.srv): It defines the request and response to start up the reasoning process, it response with room to be pointed 
-	 - [action/](action/): It contains the definition of each action server used by this software.
-	    - [Plan.action](action/Plan.action): It defines the goal, feedback and results concerning 
-	      motion planning.
-	    - [Control.action](action/Control.action): It defines the goal, feedback and results 
-	      concerning motion controlling.
-	 - [scripts/](scripts/): It contains the implementation of each software components.
-	    - [fsm.py](scripts/fsm.py): 
-	    - [initial_state.py](scripts/initial_state.py): 
-	    - [reasoner.py](scripts/reasoner.py): 
-	    - [battery.py](scripts/battery.py): 
-	    - [planner.py](scripts/planner.py): It is a dummy implementation of a motion planner.
-	    - [controller.py](scripts/controller.py): It is a dummy implementation of a motion 
-	      controller.
-	 - [utilities/exprolab_1/](utilities/exprolab_1/): It contains auxiliary python files, 
-	   which are exploited by the files in the `scripts` folder.
-	    - [environment.py](utilities/exprolab_1/environment.py): It contains the name 
-	      of each *node*, *topic*, *server*, *actions* and *parameters* used in this architecture.
-	    - [helper.py](utilities/exprolab_1/helper.py): It contains a so called InterfaceHelper Class that implements all the ros-srv and ros-action clients, 
-	      and other auxiliary functions to manage the fsm transition and other global procedures.
-	    - [ActionHelper.py](utilities/exprolab_1/ActionHelper.py): It contains a so called ActionHelper client usefull to simply manage ROS-Actions
-	 - [diagrams/](diagrams/): It contains the diagrams shown below in this README file.
-	 - [img/](img/): It contains the images shown in this README file
+This repository contains a ROS package named `exprolab_1` that includes the following resources.
+ - [CMakeList.txt](CMakeList.txt): File to configure this package.
+ - [package.xml](package.xml): File to configure this package.
+ - [setup.py](setup.py): File to `import` python modules from the `utilities` folder into the 
+   files in the `script` folder. 
+ - [launcher/](launcher/): Contains the configuration to launch this package.
+    - [run.launch](launch/run.launch): It launches this package by spawning x-term terminals to
+     visualize every ros-node outputs
+ - [msg/](msg/): It contains the message exchanged through ROS topics.
+    - [Point.msg](msg/Point.msg): It is the message representing a 2D point.
+ - [srv/](srv/): It Contains the definition of each server used by this software.
+    - [Reason.srv](srv/Reason.srv): It defines the request and response to start up the reasoning process, it response with room to be pointed 
+ - [action/](action/): It contains the definition of each action server used by this software.
+    - [Plan.action](action/Plan.action): It defines the goal, feedback and results concerning 
+      motion planning.
+    - [Control.action](action/Control.action): It defines the goal, feedback and results 
+      concerning motion controlling.
+ - [scripts/](scripts/): It contains the implementation of each software components.
+    - [fsm.py](scripts/fsm.py): 
+    - [initial_state.py](scripts/initial_state.py): 
+    - [reasoner.py](scripts/reasoner.py): 
+    - [battery.py](scripts/battery.py): 
+    - [planner.py](scripts/planner.py): It is a dummy implementation of a motion planner.
+    - [controller.py](scripts/controller.py): It is a dummy implementation of a motion 
+      controller.
+ - [utilities/exprolab_1/](utilities/exprolab_1/): It contains auxiliary python files, 
+   which are exploited by the files in the `scripts` folder.
+    - [environment.py](utilities/exprolab_1/environment.py): It contains the name 
+      of each *node*, *topic*, *server*, *actions* and *parameters* used in this architecture.
+    - [helper.py](utilities/exprolab_1/helper.py): It contains a so called InterfaceHelper Class that implements all the ros-srv and ros-action clients, 
+      and other auxiliary functions to manage the fsm transition and other global procedures.
+    - [ActionHelper.py](utilities/exprolab_1/ActionHelper.py): It contains a so called ActionHelper client usefull to simply manage ROS-Actions
+ - [diagrams/](diagrams/): It contains the diagrams shown below in this README file.
+ - [img/](img/): It contains the images shown in this README file
 
  </details>
 
