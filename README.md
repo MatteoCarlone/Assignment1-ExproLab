@@ -34,11 +34,13 @@ The robot behave as follows:
 	src="/img/Env.png"
 	title="Environment img"
 	width="300">
+	
+	`caption` :
+
+		- Sample environment with cartesian coordinates associated with each room.
 </p>
 
-`caption` :
-	
-	- Sample environment with cartesian coordinates associated with each room.
+
 
 ## Project Structure
 
