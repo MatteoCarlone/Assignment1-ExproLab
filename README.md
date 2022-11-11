@@ -2,9 +2,10 @@
 
 **A ROS-based Architecture of a surveillance robot based on a ROS-SMACH Finite State Machine and the use aRMOR to manage Ontology desciption in ROS.**  
 
-Author: *Matteo Carlone s4652067*
-
 ---
+
+## Introduction
+
 
 ## Scenario
 The scenario involves a surveillance robot that moves in a 2D environment comprehensive of locations (simple rooms and corridors) connected trough doors. 
@@ -32,52 +33,14 @@ The robot behave as follows:
 <img
 	src="/img/Env.png"
 	title="Environment img"
-	width="75%" height="75%">
+	width="600">
 </p>
 
 `caption` :
 	
 	- Sample environment with cartesian coordinates associated with each room.
 
-### Assumptions
-
-For simplicity and showing purposes, we consider a scenario with the following assumptions.
-
-* The robot moves in a 2D environment without obstacles.
-
-* Given a current and target position, the robot plans a trajectory to follow, i.e., a list of n via points (default n = 10) equally spacied.
-Then it follows the trajectory by reaching each via point.
-
-* Every room that has multiple doors is assumed to be a corridor.
-
-* Every room become urgent if it is not visited for a predefined time interval (7 sec).
-
-* To avoid the possibility of having urgent rooms after a several amount of time I assumed the every room being visited at the same time at zero time instant.
-
-* Starting Location of the robot is assumed to be a room and so a Corridor.
-
-* The battery can become low at any time, and the robot should immediately react to this event in two ways:
-
-	* if the robot's battery is low and it is in a room connected to the DOC-Station (Starting Room), the robot will go for it and recharge.
-
-	* if the robot's battery is low but the room is not connected to the DOC-Station (Starting Room), the  robot will move as the battery is full.
-
-* The Environment in the figure above is just a sample representation, in utilities/environment.py is possibile to change rooms, coordinates, the staring room.. while in scripts/initial_state.py is possbile to change the connections between rooms.
-
 ## Project Structure
-
-### Diagrams
-
-<p align="center">
-<img
-	src="/img/Time_Sequence.png"
-	title="Environment img"
-	width="600"> 
-</p>
-
-`caption` :
-	
-	- Time Squence Diagram of the project, with a draft of communication transitions between states.
 
 ### Package list 
 
@@ -120,7 +83,19 @@ This repository contains a ROS package named `exprolab_1` that includes the foll
 
  </details>
 
-### Dependencies
+### Diagrams
+
+<p align="center">
+<img
+	src="/img/Time_Sequence.png"
+	title="Environment img"
+	width="600"> 
+</p>
+
+`caption` :
+	
+	- Time Squence Diagram of the project, with a draft of communication transitions between states.
+
 
 ## Software Components
 
@@ -257,6 +232,86 @@ The helper.py script in the utilities folder, that implement the recharge servic
 
 ------
 
-## Launching the Sowtware
+### Dependencies
 
+The software exploits [roslaunch](http://wiki.ros.org/roslaunch) and 
+[rospy](http://wiki.ros.org/rospy) for using python with ROS. Rospy allows defining ROS nodes, 
+services and related messages.
+
+Also, the software uses [actionlib](http://wiki.ros.org/actionlib/DetailedDescription) to define action servers. In particular, this software is based on 
+[SimpleActionServer](http://docs.ros.org/en/jade/api/actionlib/html/classactionlib_1_1simple__action__server_1_1SimpleActionServer.html#a2013e3b4a6a3cb0b77bb31403e26f137) and [SimpleActionClient](https://docs.ros.org/en/api/actionlib/html/classactionlib_1_1simple__action__client_1_1SimpleActionClient.html) especially for the Controller and Planner behaviour.
+
+The Finite States Machine and the two relative sub-state-machines are based on [SMACH](http://wiki.ros.org/smach).  the [smach_viewer](http://wiki.ros.org/smach_viewer) has been used for the fsm visualization in the software component section.
+it is basically a node to visualize and debug the implemented Finite States Machines.
+
+I used [aRMOR api](https://github.com/EmaroLab/armor_py_api) to manage the ontology description of this project. 
+[aRMOR](https://github.com/EmaroLab/armor) is a package for managing sigle and also multi ontology aschitectures under ROS
+
+## Launching the Software
+
+This software has been based on ROS Noetic, and it has been developed with this Docker-based
+[environment](https://hub.docker.com/repository/docker/carms84/exproblab), which already 
+provides the required dependencies listed above. 
+
+### Installation
+
+Follow these steps to install the software.
+ - Clone this repository inside your ROS workspace (which should be sourced in your `.bashrc`).
+ - Run `chmod +x <file_name>` for each file inside the `scripts` folder.
+ - Run `catkin_make` from the root of your ROS workspace.
+ - Install `xterm` by entering the command `sudo apt install -y xterm`.
+
+### Launchers
+
+Use the following command to launch the software a spawn some xterm windows related to all the aformentioned software components.
+
+```bash
+roslaunch exprolab_1 run.launch
+```
+
+Note that the program runs in automatically in a loop and there's no need of the user to start up the finite state machine's transitions.
+
+Check the `roslaunch` outcome to get the path where logs are stored. usually, it is `~/.ros/log/`.
+That folder should also contain a link to the `latest` produced log.
+
+### Video of the project behaviour
+
+## Working Hypothesis
+
+### Assumptions and System Features
+
+For simplicity and showing purposes, we consider a scenario with the following assumptions.
+
+* The robot moves in a 2D environment without obstacles.
+
+* Given a current and target position, the robot plans a trajectory to follow, i.e., a list of n via points (default n = 10) equally spacied.
+Then it follows the trajectory by reaching each via point.
+
+* Every room that has multiple doors is assumed to be a corridor.
+
+* Every room become urgent if it is not visited for a predefined time interval (7 sec).
+
+* To avoid the possibility of having urgent rooms after a several amount of time I assumed the every room being visited at the same time at zero time instant.
+
+* Starting Location of the robot is assumed to be a room and so a Corridor.
+
+* The battery can become low at any time, and the robot should immediately react to this event in two ways:
+
+	* if the robot's battery is low and it is in a room connected to the DOC-Station (Starting Room), the robot will go for it and recharge.
+
+	* if the robot's battery is low but the room is not connected to the DOC-Station (Starting Room), the  robot will move as the battery is full.
+
+* The Environment in the figure above is just a sample representation, in utilities/environment.py is possibile to change rooms, coordinates, the staring room.. while in scripts/initial_state.py is possbile to change the connections between rooms.
+
+### System's limitations
+
+### Possible Improvements
+
+--------
+
+Author: *Matteo Carlone s4652067*
+
+email me -> <a href="mailto:matteo.carlone99@gmail.com" >
+<img align="left" alt="Matte's mail" width="40px" src="https://user-images.githubusercontent.com/81308076/155858753-ef1238f1-5887-4e4d-9ac2-2b0bb82836e2.png" />
+</a>
 
