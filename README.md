@@ -33,7 +33,7 @@ The robot behave as follows:
 <img
 	src="/img/Env.png"
 	title="Environment img"
-	width="600">
+	width="300">
 </p>
 
 `caption` :
