@@ -66,6 +66,19 @@ Then it follows the trajectory by reaching each via point.
 
 ## Project Structure
 
+### Diagrams
+
+<p align="center">
+<img
+	src="/img/Time_Sequence.png"
+	title="Environment img"
+	width="600"> 
+</p>
+
+`caption` :
+	
+	- Time Squence Diagram of the project, with a draft of communication transitions between states.
+
 ### Package list 
 
 <details>
@@ -103,7 +116,6 @@ This repository contains a ROS package named `exprolab_1` that includes the foll
     - [helper.py](utilities/exprolab_1/helper.py): It contains a so called InterfaceHelper Class that implements all the ros-srv and ros-action clients, 
       and other auxiliary functions to manage the fsm transition and other global procedures.
     - [ActionHelper.py](utilities/exprolab_1/ActionHelper.py): It contains a so called ActionHelper client usefull to simply manage ROS-Actions
- - [diagrams/](diagrams/): It contains the diagrams shown below in this README file.
  - [img/](img/): It contains the images shown in this README file
 
  </details>
@@ -131,7 +143,7 @@ two sub state machines are implemented to respectively exploit the motion and th
 It represent the motion routine composed by a pianification of th path to follow from one room to another and a robot controllier state in which the robot actualy achieve the target room. 
 
 * Recharge Sub-State-Machine: 
-It represent the recharge routine composed by a movement to the DOC-Station (Starting Room) which is actualy another instance of the aformentioned Moving Sub-State-Machine and the recharging of the robot's battery.
+It represent the recharge routine composed by a movement to the DOC-Station (Starting Room) which is actualy another instance of the aformentioned Moving Sub-State-Machine (MOVE_TO_DOCK) and the recharging of the robot's battery.
 
 *SMACH FSM Representation*
 
@@ -157,8 +169,17 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 	title="Environment img"
 	width="600">
 </p>
+ 
+This node, representing the initial state, is called by the FSM via the Start service request. Once called it basically load a predefined empty ontology from the /topology folder, than it uses an ARMOR action client to manipulate the ontology and define all the enviroment individuals and features:
+* The Starting Room of the robot.
+* The current time associated with the robot.
+* all the connection between rooms and so:
+	* the doors of every room.
+	* weather a room is a corridor or not.
+* As defined in the assumptions, the visited time of every room is here set to the current time.
 
-
+An Empty response is returned to notify the FSM that the ontology initialization is finished.
+the helper.py script in the utilities folder actualy implement the Start service client and transform the empy start response into a transition understandable by the FSM.
 
 ------
 
@@ -171,6 +192,17 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 	width="600">
 </p>
 
+This node, representing the reasoner state, is called by the FSM via a the Reason custom service request. Once called it updates some informations directly form the ontology:
+
+* The Robot current location
+* The current time instant associated with the Robot
+* The rooms that the Robot can reach
+* The auto-generated list of Urgent rooms 
+* The list of Corridors set in the environment
+
+Then it basically computes the next room to point by following the aformentioned surveillance policy.
+It returns the target room in the Reason service response. The helper.py script in the utilities folder, that implement the Reason client, get the response and notifies the FSM that the reasoning state has finished.
+
 ------
 
 ### The `Planner` Node, its Message and Parameters.
@@ -182,8 +214,12 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 	width="600">
 </p>
 
-------
+This node, representing the planning state, is called by the Moving sub-state machine via a Control action-client request. Once called it retrive the robot current location and has from the request the target room. It basically just generate a set of n (default n = 10) equally spacied via points 
+from the current robot's location coordinates to the target ones. This operation loses time to simulate the operation.
+the via points are returned as Plan action response.
+The helper.py script in the utilities folder, that implement the Plan action-client, get the Plan action response, stores the via points and notifies the FSM that the planning state has finished.
 
+------
 
 ### The `Controller` Node, its Message and Parameters.
 
@@ -193,6 +229,13 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 	title="Environment img"
 	width="600">
 </p>
+
+This node, representing the controlling state, is called by the Moving sub-state machine via a Plan action-client request. Once called it retrive the via points generated in the planning state. It basically lose time and print the via points on screen to simulate the robot motion in the environment. When the robot get to the target position it upadates the ontology by replacing:
+* the current robot position with the target room
+* the current time instant associated with the robot
+* the time in which the target room has been visited
+the reached room is returned as Control action response.
+The helper.py script in the utilities folder, that implement the Control action-client, get the Control action response, and notifies the FSM that the Controlling state has finished.
 
 ------
 
@@ -204,6 +247,13 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 	title="Environment img"
 	width="600">
 </p>
+
+This node, representing the recharge state, is called by the Recharge sub-state machine via a Recharge service request. 
+Before being called, when this node start a random notifier for the state of the battery takes action in another thread.
+The random notifier basically send an asynchronous Boolean message on the topic /battery_low representing that the robot's battery is low.
+Once this node is called it start a loading bar animation that lose time and simulate the recharging procedure.
+It returns an empty recharge service response.
+The helper.py script in the utilities folder, that implement the recharge service client, notifies the FSM that the recharging state has finished.
 
 ------
 
