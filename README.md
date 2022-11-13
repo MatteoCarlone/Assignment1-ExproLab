@@ -176,7 +176,7 @@ It returns the target room in the Reason service response. The [helper.py](utili
 
 ------
 
-### The `Planner` Node, its Message and Parameters.
+#### The `Planner` Node, its Message and Parameters.
 
 <p align="center">
 <img
