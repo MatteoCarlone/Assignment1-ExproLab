@@ -6,8 +6,18 @@
 
 ## Introduction
 
+This project is the first assignment of the Robotics Engineering Course's Experimental Robotics Laboratory at the University of Genoa.
+The task entails developing a software architecture for surveillance robots. 
+The project's purpose is to improve the usage of ROS (Robot-Operating-System) by leveraging: 
+The project aims to deepen the ROS (Robot-Operating-System) utilization by leveraging:
 
-## Scenario
+- [***SMACH***](http://wiki.ros.org/smach), a powerful and scalable Python-based library for hierarchical state machines.
+
+- [***aRMOR***](https://github.com/EmaroLab/armor), a robust and adaptable management solution for single and multi-ontology architectures running on ROS. It supports the loading, querying, and modification of several ontologies.
+
+
+## Project Scenario
+
 The scenario involves a surveillance robot that moves in a 2D environment comprehensive of locations (simple rooms and corridors) connected trough doors. 
 More in detail: 
 	- corridors are simply rooms with more than one door as access point.
@@ -34,20 +44,17 @@ The robot behave as follows:
 	src="/img/Env.png"
 	title="Environment img"
 	width="300">
-	
-	`caption` :
-
-		- Sample environment with cartesian coordinates associated with each room.
 </p>
 
+`caption` :
+
+		- Sample environment with cartesian coordinates associated with each room.
 
 
-## Project Structure
-
-### Package list 
+## Project Structure 
 
 <details>
-  <summary>List</summary>
+  <summary> **Package list** </summary>
 
 This repository contains a ROS package named `exprolab_1` that includes the following resources.
  - [CMakeList.txt](CMakeList.txt): File to configure this package.
@@ -67,10 +74,10 @@ This repository contains a ROS package named `exprolab_1` that includes the foll
     - [Control.action](action/Control.action): It defines the goal, feedback and results 
       concerning motion controlling.
  - [scripts/](scripts/): It contains the implementation of each software components.
-    - [fsm.py](scripts/fsm.py): 
-    - [initial_state.py](scripts/initial_state.py): 
-    - [reasoner.py](scripts/reasoner.py): 
-    - [battery.py](scripts/battery.py): 
+    - [fsm.py](scripts/fsm.py): The Script implementing the SMACH Finite State Machine.
+    - [initial_state.py](scripts/initial_state.py): The Script implementing the initial load and initialization of the Ontology.
+    - [reasoner.py](scripts/reasoner.py): The Script implementing the reasoning the room to be guarded.
+    - [battery.py](scripts/battery.py): The Script implenting the battery and charging behaviour of the robot.
     - [planner.py](scripts/planner.py): It is a dummy implementation of a motion planner.
     - [controller.py](scripts/controller.py): It is a dummy implementation of a motion 
       controller.
@@ -95,7 +102,7 @@ This repository contains a ROS package named `exprolab_1` that includes the foll
 </p>
 
 `caption` :
-	
+
 	- Time Squence Diagram of the project, with a draft of communication transitions between states.
 
 
@@ -133,7 +140,7 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 
 
 `caption` :
-	
+
 	- Auto generated representation of the SMACH state machine comprehensive of the sub-state-machines.
 
 ------
@@ -262,6 +269,16 @@ Follow these steps to install the software.
  - Run `chmod +x <file_name>` for each file inside the `scripts` folder.
  - Run `catkin_make` from the root of your ROS workspace.
  - Install `xterm` by entering the command `sudo apt install -y xterm`.
+ - Install `smach` by entering the command `sudo apt-get install ros-noetic-smach-ros`
+ - Install `aRMOR` directly from [here](https://github.com/EmaroLab/ros_multi_ontology_references.git). or manually download the latest release of each module from the following repositories:
+
+ 	+ [***ARMOR***](https://github.com/EmaroLab/armor)
+	+ [***AMOR***](https://github.com/EmaroLab/multi_ontology_reference)
+	+ [***armor_msgs***](https://github.com/EmaroLab/armor_msgs)
+
+ - Clone the [`armor_api`](https://github.com/buoncubi/armor_py_api) repository in your workspace
+
+ Note: [Here](http://emarolab.github.io/armor_py_api/) you can find the full documentation of the [`armor_api`](https://github.com/buoncubi/armor_py_api).
 
 ### Launchers
 
@@ -275,6 +292,11 @@ Note that the program runs in automatically in a loop and there's no need of the
 
 Check the `roslaunch` outcome to get the path where logs are stored. usually, it is `~/.ros/log/`.
 That folder should also contain a link to the `latest` produced log.
+
+If needed is of course possbile of running each node separetely but remember to launch the armor server node:
+```bash
+rosrun armor execute it.emarolab.armor.ARMORMainService
+```
 
 ### Video of the project behaviour
 
@@ -303,17 +325,29 @@ Then it follows the trajectory by reaching each via point.
 
 	* if the robot's battery is low but the room is not connected to the DOC-Station (Starting Room), the  robot will move as the battery is full.
 
-* The Environment in the figure above is just a sample representation, in utilities/environment.py is possibile to change rooms, coordinates, the staring room.. while in scripts/initial_state.py is possbile to change the connections between rooms.
+* The Environment (in [Figure](img/Env.png)) is just a sample representation, in utilities/environment.py is possibile to change rooms, coordinates and the staring room, while in scripts/initial_state.py is possbile to change the connections between rooms.
+
+* When the battery is low , as mentioned in the surveillance policy, the robot is forced to the DOC-Station (Starting Room) if and only if it can reach it, so I assume, especially in other environments, that there's a random possbility of continuing moving around without reaching the DOC. 
 
 ### System's limitations
 
+The main limitation of this work is related to the last assumption since having the robot moving randomly with low battery, in a real word application could lead to a fully discharged. Get in this situation with the default environment is difficult beacuse of the way it was designed, but this still remains a hard limitation. Other limitations and lacks of this architecture mainly concern the project hypotheses like for instance:
+- a node for obstacle avoidance in the environment 
+- a real path planner 
+- a real controller 
+
 ### Possible Improvements
+
+Most propably the lacks of the system mentioned ahead will be implemented in the sencond assignment of the course. For the problem of the random movment while the robot's battery is low a possbile improvement consists in rememeber the perocourse movements in the environment and make the robot retrace the tree of rooms to the DOC-Station. Another possible implementation regard the urgent locations; up to now the robot prioritize urgent location but if there's more than one it decide randomly from the urgent list an idea could be assign urgent rooms a priority based on the On the time they were visited. 
 
 --------
 
+**Authors and Contacts**
+
 Author: *Matteo Carlone s4652067*
 
-email me -> <a href="mailto:matteo.carlone99@gmail.com" >
+to email me:  
+<a href="mailto:matteo.carlone99@gmail.com" >
 <img align="left" alt="Matte's mail" width="40px" src="https://user-images.githubusercontent.com/81308076/155858753-ef1238f1-5887-4e4d-9ac2-2b0bb82836e2.png" />
 </a>
 
