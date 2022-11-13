@@ -1,6 +1,6 @@
 # Surveillance Robot Architecture
 
-**A ROS-based Architecture of a surveillance robot based on a ROS-SMACH Finite State Machine and the use aRMOR to manage Ontology desciption in ROS.**  
+**A ROS-based Architecture of a surveillance robot based on a ROS-SMACH Finite State Machine and the use aRMOR to manage Ontology description in ROS.**  
 
 ---
 
@@ -8,7 +8,6 @@
 
 This project is the first assignment of the Robotics Engineering Course's Experimental Robotics Laboratory at the University of Genoa.
 The task entails developing a software architecture for surveillance robots. 
-The project's purpose is to improve the usage of ROS (Robot-Operating-System) by leveraging: 
 The project aims to deepen the ROS (Robot-Operating-System) utilization by leveraging:
 
 - [***SMACH***](http://wiki.ros.org/smach), a powerful and scalable Python-based library for hierarchical state machines.
@@ -20,14 +19,14 @@ The project aims to deepen the ROS (Robot-Operating-System) utilization by lever
 
 The scenario involves a surveillance robot that moves in a 2D environment comprehensive of locations (simple rooms and corridors) connected trough doors. 
 More in detail: 
-	- corridors are simply rooms with more than one door as access point.
-	- if a room is not visited for a fixed amount of time will become urgent.
+- corridors are simply rooms with more than one door as access point.
+- if a room is not visited for a fixed amount of time will become urgent.
 
-The robot behave as follows:
+**The robot generally behave as follow:**
 
 - The robot start its motion in a Starting Location where a doc for its battery recharge is located.
 
-- The robot moves with the following surveillance policy:
+- The robot moves with the following ***surveillance policy***:
 	
 	- it mainly prefer moving in corridors
 
@@ -53,8 +52,10 @@ The robot behave as follows:
 
 ## Project Structure 
 
+The following list includes a brief overview of each project component as well as their arrangement into directories and subfolders.
+
 <details>
-  <summary> **Package list** </summary>
+  <summary> Package list </summary>
 
 This repository contains a ROS package named `exprolab_1` that includes the following resources.
  - [CMakeList.txt](CMakeList.txt): File to configure this package.
@@ -92,25 +93,11 @@ This repository contains a ROS package named `exprolab_1` that includes the foll
 
  </details>
 
-### Diagrams
+### Software Components
 
-<p align="center">
-<img
-	src="/img/Time_Sequence.png"
-	title="Environment img"
-	width="600"> 
-</p>
+It follows the details of each software component implemented in this repository, which is available in the [scripts folder](scripts/).
 
-`caption` :
-
-	- Time Squence Diagram of the project, with a draft of communication transitions between states.
-
-
-## Software Components
-
-It follows the details of each software component implemented in this repository, which is available in the scripts/ folder.
-
-### The `F.S.M` Node, its Message and Parameters.
+#### The `F.S.M` Node, its Message and Parameters.
 
 <p align="center">
 <img
@@ -120,7 +107,7 @@ It follows the details of each software component implemented in this repository
 </p>
 
 This Node implement a SMACH Finite-State-Machine that guide all the surveillance routine. 
-The communication with other nodes is managed using ros-services and ros-actions, the actual structure of the service and action client is implemented in the script helper.py in the utilities folder. 
+The communication with other nodes is managed using ros-services and ros-actions, the actual structure of the service and action client is implemented in the script [helper.py](utilities/helper.py) in the [utilities folder](utilities/). 
 two sub state machines are implemented to respectively exploit the motion and the robot's batttery recharge:
 
 * Moving Sub-State-Machine: 
@@ -145,7 +132,7 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 
 ------
 
-### The `Initial State` Node, its Message and Parameters.
+#### The `Initial State` Node, its Message and Parameters.
 
 <p align="center">
 <img
@@ -154,7 +141,7 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 	width="600">
 </p>
  
-This node, representing the initial state, is called by the FSM via the Start service request. Once called it basically load a predefined empty ontology from the /topology folder, than it uses an ARMOR action client to manipulate the ontology and define all the enviroment individuals and features:
+This node, representing the initial state, is called by the FSM via the Start service request. Once called it basically load a predefined empty ontology from the [topology folder](topology/), than it uses an ARMOR action client to manipulate the ontology and define all the enviroment individuals and features:
 * The Starting Room of the robot.
 * The current time associated with the robot.
 * all the connection between rooms and so:
@@ -163,11 +150,11 @@ This node, representing the initial state, is called by the FSM via the Start se
 * As defined in the assumptions, the visited time of every room is here set to the current time.
 
 An Empty response is returned to notify the FSM that the ontology initialization is finished.
-the helper.py script in the utilities folder actualy implement the Start service client and transform the empy start response into a transition understandable by the FSM.
+the [helper.py](utilities/helper.py) script in the [utilities folder](utilities/) actualy implement the Start service client and transform the empy start response into a transition understandable by the FSM.
 
 ------
 
-### The `Reasoner` Node, its Message and Parameters.
+#### The `Reasoner` Node, its Message and Parameters.
 
 <p align="center">
 <img
@@ -185,7 +172,7 @@ This node, representing the reasoner state, is called by the FSM via a the Reaso
 * The list of Corridors set in the environment
 
 Then it basically computes the next room to point by following the aformentioned surveillance policy.
-It returns the target room in the Reason service response. The helper.py script in the utilities folder, that implement the Reason client, get the response and notifies the FSM that the reasoning state has finished.
+It returns the target room in the Reason service response. The [helper.py](utilities/helper.py) script in the [utilities folder](utilities/), that implement the Reason client, get the response and notifies the FSM that the reasoning state has finished.
 
 ------
 
@@ -201,11 +188,11 @@ It returns the target room in the Reason service response. The helper.py script 
 This node, representing the planning state, is called by the Moving sub-state machine via a Control action-client request. Once called it retrive the robot current location and has from the request the target room. It basically just generate a set of n (default n = 10) equally spacied via points 
 from the current robot's location coordinates to the target ones. This operation loses time to simulate the operation.
 the via points are returned as Plan action response.
-The helper.py script in the utilities folder, that implement the Plan action-client, get the Plan action response, stores the via points and notifies the FSM that the planning state has finished.
+The [helper.py](utilities/helper.py) script in the [utilities folder](utilities/), that implement the Plan action-client, get the Plan action response, stores the via points and notifies the FSM that the planning state has finished.
 
 ------
 
-### The `Controller` Node, its Message and Parameters.
+#### The `Controller` Node, its Message and Parameters.
 
 <p align="center">
 <img
@@ -219,11 +206,11 @@ This node, representing the controlling state, is called by the Moving sub-state
 * the current time instant associated with the robot
 * the time in which the target room has been visited
 the reached room is returned as Control action response.
-The helper.py script in the utilities folder, that implement the Control action-client, get the Control action response, and notifies the FSM that the Controlling state has finished.
+The [helper.py](utilities/helper.py) script in the [utilities folder](utilities/), that implement the Control action-client, get the Control action response, and notifies the FSM that the Controlling state has finished.
 
 ------
 
-### The `Battery` Node, its Message and Parameters.
+#### The `Battery` Node, its Message and Parameters.
 
 <p align="center">
 <img
@@ -237,9 +224,24 @@ Before being called, when this node start a random notifier for the state of the
 The random notifier basically send an asynchronous Boolean message on the topic /battery_low representing that the robot's battery is low.
 Once this node is called it start a loading bar animation that lose time and simulate the recharging procedure.
 It returns an empty recharge service response.
-The helper.py script in the utilities folder, that implement the recharge service client, notifies the FSM that the recharging state has finished.
+The [helper.py](utilities/helper.py) script in the [utilities folder](utilities/), that implement the recharge service client, notifies the FSM that the recharging state has finished.
 
 ------
+
+### Diagrams
+
+The whole architecture is well described in the following UML Diagrams.
+
+<p align="center">
+<img
+	src="/img/Time_Sequence.png"
+	title="Environment img"
+	width="600"> 
+</p>
+
+`caption` :
+
+	- Time Squence Diagram of the project, with a draft of communication transitions between states.
 
 ### Dependencies
 
@@ -300,6 +302,8 @@ rosrun armor execute it.emarolab.armor.ARMORMainService
 
 ### Video of the project behaviour
 
+*VIDEO*
+
 ## Working Hypothesis
 
 ### Assumptions and System Features
@@ -325,7 +329,7 @@ Then it follows the trajectory by reaching each via point.
 
 	* if the robot's battery is low but the room is not connected to the DOC-Station (Starting Room), the  robot will move as the battery is full.
 
-* The Environment (in [Figure](img/Env.png)) is just a sample representation, in utilities/environment.py is possibile to change rooms, coordinates and the staring room, while in scripts/initial_state.py is possbile to change the connections between rooms.
+* The Environment (in [Figure](img/Env.png)) is just a sample representation, in the [environment.py](utilities/environment.py) script ([utilities folder](utilities/)) is possibile to change rooms, coordinates and the staring room, while in the [initial_state.py](scripts/initial_state.py) script ([scripts folder](scripts/)) is possbile to change the connections between rooms.
 
 * When the battery is low , as mentioned in the surveillance policy, the robot is forced to the DOC-Station (Starting Room) if and only if it can reach it, so I assume, especially in other environments, that there's a random possbility of continuing moving around without reaching the DOC. 
 
