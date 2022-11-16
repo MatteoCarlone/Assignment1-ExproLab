@@ -314,7 +314,7 @@ rosrun armor execute it.emarolab.armor.ARMORMainService
 ### Video of the project behaviour
 
 <p align="center">
-<img src="/img/curve.gif" width="600">
+<img src="/img/behaviour.gif" width="600">
 </p>
 
 ## Working Hypothesis
