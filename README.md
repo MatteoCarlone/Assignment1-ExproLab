@@ -237,7 +237,7 @@ The whole architecture is well described in the following UML Diagrams.
 <img
 	src="/img/UML.png"
 	title="UML img"
-	width="600">
+	width="600" height="700">
 </p>
 
 `caption` :
