@@ -273,8 +273,7 @@ Follow these steps to install the software.
  - Install `xterm` by entering the command `sudo apt install -y xterm`.
  - Install `smach` by entering the command `sudo apt-get install ros-noetic-smach-ros`
  - Install `aRMOR` directly from [here](https://github.com/EmaroLab/ros_multi_ontology_references.git). or manually download the latest release of each module from the following repositories:
-
- 	+ [***ARMOR***](https://github.com/EmaroLab/armor)
+	- [***ARMOR***](https://github.com/EmaroLab/armor)
 	+ [***AMOR***](https://github.com/EmaroLab/multi_ontology_reference)
 	+ [***armor_msgs***](https://github.com/EmaroLab/armor_msgs)
 
