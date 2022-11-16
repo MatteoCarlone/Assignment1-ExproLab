@@ -42,7 +42,7 @@ More in detail:
 <img
 	src="/img/Env.png"
 	title="Environment img"
-	width="300">
+	width="400">
 </p>
 
 `caption` :
@@ -138,7 +138,7 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 <img
 	src="/img/Initial_State.png"
 	title="Initial State img"
-	width="600">
+	width="500">
 </p>
  
 This node, representing the initial state, is called by the FSM via the Start service request. Once called it basically load a predefined empty ontology from the [topology folder](topology/), than it uses an ARMOR action client to manipulate the ontology and define all the enviroment individuals and features:
@@ -160,7 +160,7 @@ the [helper.py](utilities/helper.py) script in the [utilities folder](utilities/
 <img
 	src="/img/Reasoner.png"
 	title="Reasoner img"
-	width="600">
+	width="500">
 </p>
 
 This node, representing the reasoner state, is called by the FSM via a the Reason custom service request. Once called it updates some informations directly form the ontology:
@@ -216,7 +216,7 @@ The [helper.py](utilities/helper.py) script in the [utilities folder](utilities/
 <img
 	src="/img/Battery.png"
 	title="Battery img"
-	width="600">
+	width="500">
 </p>
 
 This node, representing the recharge state, is called by the Recharge sub-state machine via a Recharge service request. 
