@@ -102,7 +102,7 @@ It follows the details of each software component implemented in this repository
 <p align="center">
 <img
 	src="/img/FSM.png"
-	title="Environment img"
+	title="FSM img"
 	width="600"> 
 </p>
 
@@ -121,7 +121,7 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 <p align="center">
 <img
 	src="/img/Smach_FSM.png"
-	title="Environment img"
+	title="FSM_Smach img"
 	width="600">  
 </p>
 
@@ -137,7 +137,7 @@ It represent the recharge routine composed by a movement to the DOC-Station (Sta
 <p align="center">
 <img
 	src="/img/Initial_State.png"
-	title="Environment img"
+	title="Initial State img"
 	width="600">
 </p>
  
@@ -159,7 +159,7 @@ the [helper.py](utilities/helper.py) script in the [utilities folder](utilities/
 <p align="center">
 <img
 	src="/img/Reasoner.png"
-	title="Environment img"
+	title="Reasoner img"
 	width="600">
 </p>
 
@@ -181,7 +181,7 @@ It returns the target room in the Reason service response. The [helper.py](utili
 <p align="center">
 <img
 	src="/img/Planner.png"
-	title="Environment img"
+	title="Planner img"
 	width="600">
 </p>
 
@@ -197,7 +197,7 @@ The [helper.py](utilities/helper.py) script in the [utilities folder](utilities/
 <p align="center">
 <img
 	src="/img/Controller.png"
-	title="Environment img"
+	title="Controller img"
 	width="600">
 </p>
 
@@ -215,7 +215,7 @@ The [helper.py](utilities/helper.py) script in the [utilities folder](utilities/
 <p align="center">
 <img
 	src="/img/Battery.png"
-	title="Environment img"
+	title="Battery img"
 	width="600">
 </p>
 
@@ -232,10 +232,22 @@ The [helper.py](utilities/helper.py) script in the [utilities folder](utilities/
 
 The whole architecture is well described in the following UML Diagrams.
 
+
+<p align="center">
+<img
+	src="/img/UML.png"
+	title="UML img"
+	width="600">
+</p>
+
+`caption` :
+
+	- The whole UML Component diagram to have a more general and connected view of the previosuly presented softaìware components.
+
 <p align="center">
 <img
 	src="/img/Time_Sequence.png"
-	title="Environment img"
+	title="Time_Sequence img"
 	width="600"> 
 </p>
 
