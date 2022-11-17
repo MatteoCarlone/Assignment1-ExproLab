@@ -316,7 +316,10 @@ rosrun armor execute it.emarolab.armor.ARMORMainService
 Once launched the whole program some x-term windows will pop up. the following gif let you see the standard behaviour.
 
 <p align="center">
-<img src="/img/behaviour.gif" width="600">
+<img
+	src="/img/behaviour.gif"
+	title="gif"
+	width="600"> 
 </p>
 
 * Left-Up **FSM**   
