@@ -254,6 +254,8 @@ The whole architecture is well described in the following UML Diagrams.
 `caption` :
 
 	- Time Squence Diagram of the project, with a draft of communication transitions between states in time.
+	  To be more precise in this diagram is again visible the hierachical sub-state machine structure, with the moving sub-machine called in two different instances both in the general movement and in the move to recharge dock action.
+
 
 ### Dependencies
 
