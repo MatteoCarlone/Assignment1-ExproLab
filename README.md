@@ -313,9 +313,44 @@ rosrun armor execute it.emarolab.armor.ARMORMainService
 
 ### Video of the project behaviour
 
+Once launched the whole program some x-term windows will pop up. the following gif let you see the standard behaviour.
+
 <p align="center">
 <img src="/img/behaviour.gif" width="600">
 </p>
+
+* Left-Up **FSM**   
+
+	- On screen appear all the transitions from one FSM State to another, also the sub-state-machine behaviour is visible here.
+
+* Left-Mid **Initial State**
+
+	- On screen appear a messaage for the starting execution of the ontology initialization and loading and End of it.
+
+* Left-Bottom **Reasoner**  
+	
+	- On screen appear:
+		- Where is the robot and at what time.
+		- The rooms that the robot can reach.
+		- the room pointed according with the policy and the last time its visited.
+
+* Right-Up **Planner**
+
+	- On screen appear:
+		- the starting room coordinate , the target room coordinate.
+		- the via points generated from the starting room to the target room.
+
+* Right-Mid **Battery** 
+
+	- On screen appear:
+		- a message to be sure that the robot is in the DOC-Station.
+		- the loading bar that represent the recharging action.
+
+* Right-Bottom **Controller**
+
+	- On screen appear:
+		- the reached room and its coordinates.
+		- the location from which the robot started and its coordinates.
 
 ## Working Hypothesis
 
