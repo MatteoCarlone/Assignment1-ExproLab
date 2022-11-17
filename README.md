@@ -2,6 +2,8 @@
 
 **A ROS-based Architecture of a surveillance robot based on a ROS-SMACH Finite State Machine and the use aRMOR to manage Ontology description in ROS.**  
 
+*Full Code Documentation available*  [**|HERE|**](https://matteocarlone.github.io/Assignment1-ExproLab/)
+
 ---
 
 ## Introduction
