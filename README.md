@@ -242,7 +242,7 @@ The whole architecture is well described in the following UML Diagrams.
 
 `caption` :
 
-	- The whole UML Component diagram to have a more general and connected view of the previosuly presented softaìware components.
+	- The whole UML Component diagram to have a more general and connected view of the software components.
 
 <p align="center">
 <img
@@ -253,7 +253,7 @@ The whole architecture is well described in the following UML Diagrams.
 
 `caption` :
 
-	- Time Squence Diagram of the project, with a draft of communication transitions between states.
+	- Time Squence Diagram of the project, with a draft of communication transitions between states in time.
 
 ### Dependencies
 
